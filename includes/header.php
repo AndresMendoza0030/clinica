@@ -1,0 +1,47 @@
+<header
+  class="sticky top-0 z-50 w-full border-b border-[#f4e6e6] bg-[#fcf8f8]/95 backdrop-blur-sm dark:bg-[#1c0d0d]/95 dark:border-[#331f1f]"
+>
+  <div
+    class="flex h-16 items-center justify-between px-4 md:px-10 max-w-[1280px] mx-auto"
+  >
+    <a class="flex items-center" href="Inicio.php#inicio" aria-label="Ir al inicio">
+      <img
+        src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza3.png"
+        alt="Logo Clínica Dr. Mendoza"
+        class="h-12 md:h-14 w-auto object-contain"
+      />
+    </a>
+
+    <nav class="hidden md:flex flex-1 items-center justify-end gap-8">
+      <a
+        class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+        href="Inicio.php#inicio"
+        >Inicio</a
+      >
+      <a
+        class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+        href="Inicio.php#institucional"
+        >Historia</a
+      >
+      <a
+        class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+        href="Inicio.php#imagenes"
+        >Diagnóstico por imágenes</a
+      >
+      <a
+        class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+        href="Inicio.php#laboratorio"
+        >Laboratorio clínico</a
+      >
+      <a
+        class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+        href="#sedes"
+        >Sedes y contacto</a
+      >
+    </nav>
+
+    <button class="md:hidden p-2 text-[#1c0d0d] dark:text-white" aria-label="Abrir menú">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
