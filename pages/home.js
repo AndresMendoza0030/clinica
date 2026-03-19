@@ -66,7 +66,7 @@ export function renderHomePage() {
       <div
         class="relative flex min-h-[560px] flex-col items-center justify-center overflow-hidden bg-cover bg-center px-4 pt-20 pb-40 md:pb-48 text-center"
         aria-label="Portada"
-        style='background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.65)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEH9PnRdxXNNIQNOFwUpNyj8bDawbeSklBPQlBXGiBTJ0cNCVPJCwhv2zsWlKWTMTqJQqASnWe1S0Ty0GFrSiVLeskNnEvOQJJTBqLwzB2YFrDrRAoW1VwJyXpBD6C3Jppy0bXD_D9rkqk8SiUX7RbNlvT8yNA2DU-X53QY7AqGttI_Uy1hCUvStivTg6mprNmdSv6IFRbyCJmju90kSRX8sXQfrWRPmhc-kyyJ0PRykZeJtaRaCKONPbBgV-NXPaGYUwc386tifkD");'
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.65)), url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png");'
       >
         <div class="max-w-4xl flex flex-col items-center gap-5">
           <h2

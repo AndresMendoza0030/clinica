@@ -29,7 +29,7 @@ export function Header() {
           </a>
           <a
             class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="#imagenes"
+            href="estudios"
           >
             Diagnóstico por imágenes
           </a>

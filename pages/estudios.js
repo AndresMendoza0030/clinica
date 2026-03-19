@@ -89,7 +89,7 @@ export function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
                   aria-label="Resonancia Magnética"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -106,7 +106,7 @@ export function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
                   aria-label="Tomografía"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -123,7 +123,7 @@ export function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
                   aria-label="Ultrasonografía"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -140,7 +140,7 @@ export function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
                   aria-label="Rayos X"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -157,7 +157,7 @@ export function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
                   aria-label="Mamografía"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -171,22 +171,7 @@ export function renderEstudiosPage() {
                 </div>
               </article>
 
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
-                  aria-label="Estudios especiales"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Estudios especiales</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Serie ósea, edad ósea, histerosalpingograma y otros.
-                  </p>
-                  <a href="/estudios-especiales.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
+              
             </div>
           </main>
 

@@ -33,7 +33,7 @@ function Header() {
           </a>
           <a
             class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="#imagenes"
+            href="estudios"
           >
             Diagn\xF3stico por im\xE1genes
           </a>
@@ -473,7 +473,7 @@ function renderHomePage() {
       <div
         class="relative flex min-h-[560px] flex-col items-center justify-center overflow-hidden bg-cover bg-center px-4 pt-20 pb-40 md:pb-48 text-center"
         aria-label="Portada"
-        style='background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.65)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEH9PnRdxXNNIQNOFwUpNyj8bDawbeSklBPQlBXGiBTJ0cNCVPJCwhv2zsWlKWTMTqJQqASnWe1S0Ty0GFrSiVLeskNnEvOQJJTBqLwzB2YFrDrRAoW1VwJyXpBD6C3Jppy0bXD_D9rkqk8SiUX7RbNlvT8yNA2DU-X53QY7AqGttI_Uy1hCUvStivTg6mprNmdSv6IFRbyCJmju90kSRX8sXQfrWRPmhc-kyyJ0PRykZeJtaRaCKONPbBgV-NXPaGYUwc386tifkD");'
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.65)), url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png");'
       >
         <div class="max-w-4xl flex flex-col items-center gap-5">
           <h2
@@ -1012,7 +1012,7 @@ function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
                   aria-label="Resonancia Magn\xE9tica"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -1029,7 +1029,7 @@ function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
                   aria-label="Tomograf\xEDa"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -1046,7 +1046,7 @@ function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
                   aria-label="Ultrasonograf\xEDa"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -1063,7 +1063,7 @@ function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
                   aria-label="Rayos X"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -1080,7 +1080,7 @@ function renderEstudiosPage() {
               <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div
                   class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
                   aria-label="Mamograf\xEDa"
                 ></div>
                 <div class="p-5 flex flex-col gap-3">
@@ -1094,22 +1094,7 @@ function renderEstudiosPage() {
                 </div>
               </article>
 
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
-                  aria-label="Estudios especiales"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Estudios especiales</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Serie \xF3sea, edad \xF3sea, histerosalpingograma y otros.
-                  </p>
-                  <a href="/estudios-especiales.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
+              
             </div>
           </main>
 
