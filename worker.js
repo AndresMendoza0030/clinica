@@ -5,7 +5,7 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
 
-    if (url.pathname === "/" || url.pathname === "/index.html") {
+    if (url.pathname === "/" || url.pathname === "/index" || url.pathname === "/index.html") {
       return new Response(renderHomePage(), {
         headers: {
           "content-type": "text/html; charset=UTF-8",
