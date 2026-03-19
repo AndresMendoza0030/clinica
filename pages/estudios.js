@@ -206,11 +206,7 @@ export function renderEstudiosPage() {
               </div>
             </div>
 
-            <div class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl p-5 shadow-sm">
-              <div class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-primary mt-0.5">image</span>
-                
-              </div>
+            
             </div>
           </aside>
         </div>
