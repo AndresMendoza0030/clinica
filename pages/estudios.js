@@ -209,14 +209,7 @@ export function renderEstudiosPage() {
             <div class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl p-5 shadow-sm">
               <div class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-primary mt-0.5">image</span>
-                <div>
-                  <h4 class="font-black text-[#1c0d0d] dark:text-white">Cambiar imágenes</h4>
-                  <p class="text-xs text-[#634f4f] dark:text-[#d3c1c1] mt-1">
-                    En cada tarjeta, cambie el
-                    <code class="text-xs bg-black/5 dark:bg-white/10 px-1 rounded">background-image:url(...)</code>
-                    por la foto real de esa categoría.
-                  </p>
-                </div>
+                
               </div>
             </div>
           </aside>
