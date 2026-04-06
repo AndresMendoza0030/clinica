@@ -933,7 +933,15 @@ function renderEstudiosPage() {
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Estudios | Cl\xEDnica Dr. Mendoza</title>
-    <link rel="icon" type="image/png" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" />
+    <meta
+      name="description"
+      content="Conozca las categor\xEDas de estudios de diagn\xF3stico por im\xE1genes disponibles en Cl\xEDnica Dr. Mendoza."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png"
+    />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
@@ -954,15 +962,23 @@ function renderEstudiosPage() {
               primary: "#c70505",
               "background-light": "#fcf8f8",
               "background-dark": "#230f0f",
+              ink: "#1c0d0d",
+              soft: "#6f5a5a",
             },
             fontFamily: {
               display: ["Public Sans", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(80, 20, 20, 0.08)",
+              card: "0 14px 38px rgba(60, 10, 10, 0.10)",
+              glow: "0 18px 45px rgba(199, 5, 5, 0.14)",
             },
             borderRadius: {
               DEFAULT: "0.25rem",
               lg: "0.5rem",
               xl: "0.75rem",
               "2xl": "1rem",
+              "3xl": "1.5rem",
               full: "9999px",
             },
           },
@@ -971,167 +987,228 @@ function renderEstudiosPage() {
     <\/script>
 
     <style>
-      html { scroll-behavior: smooth; }
-      .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .hero-overlay {
+        background:
+          linear-gradient(90deg, rgba(25, 10, 10, 0.78) 0%, rgba(25, 10, 10, 0.62) 38%, rgba(25, 10, 10, 0.30) 100%),
+          linear-gradient(180deg, rgba(199, 5, 5, 0.10) 0%, rgba(199, 5, 5, 0.03) 100%);
       }
     </style>
   </head>
 
-  <body class="bg-background-light dark:bg-background-dark text-[#1c0d0d] dark:text-[#f4e6e6] font-display overflow-x-hidden">
+  <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
     ${Header()}
 
-    <section id="top" class="relative">
-      <div class="max-w-[1280px] mx-auto px-4 md:px-10 py-12 md:py-16">
-        <div class="flex flex-col gap-4">
-          <div class="flex items-center gap-2 text-xs font-bold text-[#9e4747]">
-            <a href="/index.html" class="hover:text-primary transition-colors">Inicio</a>
-            <span class="opacity-60">/</span>
-            <span class="text-[#1c0d0d] dark:text-white">Estudios</span>
-          </div>
+    <section id="top" class="relative overflow-hidden">
+      <div
+        class="relative min-h-[380px] md:min-h-[460px] bg-cover bg-center"
+        style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
+      >
+        <div class="absolute inset-0 hero-overlay"></div>
 
-          <h2 class="text-3xl md:text-5xl font-black tracking-tight text-[#1c0d0d] dark:text-white leading-tight">
-            Estudios y diagn\xF3stico por im\xE1genes
-          </h2>
-
-          <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-3xl">
-            Seleccione una categor\xEDa para ver el detalle de estudios disponibles.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="catalogo" class="pb-10">
-      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
-          <main class="space-y-10">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
-                  aria-label="Resonancia Magn\xE9tica"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Resonancia Magn\xE9tica</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Resonancia magn\xE9tica convencional y especializada.
-                  </p>
-                  <a href="/estudios-rm.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
-                  aria-label="Tomograf\xEDa"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Tomograf\xEDa (TAC)</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Tomograf\xEDa multidetectores con opciones de estudio por regi\xF3n anat\xF3mica.
-                  </p>
-                  <a href="/estudios-tac.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
-                  aria-label="Ultrasonograf\xEDa"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Ultrasonograf\xEDa</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Ultrasonido convencional y Doppler color.
-                  </p>
-                  <a href="/estudios-us.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
-                  aria-label="Rayos X"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Rayos X</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Estudios radiogr\xE1ficos por regi\xF3n: cabeza, columna, t\xF3rax, extremidades y m\xE1s.
-                  </p>
-                  <a href="/estudios-rayosx.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-
-              <article class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div
-                  class="h-44 bg-cover bg-center"
-                  style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
-                  aria-label="Mamograf\xEDa"
-                ></div>
-                <div class="p-5 flex flex-col gap-3">
-                  <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white">Mamograf\xEDa</h3>
-                  <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3">
-                    Opciones de mamograf\xEDa y tomos\xEDntesis (seg\xFAn disponibilidad).
-                  </p>
-                  <a href="/estudios-mamografia.html" class="inline-flex items-center text-primary font-bold text-sm hover:underline">
-                    Ver estudios <span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
-                  </a>
-                </div>
-              </article>
-
-              
+        <div class="relative max-w-[1280px] mx-auto px-4 md:px-10 h-full min-h-[380px] md:min-h-[460px] flex items-center">
+          <div class="max-w-3xl py-14 md:py-20 flex flex-col gap-5">
+            <div class="flex items-center gap-2 text-xs font-bold text-[#f2d6d6]">
+              <a href="/index.html" class="hover:text-white transition-colors">Inicio</a>
+              <span class="opacity-70">/</span>
+              <span class="text-white">Estudios</span>
             </div>
-          </main>
 
-          <aside class="space-y-6 lg:sticky lg:top-20">
-            <div class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl p-5 shadow-sm">
+            <div class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-extrabold text-white backdrop-blur-sm">
+              <span class="material-symbols-outlined text-base">radiology</span>
+              Diagn\xF3stico por im\xE1genes
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.02]">
+              Categor\xEDas de estudios
+            </h1>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+              <a
+                href="#categorias"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-primary text-white text-sm font-black shadow-glow hover:opacity-95 transition-opacity"
+              >
+                Ver categor\xEDas
+              </a>
+
               <a
                 href="https://wa.me/50378205613"
                 target="_blank"
                 rel="noopener"
-                class="w-full inline-flex items-center justify-center rounded-lg h-11 px-5 bg-[#25D366] text-white hover:opacity-95 text-sm font-black transition-opacity"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
               >
-                Consultas por WhatsApp
-                <span class="material-symbols-outlined text-lg ml-2">chat</span>
+                WhatsApp
               </a>
-              <p class="text-xs text-[#634f4f] dark:text-[#d3c1c1] mt-3">
-                Puede escribirnos para resolver dudas sobre estudios, indicaciones y sedes.
-              </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="bg-white dark:bg-[#2a1212] border border-[#e9cece] dark:border-[#331f1f] rounded-2xl p-5 shadow-sm">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="material-symbols-outlined text-primary">schedule</span>
-                <h4 class="font-black text-[#1c0d0d] dark:text-white">Horarios de atenci\xF3n</h4>
-              </div>
-              <div class="text-sm text-[#634f4f] dark:text-[#d3c1c1] space-y-2">
-                <div class="flex justify-between border-b border-[#e9cece] dark:border-[#331f1f] pb-2">
-                  <span>Lunes a viernes</span><span class="font-bold text-[#1c0d0d] dark:text-white">6:00 AM \u2013 4:30 PM</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>S\xE1bado</span><span class="font-bold text-[#1c0d0d] dark:text-white">6:00 AM \u2013 12:00 PM</span>
-                </div>
-              </div>
+    <section id="categorias" class="relative py-10 md:py-14">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
+                aria-label="Resonancia Magn\xE9tica"
+              ></div>
             </div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Resonancia Magn\xE9tica</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">radiology</span>
+                </span>
+              </div>
+              <a href="/estudios-rm.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
 
-            
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
+                aria-label="Tomograf\xEDa"
+              ></div>
             </div>
-          </aside>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Tomograf\xEDa (TAC)</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">scanner</span>
+                </span>
+              </div>
+              <a href="/estudios-tac.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
+                aria-label="Ultrasonograf\xEDa"
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Ultrasonograf\xEDa</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">sound_detection_dog_barking</span>
+                </span>
+              </div>
+              <a href="/estudios-us.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
+                aria-label="Rayos X"
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Rayos X</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">medical_services</span>
+                </span>
+              </div>
+              <a href="/estudios-rayosx.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
+                aria-label="Mamograf\xEDa"
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Mamograf\xEDa</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">female</span>
+                </span>
+              </div>
+              <a href="/estudios-mamografia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative">
+              <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
+              <div
+                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.png");'
+                aria-label="Estudios especiales"
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between gap-3">
+                <h2 class="text-xl font-black text-ink dark:text-white">Estudios especiales</h2>
+                <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                  <span class="material-symbols-outlined text-[20px]">biotech</span>
+                </span>
+              </div>
+              <a href="/estudios-especiales.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
+                Ver categor\xEDa
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-12 md:pb-16">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="rounded-3xl border border-[#ead4d4] dark:border-[#392020] bg-gradient-to-r from-white to-[#fff7f7] dark:from-[#2a1212] dark:to-[#241010] p-6 md:p-8 shadow-soft">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <h2 class="text-2xl md:text-3xl font-black text-ink dark:text-white tracking-tight">
+              Consulta informaci\xF3n general por WhatsApp
+            </h2>
+
+            <a
+              href="https://wa.me/50378205613"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
+            >
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -1177,22 +1254,454 @@ function renderEstudiosPage() {
 }
 __name(renderEstudiosPage, "renderEstudiosPage");
 
+// pages/templates/estudios-detalle.js
+function renderEstudioDetallePage({
+  title,
+  breadcrumb,
+  heroImage,
+  badge = "Diagn\xF3stico por im\xE1genes",
+  ctaHref = "https://wa.me/50378205613",
+  ctaText = "Consultar por WhatsApp",
+  preparationNote = "",
+  sections = []
+}) {
+  const preparationHtml = preparationNote ? `
+      <section class="py-8 md:py-10">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+          <div class="rounded-3xl border border-[#ead4d4] dark:border-[#392020] bg-white dark:bg-[#2a1212] p-5 md:p-6 shadow-soft">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 rounded-full bg-[#f8eaea] dark:bg-[#341818] px-4 py-2 text-sm font-black text-primary">
+                <span class="material-symbols-outlined text-[18px]">info</span>
+                Preparaci\xF3n general
+              </span>
+              <p class="text-sm md:text-base text-soft dark:text-[#d3c1c1]">
+                ${preparationNote}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    ` : "";
+  const sectionsHtml = sections.map(
+    (section) => `
+      <section id="${section.id || ""}" class="pb-10 md:pb-14">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+          <div class="mb-6">
+            <div class="inline-flex items-center gap-2 rounded-full bg-[#f8eaea] dark:bg-[#341818] px-4 py-2 text-xs font-extrabold text-primary">
+              <span class="material-symbols-outlined text-base">${section.icon || "featured_play_list"}</span>
+              ${section.title}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            ${section.groups.map(
+      (group) => `
+                <article class="rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft overflow-hidden">
+                  <div class="h-1 bg-primary"></div>
+                  <div class="p-6">
+                    <div class="flex items-center gap-3 mb-5">
+                      <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                        <span class="material-symbols-outlined text-[20px]">${group.icon || "radio_button_checked"}</span>
+                      </span>
+                      <h2 class="text-xl font-black text-ink dark:text-white">${group.title}</h2>
+                    </div>
+
+                    <ul class="space-y-3 text-sm md:text-base text-soft dark:text-[#d3c1c1] font-medium">
+                      ${group.items.map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                  </div>
+                </article>
+              `
+    ).join("")}
+          </div>
+        </div>
+      </section>
+    `
+  ).join("");
+  return `<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>${title} | Cl\xEDnica Dr. Mendoza</title>
+    <meta
+      name="description"
+      content="Consulte los estudios disponibles de ${title} en Cl\xEDnica Dr. Mendoza."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"><\/script>
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#c70505",
+              "background-light": "#fcf8f8",
+              "background-dark": "#230f0f",
+              ink: "#1c0d0d",
+              soft: "#6f5a5a",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(80, 20, 20, 0.08)",
+              card: "0 14px 38px rgba(60, 10, 10, 0.10)",
+              glow: "0 18px 45px rgba(199, 5, 5, 0.14)",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    <\/script>
+
+    <style>
+      html { scroll-behavior: smooth; }
+
+      .hero-overlay {
+        background:
+          linear-gradient(90deg, rgba(25, 10, 10, 0.80) 0%, rgba(25, 10, 10, 0.58) 42%, rgba(25, 10, 10, 0.24) 100%),
+          linear-gradient(180deg, rgba(199, 5, 5, 0.12) 0%, rgba(199, 5, 5, 0.03) 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
+    ${Header()}
+
+    <section id="top" class="relative overflow-hidden">
+      <div
+        class="relative min-h-[360px] md:min-h-[440px] bg-cover bg-center"
+        style='background-image:url("${heroImage}");'
+      >
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative max-w-[1280px] mx-auto px-4 md:px-10 min-h-[360px] md:min-h-[440px] flex items-center">
+          <div class="max-w-3xl py-14 md:py-20 flex flex-col gap-5">
+            <div class="flex items-center gap-2 text-xs font-bold text-[#f2d6d6]">
+              <a href="/index.html" class="hover:text-white transition-colors">Inicio</a>
+              <span class="opacity-70">/</span>
+              <a href="/estudios.html" class="hover:text-white transition-colors">Estudios</a>
+              <span class="opacity-70">/</span>
+              <span class="text-white">${breadcrumb || title}</span>
+            </div>
+
+            <div class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-extrabold text-white backdrop-blur-sm">
+              <span class="material-symbols-outlined text-base">radiology</span>
+              ${badge}
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.02]">
+              ${title}
+            </h1>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+              <a
+                href="#detalle"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-primary text-white text-sm font-black shadow-glow hover:opacity-95 transition-opacity"
+              >
+                Ver estudios
+              </a>
+
+              <a
+                href="${ctaHref}"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
+              >
+                ${ctaText}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${preparationHtml}
+
+    <div id="detalle">
+      ${sectionsHtml}
+    </div>
+
+    <section class="pb-12 md:pb-16">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="rounded-3xl border border-[#ead4d4] dark:border-[#392020] bg-gradient-to-r from-white to-[#fff7f7] dark:from-[#2a1212] dark:to-[#241010] p-6 md:p-8 shadow-soft">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-black text-ink dark:text-white tracking-tight">
+                \xBFDesea consultar disponibilidad?
+              </h2>
+              <p class="mt-2 text-sm md:text-base text-soft dark:text-[#d3c1c1]">
+                Puede escribirnos para confirmar informaci\xF3n general, sede y preparaci\xF3n del estudio.
+              </p>
+            </div>
+
+            <a
+              href="${ctaHref}"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${Sedes()}
+    ${Footer()}
+    ${WhatsAppFloat()}
+
+    <script>
+      function setMap(lat, lng) {
+        const frame = document.getElementById("mapFrame");
+        if (frame) {
+          frame.src = "https://www.google.com/maps?q=" + lat + "," + lng + "&z=17&output=embed";
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest(".map-btn");
+        if (btn) {
+          const lat = btn.dataset.lat;
+          const lng = btn.dataset.lng;
+          setMap(lat, lng);
+        }
+      });
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+    <\/script>
+  </body>
+</html>`;
+}
+__name(renderEstudioDetallePage, "renderEstudioDetallePage");
+
+// pages/estudios-rm.js
+function renderEstudiosRMPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios de resonancia magn\xE9tica",
+    breadcrumb: "Resonancia Magn\xE9tica",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png",
+    badge: "Resonancia Magn\xE9tica",
+    preparationNote: 'Si el estudio requiere contraste, la indicaci\xF3n general es <span class="font-bold text-ink dark:text-white">ayuno de 6 horas</span> y <span class="font-bold text-ink dark:text-white">examen de creatinina</span>.',
+    sections: [
+      {
+        id: "convencional",
+        title: "Resonancia Magn\xE9tica Convencional",
+        icon: "featured_play_list",
+        groups: [
+          {
+            title: "General",
+            icon: "neurology",
+            items: ["Cerebro", "Hip\xF3fisis", "Cadera", "Abdomen", "Pelvis", "Otro"]
+          },
+          {
+            title: "Columna",
+            icon: "accessibility_new",
+            items: [
+              "Columna cervical",
+              "Columna dorsal",
+              "Columna lumbar",
+              "Columna cervical + panor\xE1mica",
+              "Columna dorsal + panor\xE1mica",
+              "Columna lumbar + panor\xE1mica"
+            ]
+          },
+          {
+            title: "Extremidades y articulaciones",
+            icon: "pan_tool",
+            items: ["Hombro", "Codo", "Mu\xF1eca", "Rodilla", "Tobillo", "Pie"]
+          }
+        ]
+      },
+      {
+        id: "especializada",
+        title: "Resonancia Magn\xE9tica Especializada",
+        icon: "biotech",
+        groups: [
+          {
+            title: "Neuro",
+            icon: "psychology",
+            items: ["Difusi\xF3n cerebral", "Espectroscopia"]
+          },
+          {
+            title: "Vascular y angio",
+            icon: "monitor_heart",
+            items: ["Angio cerebral (sin contraste)", "Angio resonancia"]
+          },
+          {
+            title: "Otros especializados",
+            icon: "healing",
+            items: ["Colangio resonancia", "Elastograf\xEDa hep\xE1tica"]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosRMPage, "renderEstudiosRMPage");
+
+// pages/estudios-tac.js
+function renderEstudiosTACPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios de tomograf\xEDa",
+    breadcrumb: "Tomograf\xEDa (TAC)",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png",
+    badge: "Tomograf\xEDa Multidetectores",
+    preparationNote: 'Si el estudio requiere contraste, la indicaci\xF3n general es <span class="font-bold text-ink dark:text-white">ayuno de 6 horas</span> y <span class="font-bold text-ink dark:text-white">examen de creatinina</span>.',
+    sections: [
+      {
+        id: "tomografia-multidetectores",
+        title: "Tomograf\xEDa Multidetectores",
+        icon: "scanner",
+        groups: [
+          {
+            title: "Cr\xE1neo y cuello",
+            icon: "neurology",
+            items: [
+              "Cerebral",
+              "\xD3rbitas",
+              "Senos paranasales",
+              "Silla turca",
+              "O\xEDdo",
+              "Cuello"
+            ]
+          },
+          {
+            title: "T\xF3rax",
+            icon: "respiratory_rate",
+            items: [
+              "T\xF3rax alta resoluci\xF3n",
+              "T\xF3rax simple",
+              "T\xF3rax contrastado"
+            ]
+          },
+          {
+            title: "Abdomen y pelvis",
+            icon: "monitor_heart",
+            items: [
+              "Abdomen",
+              "Pelvis",
+              "Abdomen y pelvis"
+            ]
+          },
+          {
+            title: "Columna",
+            icon: "accessibility_new",
+            items: [
+              "Columna cervical",
+              "Columna dorsal",
+              "Columna lumbar"
+            ]
+          },
+          {
+            title: "Angio y uro-TAC",
+            icon: "biotech",
+            items: [
+              "Angio-TAC",
+              "Uro-TAC simple (pieloTAC)",
+              "Uro-TAC contrastado"
+            ]
+          },
+          {
+            title: "Estudios especiales de TAC",
+            icon: "clinical_notes",
+            items: [
+              "Osteo-TAC (densidad de columna)",
+              "Otro"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosTACPage, "renderEstudiosTACPage");
+
 // worker.js
 var worker_default = {
   async fetch(request) {
     const url = new URL(request.url);
-    if (url.pathname === "/" || url.pathname === "/index" || url.pathname === "/index.html") {
+    const path = url.pathname;
+    if (path === "/" || path === "/index" || path === "/index.html") {
       return new Response(renderHomePage(), {
-        headers: {
-          "content-type": "text/html; charset=UTF-8"
-        }
+        headers: { "content-type": "text/html; charset=UTF-8" }
       });
     }
-    if (url.pathname === "/estudios" || url.pathname === "/estudios.html") {
+    if (path === "/estudios" || path === "/estudios.html") {
       return new Response(renderEstudiosPage(), {
-        headers: {
-          "content-type": "text/html; charset=UTF-8"
-        }
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-rm" || path === "/estudios-rm.html") {
+      return new Response(renderEstudiosRMPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-rm" || path === "/estudios-rm.html") {
+      return new Response(renderEstudiosRMPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-tac" || path === "/estudios-tac.html") {
+      return new Response(renderEstudiosTACPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-us" || path === "/estudios-us.html") {
+      return new Response(renderEstudiosUSPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-rayosx" || path === "/estudios-rayosx.html") {
+      return new Response(renderEstudiosRayosXPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-mamografia" || path === "/estudios-mamografia.html") {
+      return new Response(renderEstudiosMamografiaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/estudios-especiales" || path === "/estudios-especiales.html") {
+      return new Response(renderEstudiosEspecialesPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
       });
     }
     return new Response("Not found", { status: 404 });
@@ -1240,7 +1749,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-11WpFP/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-bQWvIG/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -1272,7 +1781,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-11WpFP/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-bQWvIG/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
