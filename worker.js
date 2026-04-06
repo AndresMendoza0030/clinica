@@ -6,6 +6,7 @@ import { renderEstudiosUSPage } from "./pages/estudios-us.js";
 import { renderEstudiosRayosXPage } from "./pages/estudios-rayosx.js";
 import { renderEstudiosMamografiaPage } from "./pages/estudios-mamografia.js";
 import { renderEstudiosEspecialesPage } from "./pages/estudios-especiales.js";
+import { renderLaboratorioPage } from "./pages/laboratorio.js";
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -45,7 +46,11 @@ if (path === "/estudios-us" || path === "/estudios-us.html") {
     headers: { "content-type": "text/html; charset=UTF-8" },
   });
 }
-
+if (path === "/laboratorio" || path === "/laboratorio.html") {
+  return new Response(renderLaboratorioPage(), {
+    headers: { "content-type": "text/html; charset=UTF-8" },
+  });
+}
 if (path === "/estudios-rayosx" || path === "/estudios-rayosx.html") {
   return new Response(renderEstudiosRayosXPage(), {
     headers: { "content-type": "text/html; charset=UTF-8" },
