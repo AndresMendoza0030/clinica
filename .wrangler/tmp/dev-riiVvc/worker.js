@@ -10,7 +10,7 @@ function Header() {
       <div
         class="flex h-16 items-center justify-between px-4 md:px-10 max-w-[1280px] mx-auto"
       >
-        <a class="flex items-center" href="#inicio" aria-label="Ir al inicio">
+        <a class="flex items-center" href="/" aria-label="Ir al inicio">
           <img
             src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza3.png"
             alt="Logo Cl\xEDnica Dr. Mendoza"
@@ -21,7 +21,7 @@ function Header() {
         <nav class="hidden md:flex flex-1 items-center justify-end gap-8">
           <a
             class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="#inicio"
+            href="/"
           >
             Inicio
           </a>
