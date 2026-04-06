@@ -5,7 +5,7 @@ export function renderEstudiosEspecialesPage() {
     title: "Estudios especiales",
     breadcrumb: "Estudios especiales",
     heroImage:
-      "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.png",
+      "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.webp",
     badge: "Estudios especiales",
     sections: [
       {

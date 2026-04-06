@@ -248,7 +248,7 @@ export function renderEstudiosPage() {
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
                 class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
-                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.png");'
+                style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.webp");'
                 aria-label="Estudios especiales"
               ></div>
             </div>
