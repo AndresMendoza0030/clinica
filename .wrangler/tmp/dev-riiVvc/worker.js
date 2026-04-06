@@ -2425,6 +2425,730 @@ function renderLaboratorioPage() {
 }
 __name(renderLaboratorioPage, "renderLaboratorioPage");
 
+// pages/templates/laboratorio-detalle.js
+function renderLaboratorioDetallePage({
+  title,
+  breadcrumb,
+  heroImage,
+  badge = "Laboratorio cl\xEDnico",
+  ctaHref = "https://wa.me/50378205613",
+  ctaText = "Consultar por WhatsApp",
+  note = "",
+  sections = []
+}) {
+  const noteHtml = note ? `
+      <section class="py-8 md:py-10">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+          <div class="rounded-3xl border border-[#ead4d4] dark:border-[#392020] bg-white dark:bg-[#2a1212] p-5 md:p-6 shadow-soft">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 rounded-full bg-[#f8eaea] dark:bg-[#341818] px-4 py-2 text-sm font-black text-primary">
+                <span class="material-symbols-outlined text-[18px]">info</span>
+                Informaci\xF3n general
+              </span>
+              <p class="text-sm md:text-base text-soft dark:text-[#d3c1c1]">
+                ${note}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    ` : "";
+  const sectionsHtml = sections.map(
+    (section) => `
+      <section id="${section.id || ""}" class="pb-10 md:pb-14">
+        <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+          <div class="mb-6">
+            <div class="inline-flex items-center gap-2 rounded-full bg-[#f8eaea] dark:bg-[#341818] px-4 py-2 text-xs font-extrabold text-primary">
+              <span class="material-symbols-outlined text-base">${section.icon || "science"}</span>
+              ${section.title}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            ${section.groups.map(
+      (group) => `
+                <article class="rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft overflow-hidden">
+                  <div class="h-1 bg-primary"></div>
+                  <div class="p-6">
+                    <div class="flex items-center gap-3 mb-5">
+                      <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
+                        <span class="material-symbols-outlined text-[20px]">${group.icon || "check_circle"}</span>
+                      </span>
+                      <h2 class="text-xl font-black text-ink dark:text-white">${group.title}</h2>
+                    </div>
+
+                    <ul class="space-y-3 text-sm md:text-base text-soft dark:text-[#d3c1c1] font-medium">
+                      ${group.items.map((item) => `<li>${item}</li>`).join("")}
+                    </ul>
+                  </div>
+                </article>
+              `
+    ).join("")}
+          </div>
+        </div>
+      </section>
+    `
+  ).join("");
+  return `<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>${title} | Cl\xEDnica Dr. Mendoza</title>
+    <meta
+      name="description"
+      content="Consulte los ex\xE1menes disponibles de ${title} en Cl\xEDnica Dr. Mendoza."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"><\/script>
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#c70505",
+              "background-light": "#fcf8f8",
+              "background-dark": "#230f0f",
+              ink: "#1c0d0d",
+              soft: "#6f5a5a",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(80, 20, 20, 0.08)",
+              card: "0 14px 38px rgba(60, 10, 10, 0.10)",
+              glow: "0 18px 45px rgba(199, 5, 5, 0.14)",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    <\/script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .hero-overlay {
+        background:
+          linear-gradient(90deg, rgba(25, 10, 10, 0.82) 0%, rgba(25, 10, 10, 0.62) 40%, rgba(25, 10, 10, 0.28) 100%),
+          linear-gradient(180deg, rgba(199, 5, 5, 0.10) 0%, rgba(199, 5, 5, 0.03) 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
+    ${Header()}
+
+    <section id="top" class="relative overflow-hidden">
+      <div
+        class="relative min-h-[360px] md:min-h-[440px] bg-cover bg-center"
+        style='background-image:url("${heroImage}");'
+      >
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative max-w-[1280px] mx-auto px-4 md:px-10 min-h-[360px] md:min-h-[440px] flex items-center">
+          <div class="max-w-3xl py-14 md:py-20 flex flex-col gap-5">
+            <div class="flex items-center gap-2 text-xs font-bold text-[#f2d6d6]">
+              <a href="/index.html" class="hover:text-white transition-colors">Inicio</a>
+              <span class="opacity-70">/</span>
+              <a href="/laboratorio.html" class="hover:text-white transition-colors">Laboratorio cl\xEDnico</a>
+              <span class="opacity-70">/</span>
+              <span class="text-white">${breadcrumb || title}</span>
+            </div>
+
+            <div class="inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-extrabold text-white backdrop-blur-sm">
+              <span class="material-symbols-outlined text-base">science</span>
+              ${badge}
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.02]">
+              ${title}
+            </h1>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+              <a
+                href="#detalle"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-primary text-white text-sm font-black shadow-glow hover:opacity-95 transition-opacity"
+              >
+                Ver ex\xE1menes
+              </a>
+
+              <a
+                href="${ctaHref}"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
+              >
+                ${ctaText}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${noteHtml}
+
+    <div id="detalle">
+      ${sectionsHtml}
+    </div>
+
+    <section class="pb-12 md:pb-16">
+      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="rounded-3xl border border-[#ead4d4] dark:border-[#392020] bg-gradient-to-r from-white to-[#fff7f7] dark:from-[#2a1212] dark:to-[#241010] p-6 md:p-8 shadow-soft">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-black text-ink dark:text-white tracking-tight">
+                \xBFDesea consultar disponibilidad?
+              </h2>
+              <p class="mt-2 text-sm md:text-base text-soft dark:text-[#d3c1c1]">
+                Puede escribirnos para confirmar informaci\xF3n general sobre ex\xE1menes y perfiles.
+              </p>
+            </div>
+
+            <a
+              href="${ctaHref}"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    ${Sedes()}
+    ${Footer()}
+    ${WhatsAppFloat()}
+
+    <script>
+      function setMap(lat, lng) {
+        const frame = document.getElementById("mapFrame");
+        if (frame) {
+          frame.src = "https://www.google.com/maps?q=" + lat + "," + lng + "&z=17&output=embed";
+        }
+      }
+
+      document.addEventListener("click", function (e) {
+        const btn = e.target.closest(".map-btn");
+        if (btn) {
+          const lat = btn.dataset.lat;
+          const lng = btn.dataset.lng;
+          setMap(lat, lng);
+        }
+      });
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+    <\/script>
+  </body>
+</html>`;
+}
+__name(renderLaboratorioDetallePage, "renderLaboratorioDetallePage");
+
+// pages/laboratorio-quimica.js
+function renderLaboratorioQuimicaPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de qu\xEDmica sangu\xEDnea",
+    breadcrumb: "Qu\xEDmica sangu\xEDnea",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Qu\xEDmica sangu\xEDnea",
+    sections: [
+      {
+        id: "quimica",
+        title: "Qu\xEDmica sangu\xEDnea",
+        icon: "biotech",
+        groups: [
+          {
+            title: "Bioqu\xEDmica general",
+            icon: "science",
+            items: [
+              "Glucosa",
+              "Urea",
+              "Creatinina",
+              "\xC1cido \xFArico",
+              "Calcio s\xE9rico",
+              "F\xF3sforo en sangre",
+              "Magnesio en suero"
+            ]
+          },
+          {
+            title: "Perfil hep\xE1tico y pancre\xE1tico",
+            icon: "monitor_heart",
+            items: [
+              "Bilirrubinas",
+              "Fosfatasa alcalina",
+              "Gamma glutamil transferasa GGT",
+              "Amilasa pancre\xE1tica",
+              "Lipasa en suero"
+            ]
+          },
+          {
+            title: "L\xEDpidos y metabolismo",
+            icon: "bloodtype",
+            items: [
+              "Colesterol HDL",
+              "Colesterol LDL",
+              "Colesterol VLDL",
+              "Colesterol total",
+              "Triglic\xE9ridos",
+              "L\xEDpidos totales"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioQuimicaPage, "renderLaboratorioQuimicaPage");
+
+// pages/laboratorio-hematologia.js
+function renderLaboratorioHematologiaPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de hematolog\xEDa",
+    breadcrumb: "Hematolog\xEDa",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Hematolog\xEDa",
+    sections: [
+      {
+        id: "hematologia",
+        title: "Hematolog\xEDa",
+        icon: "bloodtype",
+        groups: [
+          {
+            title: "Hemograma y recuentos",
+            icon: "biotech",
+            items: [
+              "Hemograma + plaquetas",
+              "Hematocrito - hemoglobina",
+              "Leucograma",
+              "Plaquetas recuento",
+              "Reticulocitos",
+              "Eritrosedimentaci\xF3n"
+            ]
+          },
+          {
+            title: "Frotis y estudios celulares",
+            icon: "science",
+            items: [
+              "Frotis de sangre perif\xE9rica",
+              "C\xE9lulas falciformes",
+              "Cristalizaci\xF3n en helecho",
+              "Eosin\xF3filos nasales",
+              "Gota gruesa"
+            ]
+          },
+          {
+            title: "Coagulaci\xF3n",
+            icon: "monitor_heart",
+            items: [
+              "Fibrin\xF3geno",
+              "D\xEDmero D",
+              "Lupus anticoagulante",
+              "Tiempo de coagulaci\xF3n",
+              "Tiempo de protrombina",
+              "Tiempo de sangramiento",
+              "Tiempo de trombina",
+              "Tiempo de tromboplastina parcial"
+            ]
+          },
+          {
+            title: "Estudios especiales hematol\xF3gicos",
+            icon: "experiment",
+            items: [
+              "Tripanosoma concentrado de Strout"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioHematologiaPage, "renderLaboratorioHematologiaPage");
+
+// pages/laboratorio-inmunologia.js
+function renderLaboratorioInmunologiaPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de inmunolog\xEDa",
+    breadcrumb: "Inmunolog\xEDa",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Inmunolog\xEDa",
+    sections: [
+      {
+        id: "inmunologia",
+        title: "Inmunolog\xEDa",
+        icon: "vaccines",
+        groups: [
+          {
+            title: "Autoinmunidad",
+            icon: "shield",
+            items: [
+              "A.N.A anticuerpos antinucleares",
+              "A.N.A anticuerpos antinucleares por IFI",
+              "Anti m\xFAsculo liso",
+              "Anticuerpo antimitocondrial",
+              "Anticuerpos anticitrulina",
+              "Antifosfol\xEDpidos IgG / IgM",
+              "Anti-streptolisina O",
+              "Beta2-glicoprote\xEDna",
+              "Cardiolipinas IgG / IgM",
+              "C\xE9lulas LE",
+              "Complemento C3 / C4",
+              "P-ANCA",
+              "Prote\xEDna C reactiva",
+              "Prote\xEDna C ultrasensible",
+              "Latex factor reumatoideo"
+            ]
+          },
+          {
+            title: "Infecciosas y serolog\xEDas",
+            icon: "coronavirus",
+            items: [
+              "Ant\xEDgenos febriles",
+              "Chagas anticuerpos cuantitativo",
+              "Cisticercos IgG / IgM",
+              "Citomegalovirus IgG / IgM",
+              "Clamydia IgG / IgM",
+              "Dengue anticuerpos IgG / IgM",
+              "FTA-ABS",
+              "Helicobacter pylori IgG / IgM",
+              "Hepatitis A cualitativo / cuantitativo",
+              "Hepatitis B cualitativo / cuantitativo",
+              "Hepatitis C cualitativo / cuantitativo",
+              "HIV",
+              "HIV 4G",
+              "Monotest IgG / IgM",
+              "Toxoplasma IgG / IgM",
+              "VDRL"
+            ]
+          },
+          {
+            title: "Hormonas y marcadores relacionados",
+            icon: "endocrinology",
+            items: [
+              "Hormona paratiroidea intacta",
+              "Interleucina",
+              "Niveles de amonio s\xE9rico",
+              "Procalcitonina",
+              "Prueba de embarazo en sangre",
+              "Tipo sangu\xEDneo y RH",
+              "Prueba cruzada",
+              "Coombs directo / indirecto"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioInmunologiaPage, "renderLaboratorioInmunologiaPage");
+
+// pages/laboratorio-coprologia.js
+function renderLaboratorioCoprologiaPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de coprolog\xEDa",
+    breadcrumb: "Coprolog\xEDa",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Coprolog\xEDa",
+    sections: [
+      {
+        id: "coprologia",
+        title: "Coprolog\xEDa",
+        icon: "emoji_nature",
+        groups: [
+          {
+            title: "Ex\xE1menes generales",
+            icon: "clinical_notes",
+            items: [
+              "General de heces",
+              "Concentrado de heces",
+              "Sangre oculta en heces",
+              "Sustancias reductoras"
+            ]
+          },
+          {
+            title: "Parasitolog\xEDa y coloraciones",
+            icon: "science",
+            items: [
+              "Azul de metileno coloraci\xF3n",
+              "Helicobacter pylori en heces"
+            ]
+          },
+          {
+            title: "M\xE9todos especiales",
+            icon: "biotech",
+            items: [
+              "M\xE9todo de Graham (oxiuros)",
+              "Rotavirus"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioCoprologiaPage, "renderLaboratorioCoprologiaPage");
+
+// pages/laboratorio-bacteriologia.js
+function renderLaboratorioBacteriologiaPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de bacteriolog\xEDa",
+    breadcrumb: "Bacteriolog\xEDa",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Bacteriolog\xEDa",
+    sections: [
+      {
+        id: "bacteriologia",
+        title: "Bacteriolog\xEDa",
+        icon: "coronavirus",
+        groups: [
+          {
+            title: "Cultivos",
+            icon: "science",
+            items: [
+              "Coprocultivo",
+              "Cultivo de esputo",
+              "Cultivo de heces",
+              "Cultivo de secreci\xF3n",
+              "Cultivo vaginal",
+              "Hemocultivo",
+              "Urocultivo"
+            ]
+          },
+          {
+            title: "Tinciones y observaci\xF3n directa",
+            icon: "biotech",
+            items: [
+              "BAAR en esputo",
+              "BAAR en orina",
+              "Gram",
+              "KOH"
+            ]
+          },
+          {
+            title: "Otros estudios microbiol\xF3gicos",
+            icon: "experiment",
+            items: [
+              "Antibiograma"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioBacteriologiaPage, "renderLaboratorioBacteriologiaPage");
+
+// pages/laboratorio-uroanalisis.js
+function renderLaboratorioUroanalisisPage() {
+  return renderLaboratorioDetallePage({
+    title: "Ex\xE1menes de uroan\xE1lisis",
+    breadcrumb: "Uroan\xE1lisis",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Uroan\xE1lisis",
+    sections: [
+      {
+        id: "uroanalisis",
+        title: "Uroan\xE1lisis",
+        icon: "water_drop",
+        groups: [
+          {
+            title: "Ex\xE1menes generales",
+            icon: "clinical_notes",
+            items: [
+              "General de orina",
+              "Creatinina en orina",
+              "Depuraci\xF3n de creatinina",
+              "Prote\xEDnas en orina de 24 horas",
+              "Microalbuminuria",
+              "Bence Jones"
+            ]
+          },
+          {
+            title: "Sedimento y qu\xEDmica urinaria",
+            icon: "biotech",
+            items: [
+              "Sedimento urinario",
+              "Sustancias reductoras en orina",
+              "\xC1cido \xFArico en orina",
+              "Calcio en orina",
+              "Sodio en orina",
+              "Potasio en orina",
+              "Cloro en orina"
+            ]
+          },
+          {
+            title: "Estudios especiales",
+            icon: "experiment",
+            items: [
+              "Catecolaminas en orina de 24 horas",
+              "VMA cuantitativo",
+              "VMA cualitativo"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioUroanalisisPage, "renderLaboratorioUroanalisisPage");
+
+// pages/laboratorio-pruebas-especiales.js
+function renderLaboratorioPruebasEspecialesPage() {
+  return renderLaboratorioDetallePage({
+    title: "Pruebas especiales de laboratorio",
+    breadcrumb: "Pruebas especiales",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Pruebas especiales",
+    sections: [
+      {
+        id: "pruebas-especiales",
+        title: "Pruebas especiales",
+        icon: "experiment",
+        groups: [
+          {
+            title: "Hormonas y endocrinolog\xEDa",
+            icon: "endocrinology",
+            items: [
+              "Insulina basal",
+              "Insulina postprandial",
+              "P\xE9ptido C",
+              "TSH",
+              "T3",
+              "T4",
+              "T3 libre",
+              "T4 libre",
+              "FSH",
+              "LH",
+              "Progesterona",
+              "Prolactina",
+              "Estradiol",
+              "Testosterona",
+              "Cortisol"
+            ]
+          },
+          {
+            title: "Marcadores y vitaminas",
+            icon: "biotech",
+            items: [
+              "PSA total",
+              "PSA libre",
+              "Vitamina B12",
+              "\xC1cido f\xF3lico",
+              "Ferritina",
+              "Hierro s\xE9rico",
+              "Transferrina"
+            ]
+          },
+          {
+            title: "Otros estudios especiales",
+            icon: "science",
+            items: [
+              "Electroforesis de prote\xEDnas",
+              "Hemoglobina glicosilada",
+              "CPK",
+              "CPK MB",
+              "Troponina",
+              "LDH",
+              "Homociste\xEDna"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioPruebasEspecialesPage, "renderLaboratorioPruebasEspecialesPage");
+
+// pages/laboratorio-perfiles.js
+function renderLaboratorioPerfilesPage() {
+  return renderLaboratorioDetallePage({
+    title: "Perfiles de laboratorio",
+    breadcrumb: "Perfiles de laboratorio",
+    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=80",
+    badge: "Perfiles de laboratorio",
+    sections: [
+      {
+        id: "perfiles",
+        title: "Perfiles de laboratorio",
+        icon: "playlist_add_check_circle",
+        groups: [
+          {
+            title: "Perfiles metab\xF3licos y b\xE1sicos",
+            icon: "biotech",
+            items: [
+              "Perfil diab\xE9tico",
+              "Perfil lip\xEDdico",
+              "Perfil renal",
+              "Perfil hep\xE1tico",
+              "Perfil \xF3seo"
+            ]
+          },
+          {
+            title: "Perfiles hormonales",
+            icon: "endocrinology",
+            items: [
+              "Perfil tiroideo",
+              "Perfil hormonal femenino",
+              "Perfil hormonal masculino"
+            ]
+          },
+          {
+            title: "Perfiles complementarios",
+            icon: "science",
+            items: [
+              "Perfil prenatal",
+              "Perfil reum\xE1tico",
+              "Perfil prost\xE1tico",
+              "Perfil card\xEDaco"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderLaboratorioPerfilesPage, "renderLaboratorioPerfilesPage");
+
 // worker.js
 var worker_default = {
   async fetch(request) {
@@ -2437,6 +3161,11 @@ var worker_default = {
     }
     if (path === "/estudios" || path === "/estudios.html") {
       return new Response(renderEstudiosPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-inmunologia" || path === "/laboratorio-inmunologia.html") {
+      return new Response(renderLaboratorioInmunologiaPage(), {
         headers: { "content-type": "text/html; charset=UTF-8" }
       });
     }
@@ -2472,6 +3201,41 @@ var worker_default = {
     }
     if (path === "/estudios-mamografia" || path === "/estudios-mamografia.html") {
       return new Response(renderEstudiosMamografiaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-hematologia" || path === "/laboratorio-hematologia.html") {
+      return new Response(renderLaboratorioHematologiaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-quimica" || path === "/laboratorio-quimica.html") {
+      return new Response(renderLaboratorioQuimicaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-uroanalisis" || path === "/laboratorio-uroanalisis.html") {
+      return new Response(renderLaboratorioUroanalisisPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-coprologia" || path === "/laboratorio-coprologia.html") {
+      return new Response(renderLaboratorioCoprologiaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-bacteriologia" || path === "/laboratorio-bacteriologia.html") {
+      return new Response(renderLaboratorioBacteriologiaPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-perfiles" || path === "/laboratorio-perfiles.html") {
+      return new Response(renderLaboratorioPerfilesPage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/laboratorio-pruebas-especiales" || path === "/laboratorio-pruebas-especiales.html") {
+      return new Response(renderLaboratorioPruebasEspecialesPage(), {
         headers: { "content-type": "text/html; charset=UTF-8" }
       });
     }
