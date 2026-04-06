@@ -1654,6 +1654,418 @@ function renderEstudiosTACPage() {
 }
 __name(renderEstudiosTACPage, "renderEstudiosTACPage");
 
+// pages/estudios-us.js
+function renderEstudiosUSPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios de ultrasonograf\xEDa",
+    breadcrumb: "Ultrasonograf\xEDa",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png",
+    badge: "Ultrasonograf\xEDa",
+    sections: [
+      {
+        id: "doppler-color",
+        title: "US. Doppler Color",
+        icon: "monitor_heart",
+        groups: [
+          {
+            title: "Sistema arterial carot\xEDdeo y vertebral",
+            icon: "neurology",
+            items: [
+              "Ateromatosis",
+              "V\xE9rtigo"
+            ]
+          },
+          {
+            title: "Vasos perif\xE9ricos",
+            icon: "bloodtype",
+            items: [
+              "Sistema venoso MID MII",
+              "Sistema arterial MID MII",
+              "Sistema venoso MSD MSI",
+              "Sistema arterial MSD MSI"
+            ]
+          },
+          {
+            title: "Escrotal",
+            icon: "male",
+            items: [
+              "Tumores",
+              "Varicoceles"
+            ]
+          },
+          {
+            title: "Abdomen",
+            icon: "monitor_heart",
+            items: [
+              "Aneurisma a\xF3rtico",
+              "Arterias renales",
+              "Otro"
+            ]
+          },
+          {
+            title: "Obstetricia",
+            icon: "pregnant_woman",
+            items: [
+              "Vasos umbilicales"
+            ]
+          }
+        ]
+      },
+      {
+        id: "convencional",
+        title: "US. Convencional",
+        icon: "ultrasonic_sensor",
+        groups: [
+          {
+            title: "Abdominal",
+            icon: "abdomen",
+            items: [
+              "H\xEDgado",
+              "Ves\xEDcula y v\xEDas biliares",
+              "Ri\xF1ones",
+              "P\xE1ncreas",
+              "Bazo",
+              "Retroperitoneo"
+            ]
+          },
+          {
+            title: "P\xE9lvica",
+            icon: "female",
+            items: [
+              "Ginecolog\xEDa (requiere vejiga llena)",
+              "Vesical (requiere vejiga llena)",
+              "Obstetricia",
+              "Transvaginal"
+            ]
+          },
+          {
+            title: "Otros estudios convencionales",
+            icon: "clinical_notes",
+            items: [
+              "Pr\xF3stata (transrectal)",
+              "T\xF3rax (derrame pleural)",
+              "Mama",
+              "Tejidos blandos",
+              "Cuello (tiroides)",
+              "Transfontanelar",
+              "Ocular",
+              "Vesicoprost\xE1tico"
+            ]
+          }
+        ]
+      },
+      {
+        id: "musculo-esqueletico",
+        title: "US. M\xFAsculo Esquel\xE9tico",
+        icon: "orthopedics",
+        groups: [
+          {
+            title: "Articulaciones y m\xFAsculos",
+            icon: "accessibility_new",
+            items: [
+              "Cadera",
+              "Hombro",
+              "Rodilla",
+              "M\xFAsculos",
+              "Otro"
+            ]
+          }
+        ]
+      },
+      {
+        id: "elastografia",
+        title: "Elastograf\xEDa",
+        icon: "biotech",
+        groups: [
+          {
+            title: "Opciones disponibles",
+            icon: "healing",
+            items: [
+              "Elastograf\xEDa hep\xE1tica (ayuno de 6 horas)",
+              "Elastograf\xEDa hep\xE1tica + USG abdominal",
+              "Elastograf\xEDa hep\xE1tica + Doppler hep\xE1tico"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosUSPage, "renderEstudiosUSPage");
+
+// pages/estudios-rayosx.js
+function renderEstudiosRayosXPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios de rayos X",
+    breadcrumb: "Rayos X",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png",
+    badge: "Rayos X",
+    sections: [
+      {
+        id: "cabeza",
+        title: "Cabeza",
+        icon: "neurology",
+        groups: [
+          {
+            title: "Cr\xE1neo y cara",
+            icon: "face",
+            items: [
+              "Cr\xE1neo PA",
+              "Cr\xE1neo lateral",
+              "Huesos nasales",
+              "Senos paranasales",
+              "Macizo facial",
+              "Mand\xEDbula"
+            ]
+          },
+          {
+            title: "Regiones espec\xEDficas",
+            icon: "visibility",
+            items: [
+              "\xD3rbitas",
+              "Articulaci\xF3n temporomandibular",
+              "Cavum",
+              "Mastoides",
+              "Silla turca"
+            ]
+          }
+        ]
+      },
+      {
+        id: "columna-pelvis",
+        title: "Columna y pelvis",
+        icon: "accessibility_new",
+        groups: [
+          {
+            title: "Columna",
+            icon: "orthopedics",
+            items: [
+              "Columna cervical AP y lateral",
+              "Columna dorsal AP y lateral",
+              "Columna lumbar AP y lateral",
+              "Columna lumbosacra",
+              "Columna cervical oblicuas",
+              "Columna lumbar oblicuas"
+            ]
+          },
+          {
+            title: "Pelvis y cadera",
+            icon: "man_4",
+            items: [
+              "Pelvis AP",
+              "Cadera AP",
+              "Cadera lateral",
+              "Sacro c\xF3ccix",
+              "Articulaciones sacroil\xEDacas"
+            ]
+          }
+        ]
+      },
+      {
+        id: "torax",
+        title: "T\xF3rax",
+        icon: "respiratory_rate",
+        groups: [
+          {
+            title: "T\xF3rax y costillas",
+            icon: "air",
+            items: [
+              "T\xF3rax PA",
+              "T\xF3rax AP port\xE1til",
+              "T\xF3rax lateral",
+              "Costillas unilateral",
+              "Costillas bilateral",
+              "Estern\xF3n"
+            ]
+          },
+          {
+            title: "Otras proyecciones",
+            icon: "monitor_heart",
+            items: [
+              "Parrilla costal",
+              "Clav\xEDculas",
+              "Articulaciones esternoclaviculares"
+            ]
+          }
+        ]
+      },
+      {
+        id: "abdomen",
+        title: "Abdomen",
+        icon: "abdomen",
+        groups: [
+          {
+            title: "Abdomen simple",
+            icon: "clinical_notes",
+            items: [
+              "Abdomen simple",
+              "Abdomen de pie",
+              "Abdomen acostado",
+              "Serie obstructiva"
+            ]
+          }
+        ]
+      },
+      {
+        id: "extremidad-superior",
+        title: "Extremidad superior",
+        icon: "pan_tool",
+        groups: [
+          {
+            title: "Miembro superior",
+            icon: "back_hand",
+            items: [
+              "Hombro",
+              "Clav\xEDcula",
+              "Esc\xE1pula",
+              "H\xFAmero",
+              "Codo",
+              "Antebrazo",
+              "Mu\xF1eca",
+              "Mano",
+              "Dedos"
+            ]
+          }
+        ]
+      },
+      {
+        id: "extremidad-inferior",
+        title: "Extremidad inferior",
+        icon: "directions_walk",
+        groups: [
+          {
+            title: "Miembro inferior",
+            icon: "footprint",
+            items: [
+              "F\xE9mur",
+              "Rodilla",
+              "Pierna",
+              "Tobillo",
+              "Pie",
+              "Calc\xE1neo",
+              "Dedos del pie"
+            ]
+          }
+        ]
+      },
+      {
+        id: "especiales",
+        title: "Estudios especiales",
+        icon: "biotech",
+        groups: [
+          {
+            title: "Contrastes y especializados",
+            icon: "science",
+            items: [
+              "Tubo digestivo superior",
+              "Tr\xE1nsito intestinal",
+              "Pielograma",
+              "Enema baritado (colon)",
+              "Esofagograma",
+              "Serie es\xF3fago-gastro-duodenal",
+              "Otro"
+            ]
+          }
+        ]
+      },
+      {
+        id: "mamografia",
+        title: "Mamograf\xEDa",
+        icon: "female",
+        groups: [
+          {
+            title: "Opciones de mamograf\xEDa",
+            icon: "favorite",
+            items: [
+              "Mamograf\xEDa",
+              "Mamograf\xEDa digitalizada",
+              "Tomos\xEDntesis",
+              "Galactograf\xEDa"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosRayosXPage, "renderEstudiosRayosXPage");
+
+// pages/estudios-mamografia.js
+function renderEstudiosMamografiaPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios de mamograf\xEDa",
+    breadcrumb: "Mamograf\xEDa",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png",
+    badge: "Mamograf\xEDa",
+    sections: [
+      {
+        id: "mamografia",
+        title: "Mamograf\xEDa",
+        icon: "female",
+        groups: [
+          {
+            title: "Opciones disponibles",
+            icon: "favorite",
+            items: [
+              "Mamograf\xEDa",
+              "Mamograf\xEDa digitalizada",
+              "Tomos\xEDntesis",
+              "Galactograf\xEDa"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosMamografiaPage, "renderEstudiosMamografiaPage");
+
+// pages/estudios-especiales.js
+function renderEstudiosEspecialesPage() {
+  return renderEstudioDetallePage({
+    title: "Estudios especiales",
+    breadcrumb: "Estudios especiales",
+    heroImage: "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.png",
+    badge: "Estudios especiales",
+    sections: [
+      {
+        id: "contrastes",
+        title: "Estudios contrastados y especiales",
+        icon: "biotech",
+        groups: [
+          {
+            title: "Tubo digestivo",
+            icon: "clinical_notes",
+            items: [
+              "Tubo digestivo superior",
+              "Tr\xE1nsito intestinal",
+              "Esofagograma",
+              "Serie es\xF3fago-gastro-duodenal"
+            ]
+          },
+          {
+            title: "Sistema urinario",
+            icon: "water_drop",
+            items: [
+              "Pielograma"
+            ]
+          },
+          {
+            title: "Colon y otros",
+            icon: "science",
+            items: [
+              "Enema baritado (colon)",
+              "Galactograf\xEDa",
+              "Otro"
+            ]
+          }
+        ]
+      }
+    ]
+  });
+}
+__name(renderEstudiosEspecialesPage, "renderEstudiosEspecialesPage");
+
 // worker.js
 var worker_default = {
   async fetch(request) {

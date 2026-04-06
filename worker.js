@@ -2,8 +2,10 @@ import { renderHomePage } from "./pages/home.js";
 import { renderEstudiosPage } from "./pages/estudios.js";
 import { renderEstudiosRMPage } from "./pages/estudios-rm.js";
 import { renderEstudiosTACPage } from "./pages/estudios-tac.js";
-// luego importas las demás
-
+import { renderEstudiosUSPage } from "./pages/estudios-us.js";
+import { renderEstudiosRayosXPage } from "./pages/estudios-rayosx.js";
+import { renderEstudiosMamografiaPage } from "./pages/estudios-mamografia.js";
+import { renderEstudiosEspecialesPage } from "./pages/estudios-especiales.js";
 export default {
   async fetch(request) {
     const url = new URL(request.url);
