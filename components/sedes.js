@@ -32,7 +32,11 @@ export function Sedes() {
                   <a class="hover:underline" href="tel:+50326612345">2661-2345</a>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-green-500">chat</span>
+                  <img
+    src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/wha.png"
+    alt="WhatsApp"
+    class="w-6 h-6 object-contain"
+  />
                   <a class="hover:underline" href="https://wa.me/50378205613" target="_blank" rel="noopener">
                     WhatsApp: 7820-5613
                   </a>
@@ -83,7 +87,11 @@ export function Sedes() {
                   <a class="hover:underline" href="tel:+50326697475">2669-7475</a>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-green-500">chat</span>
+                  <img
+    src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/wha.png"
+    alt="WhatsApp"
+    class="w-6 h-6 object-contain"
+  />
                   <a class="hover:underline" href="https://wa.me/50378195960" target="_blank" rel="noopener">
                     WhatsApp: 7819-5960
                   </a>
@@ -134,7 +142,11 @@ export function Sedes() {
                   <a class="hover:underline" href="tel:+50326697988">2669-7988</a>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="material-symbols-outlined text-green-500">chat</span>
+                  <img
+    src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/wha.png"
+    alt="WhatsApp"
+    class="w-6 h-6 object-contain"
+  />
                   <a class="hover:underline" href="https://wa.me/50378448608" target="_blank" rel="noopener">
                     WhatsApp: 7844-8608
                   </a>
