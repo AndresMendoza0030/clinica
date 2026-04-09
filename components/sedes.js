@@ -57,18 +57,18 @@ export function Sedes() {
                 </a>
 
                 <a
-                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                  href="https://waze.com/ul?ll=13.477069,-88.182489&navigate=yes"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Waze
-                  <img
-  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
-  alt="Waze"
-  class="w-5 h-5 ml-2 object-contain"
-/>
-                </a>
+  class="group inline-flex items-center justify-center gap-2 rounded-lg h-10 px-4 border border-[#7adfff] bg-[#33CCFF] text-black text-sm font-extrabold tracking-[0.01em] shadow-[0_6px_16px_rgba(51,204,255,0.35)] hover:bg-[#28b8e6] hover:border-[#28b8e6] hover:shadow-[0_10px_24px_rgba(51,204,255,0.45)] hover:-translate-y-[2px] active:translate-y-0 active:shadow-[0_4px_12px_rgba(51,204,255,0.3)] transition-all duration-200"
+  href="https://waze.com/ul?ll=13.477069,-88.182489&navigate=yes
+  target="_blank"
+  rel="noopener"
+>
+  <img
+    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+    alt="Waze"
+    class="w-5 h-5 object-contain transition-transform duration-200 group-hover:scale-110"
+  />
+  Waze
+</a>
               </div>
             </div>
 
@@ -112,18 +112,18 @@ export function Sedes() {
                 </a>
 
                 <a
-                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                  href="https://waze.com/ul?ll=13.4847581,-88.1853542&navigate=yes"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Waze
-                  <img
-  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
-  alt="Waze"
-  class="w-5 h-5 ml-2 object-contain"
-/>
-                </a>
+  class="group inline-flex items-center justify-center gap-2 rounded-lg h-10 px-4 border border-[#7adfff] bg-[#33CCFF] text-black text-sm font-extrabold tracking-[0.01em] shadow-[0_6px_16px_rgba(51,204,255,0.35)] hover:bg-[#28b8e6] hover:border-[#28b8e6] hover:shadow-[0_10px_24px_rgba(51,204,255,0.45)] hover:-translate-y-[2px] active:translate-y-0 active:shadow-[0_4px_12px_rgba(51,204,255,0.3)] transition-all duration-200"
+  href="https://waze.com/ul?ll=13.4847581,-88.1853542&navigate=yes
+  target="_blank"
+  rel="noopener"
+>
+  <img
+    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+    alt="Waze"
+    class="w-5 h-5 object-contain transition-transform duration-200 group-hover:scale-110"
+  />
+  Waze
+</a>
               </div>
             </div>
 
@@ -167,18 +167,18 @@ export function Sedes() {
                 </a>
 
                 <a
-                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                  href="https://waze.com/ul?ll=13.4846653,-88.1857434&navigate=yes"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Waze
-                  <img
-  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
-  alt="Waze"
-  class="w-5 h-5 ml-2 object-contain"
-/>
-                </a>
+  class="group inline-flex items-center justify-center gap-2 rounded-lg h-10 px-4 border border-[#7adfff] bg-[#33CCFF] text-black text-sm font-extrabold tracking-[0.01em] shadow-[0_6px_16px_rgba(51,204,255,0.35)] hover:bg-[#28b8e6] hover:border-[#28b8e6] hover:shadow-[0_10px_24px_rgba(51,204,255,0.45)] hover:-translate-y-[2px] active:translate-y-0 active:shadow-[0_4px_12px_rgba(51,204,255,0.3)] transition-all duration-200"
+  href="https://waze.com/ul?ll=13.4846653,-88.1857434&navigate=yes"
+  target="_blank"
+  rel="noopener"
+>
+  <img
+    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+    alt="Waze"
+    class="w-5 h-5 object-contain transition-transform duration-200 group-hover:scale-110"
+  />
+  Waze
+</a>
               </div>
             </div>
           </div>
