@@ -121,15 +121,7 @@ function Sedes() {
               </div>
 
               <div class="mt-5 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  data-lat="13.477069"
-                  data-lng="-88.182489"
-                  class="map-btn inline-flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                >
-                  Ver en el mapa
-                  <span class="material-symbols-outlined text-lg ml-2">map</span>
-                </button>
+            
 
                 <a
                   class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-bold transition-colors"
@@ -180,15 +172,7 @@ function Sedes() {
               </div>
 
               <div class="mt-5 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  data-lat="13.4847581"
-                  data-lng="-88.1853542"
-                  class="map-btn inline-flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                >
-                  Ver en el mapa
-                  <span class="material-symbols-outlined text-lg ml-2">map</span>
-                </button>
+               
 
                 <a
                   class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-bold transition-colors"
@@ -239,15 +223,7 @@ function Sedes() {
               </div>
 
               <div class="mt-5 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  data-lat="13.4846653"
-                  data-lng="-88.1857434"
-                  class="map-btn inline-flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white hover:opacity-95 text-sm font-bold transition-opacity"
-                >
-                  Ver en el mapa
-                  <span class="material-symbols-outlined text-lg ml-2">map</span>
-                </button>
+              
 
                 <a
                   class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white text-sm font-bold transition-colors"
