@@ -137,8 +137,22 @@ function Sedes() {
                   target="_blank"
                   rel="noopener"
                 >
-                  Ver en Google Maps
+                  Google Maps
                   <span class="material-symbols-outlined text-lg ml-2">open_in_new</span>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
+                  href="https://waze.com/ul?ll=13.477069,-88.182489&navigate=yes"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Waze
+                  <img
+  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+  alt="Waze"
+  class="w-5 h-5 ml-2 object-contain"
+/>
                 </a>
               </div>
             </div>
@@ -182,8 +196,22 @@ function Sedes() {
                   target="_blank"
                   rel="noopener"
                 >
-                  Ver en Google Maps
+                  Google Maps
                   <span class="material-symbols-outlined text-lg ml-2">open_in_new</span>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
+                  href="https://waze.com/ul?ll=13.4847581,-88.1853542&navigate=yes"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Waze
+                  <img
+  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+  alt="Waze"
+  class="w-5 h-5 ml-2 object-contain"
+/>
                 </a>
               </div>
             </div>
@@ -227,8 +255,22 @@ function Sedes() {
                   target="_blank"
                   rel="noopener"
                 >
-                  Ver en Google Maps
+                  Google Maps
                   <span class="material-symbols-outlined text-lg ml-2">open_in_new</span>
+                </a>
+
+                <a
+                  class="inline-flex items-center justify-center rounded-lg h-10 px-4 bg-[#33CCFF] text-white hover:opacity-95 text-sm font-bold transition-opacity"
+                  href="https://waze.com/ul?ll=13.4846653,-88.1857434&navigate=yes"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Waze
+                  <img
+  src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/waze-icon.png"
+  alt="Waze"
+  class="w-5 h-5 ml-2 object-contain"
+/>
                 </a>
               </div>
             </div>
