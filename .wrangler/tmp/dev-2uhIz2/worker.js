@@ -45,6 +45,12 @@ function Header() {
           </a>
           <a
             class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+            href="/portal-pacientes"
+          >
+            Portal Pacientes
+          </a>
+          <a
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
             href="#sedes"
           >
             Sedes y contacto
@@ -70,6 +76,7 @@ function Header() {
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#institucional">Historia</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#imagenes">Diagn\xF3stico por im\xE1genes</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#laboratorio">Laboratorio cl\xEDnico</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/portal-pacientes">Portal Pacientes</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#sedes">Sedes y contacto</a>
         </nav>
       </div>
@@ -3179,6 +3186,61 @@ function renderLaboratorioPerfilesPage() {
 }
 __name(renderLaboratorioPerfilesPage, "renderLaboratorioPerfilesPage");
 
+// pages/portal-pacientes.js
+function renderPortalPacientesPage() {
+  return `<!DOCTYPE html>
+<html class="light" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Acceso al Portal de Pacientes de Cl\xEDnica Dr. Mendoza." />
+    <title>Portal Pacientes | Cl\xEDnica Dr. Mendoza</title>
+    <link rel="icon" type="image/png" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"><\/script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: { primary: "#c70505", "background-light": "#fcf8f8", "background-dark": "#230f0f" },
+            fontFamily: { display: ["Public Sans", "sans-serif"] },
+          },
+        },
+      };
+    <\/script>
+  </head>
+  <body class="bg-background-light text-[#1c0d0d] font-display overflow-hidden">
+    ${Header()}
+
+    <main class="h-[calc(100vh-4rem)] bg-[#f4f8fb] p-2 sm:p-4">
+      <section class="h-full overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.15)] sm:rounded-xl" aria-label="Portal de Pacientes">
+        <iframe
+          class="h-full w-full border-0"
+          src="https://drmendoza.riacs.health/patient/"
+          title="Portal de Pacientes"
+          loading="lazy"
+          allow="clipboard-read; clipboard-write"
+        ></iframe>
+      </section>
+    </main>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+        });
+      }
+    <\/script>
+  </body>
+</html>`;
+}
+__name(renderPortalPacientesPage, "renderPortalPacientesPage");
+
 // worker.js
 var worker_default = {
   async fetch(request) {
@@ -3186,6 +3248,11 @@ var worker_default = {
     const path = url.pathname;
     if (path === "/" || path === "/index" || path === "/index.html") {
       return new Response(renderHomePage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" }
+      });
+    }
+    if (path === "/portal-pacientes" || path === "/portal-pacientes.html") {
+      return new Response(renderPortalPacientesPage(), {
         headers: { "content-type": "text/html; charset=UTF-8" }
       });
     }
@@ -3319,7 +3386,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-hBCE30/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-WDYZbd/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -3351,7 +3418,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-hBCE30/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-WDYZbd/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

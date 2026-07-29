@@ -15,6 +15,7 @@ import { renderLaboratorioBacteriologiaPage } from "./pages/laboratorio-bacterio
 import { renderLaboratorioUroanalisisPage } from "./pages/laboratorio-uroanalisis.js";
 import { renderLaboratorioPruebasEspecialesPage } from "./pages/laboratorio-pruebas-especiales.js";
 import { renderLaboratorioPerfilesPage } from "./pages/laboratorio-perfiles.js";
+import { renderPortalPacientesPage } from "./pages/portal-pacientes.js";
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -22,6 +23,12 @@ export default {
 
     if (path === "/" || path === "/index" || path === "/index.html") {
       return new Response(renderHomePage(), {
+        headers: { "content-type": "text/html; charset=UTF-8" },
+      });
+    }
+
+    if (path === "/portal-pacientes" || path === "/portal-pacientes.html") {
+      return new Response(renderPortalPacientesPage(), {
         headers: { "content-type": "text/html; charset=UTF-8" },
       });
     }

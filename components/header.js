@@ -41,6 +41,12 @@ export function Header() {
           </a>
           <a
             class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+            href="/portal-pacientes"
+          >
+            Portal Pacientes
+          </a>
+          <a
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
             href="#sedes"
           >
             Sedes y contacto
@@ -66,6 +72,7 @@ export function Header() {
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#institucional">Historia</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#imagenes">Diagnóstico por imágenes</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#laboratorio">Laboratorio clínico</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/portal-pacientes">Portal Pacientes</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="#sedes">Sedes y contacto</a>
         </nav>
       </div>
