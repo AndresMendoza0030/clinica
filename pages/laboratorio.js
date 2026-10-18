@@ -37,7 +37,7 @@ export function renderLaboratorioPage() {
         theme: {
           extend: {
             colors: {
-              primary: "#c70505",
+              primary: "#9d2320",
               "background-light": "#fcf8f8",
               "background-dark": "#230f0f",
               ink: "#1c0d0d",
@@ -102,8 +102,9 @@ export function renderLaboratorioPage() {
             </div>
 
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.02]">
-              Categorías de exámenes de laboratorio
+              Laboratorio Clínico
             </h1>
+            <p class="max-w-2xl text-white/90 text-base md:text-lg leading-relaxed">Conozca nuestras categorías de análisis y exámenes para apoyar su seguimiento y atención médica.</p>
 
             <div class="flex flex-wrap gap-3 pt-2">
               <a
@@ -129,8 +130,13 @@ export function renderLaboratorioPage() {
 
     <section id="categorias" class="relative py-10 md:py-14">
       <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="clinic-category-intro">
+          <span class="clinic-eyebrow text-primary mb-3">Nuestros Servicios</span>
+          <h2 class="clinic-section-title text-[#1c0d0d] dark:text-white mb-3">Exámenes por categoría</h2>
+          <p class="text-sm md:text-base text-[#695e61] dark:text-[#d3c1c1] leading-relaxed">Seleccione una categoría para consultar los análisis y perfiles disponibles.</p>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -144,6 +150,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">biotech</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Pruebas bioquímicas, metabólicas y perfiles relacionados.</p>
               <a href="/laboratorio-quimica.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -151,7 +158,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -165,6 +172,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">bloodtype</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Hemogramas, recuentos y pruebas de coagulación.</p>
               <a href="/laboratorio-hematologia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -172,7 +180,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -186,6 +194,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Exámenes de inmunología disponibles en el catálogo.</p>
               <a href="/laboratorio-inmunologia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -193,7 +202,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -207,6 +216,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">emoji_nature</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Estudios de muestras fecales según indicación médica.</p>
               <a href="/laboratorio-coprologia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -214,7 +224,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -228,6 +238,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">coronavirus</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Pruebas y análisis de bacteriología clínica.</p>
               <a href="/laboratorio-bacteriologia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -235,7 +246,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -249,6 +260,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">water_drop</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Exámenes de orina para evaluación y seguimiento.</p>
               <a href="/laboratorio-uroanalisis.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -256,7 +268,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -270,6 +282,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">science</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Análisis complementarios de laboratorio clínico.</p>
               <a href="/laboratorio-pruebas-especiales.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -277,7 +290,7 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
@@ -291,6 +304,7 @@ export function renderLaboratorioPage() {
                   <span class="material-symbols-outlined text-[20px]">playlist_add_check_circle</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Conjuntos de exámenes organizados por evaluación clínica.</p>
               <a href="/laboratorio-perfiles.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -312,7 +326,7 @@ export function renderLaboratorioPage() {
             <a
               href="https://wa.me/50378205613"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
             >
               WhatsApp

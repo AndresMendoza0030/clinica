@@ -37,7 +37,7 @@ export function renderEstudiosPage() {
         theme: {
           extend: {
             colors: {
-              primary: "#c70505",
+              primary: "#9d2320",
               "background-light": "#fcf8f8",
               "background-dark": "#230f0f",
               ink: "#1c0d0d",
@@ -102,8 +102,9 @@ export function renderEstudiosPage() {
             </div>
 
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.02]">
-              Categorías de estudios
+              Diagnóstico por Imágenes
             </h1>
+            <p class="max-w-2xl text-white/90 text-base md:text-lg leading-relaxed">Explore nuestras modalidades de estudio y encuentre la información que necesita para su próxima visita.</p>
 
             <div class="flex flex-wrap gap-3 pt-2">
               <a
@@ -129,8 +130,13 @@ export function renderEstudiosPage() {
 
     <section id="categorias" class="relative py-10 md:py-14">
       <div class="max-w-[1280px] mx-auto px-4 md:px-10">
+        <div class="clinic-category-intro">
+          <span class="clinic-eyebrow text-primary mb-3">Nuestros Servicios</span>
+          <h2 class="clinic-section-title text-[#1c0d0d] dark:text-white mb-3">Estudios por modalidad</h2>
+          <p class="text-sm md:text-base text-[#695e61] dark:text-[#d3c1c1] leading-relaxed">Seleccione una modalidad para consultar los estudios incluidos.</p>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -146,6 +152,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">radiology</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Estudios de cerebro, columna, articulaciones y otras regiones.</p>
               <a href="/estudios-rm.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -153,7 +160,7 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -169,6 +176,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">scanner</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Tomografía multidetectores y estudios especializados.</p>
               <a href="/estudios-tac.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -176,7 +184,7 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -192,6 +200,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">sound_detection_dog_barking</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Ultrasonografía convencional, Doppler y elastografía.</p>
               <a href="/estudios-us.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -199,7 +208,7 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -215,6 +224,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">medical_services</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Radiografías de distintas regiones anatómicas.</p>
               <a href="/estudios-rayosx.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -222,7 +232,7 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -238,6 +248,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">female</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Estudios de imagen para la evaluación mamaria.</p>
               <a href="/estudios-mamografia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -245,7 +256,7 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
@@ -261,6 +272,7 @@ export function renderEstudiosPage() {
                   <span class="material-symbols-outlined text-[20px]">biotech</span>
                 </span>
               </div>
+              <p class="clinic-category-desc">Explore otras modalidades de diagnóstico por imágenes.</p>
               <a href="/estudios-especiales.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
                 Ver categoría
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
@@ -282,7 +294,7 @@ export function renderEstudiosPage() {
             <a
               href="https://wa.me/50378205613"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
             >
               WhatsApp

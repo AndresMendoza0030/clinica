@@ -107,7 +107,7 @@ export function renderEstudioDetallePage({
         theme: {
           extend: {
             colors: {
-              primary: "#c70505",
+              primary: "#9d2320",
               "background-light": "#fcf8f8",
               "background-dark": "#230f0f",
               ink: "#1c0d0d",
@@ -219,7 +219,7 @@ export function renderEstudioDetallePage({
             <a
               href="${ctaHref}"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               class="inline-flex items-center justify-center rounded-full h-11 px-6 bg-[#25D366] text-white text-sm font-black shadow-soft hover:opacity-95 transition-opacity"
             >
               WhatsApp

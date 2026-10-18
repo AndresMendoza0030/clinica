@@ -7,6 +7,7 @@ export function renderPortalPacientesPage() {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="description" content="Acceso al Portal de Pacientes de Clínica Dr. Mendoza." />
     <title>Portal Pacientes | Clínica Dr. Mendoza</title>
     <link rel="icon" type="image/png" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" />

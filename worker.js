@@ -76,8 +76,11 @@ export default {
     const render = pageRoutes[path];
 
     if (render) {
+      const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
       return new Response(request.method === "HEAD" ? null : render(), {
-        headers: baseHeaders,
+        headers: isPrivatePortal
+          ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
+          : baseHeaders,
       });
     }
 

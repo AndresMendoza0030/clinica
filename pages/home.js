@@ -10,7 +10,14 @@ export function renderHomePage() {
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Clínica Radiológica y Laboratorio Clínico Dr. Mendoza</title>
+    <title>Clínica Radiológica y Laboratorio Clínico Dr. Mendoza | San Miguel</title>
+    <meta name="description" content="Diagnóstico por imágenes y laboratorio clínico en San Miguel. Conozca nuestros estudios, trayectoria y sedes de Clínica Dr. Mendoza." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_SV" />
+    <meta property="og:title" content="Clínica Radiológica y Laboratorio Clínico Dr. Mendoza" />
+    <meta property="og:description" content="Diagnóstico por imágenes y laboratorio clínico con experiencia y atención cercana en San Miguel." />
+    <meta property="og:image" content="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png" />
+    <link rel="preload" as="image" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png" />
     <link rel="icon" type="image/png" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
@@ -28,7 +35,7 @@ export function renderHomePage() {
         theme: {
           extend: {
             colors: {
-              primary: "#c70505",
+              primary: "#9d2320",
               "background-light": "#fcf8f8",
               "background-dark": "#230f0f",
             },
@@ -63,55 +70,46 @@ export function renderHomePage() {
   >
     ${Header()}
 
-    <!-- HERO -->
+    <!-- HERO: fotografía de la institución, sin publicidad de servicios en desarrollo -->
     <section id="inicio" class="relative w-full">
-      <div
-        class="relative flex min-h-[560px] flex-col items-center justify-center overflow-hidden bg-cover bg-center px-4 pt-20 pb-40 md:pb-48 text-center"
-        aria-label="Portada"
-        style='background-image: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.65)), url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png");'
-      >
-        <div class="max-w-4xl flex flex-col items-center gap-5">
-          <h2
-            class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl drop-shadow-sm"
-          >
-            Gracias por confiarnos su salud.
-          </h2>
-
-          <p class="text-white/90 text-base md:text-xl max-w-3xl drop-shadow-sm">
-            Diagnóstico por imágenes y laboratorio clínico con atención cercana, tecnología y resultados confiables.
-          </p>
-
-          <div class="flex flex-col sm:flex-row gap-3 mt-2">
-            <a
-              href="#sedes"
-              class="inline-flex items-center justify-center rounded-lg h-11 px-7 bg-primary text-white hover:opacity-95 text-sm font-bold transition-opacity"
-            >
-              Ver sedes y contacto
-              <span class="material-symbols-outlined text-lg ml-2">arrow_forward</span>
-            </a>
-
-            <a
-              href="/portal-pacientes"
-              class="inline-flex items-center justify-center rounded-lg h-11 px-7 bg-white/10 text-white border border-white/20 hover:bg-white/15 text-sm font-bold transition-colors"
-            >
-              Portal de Pacientes
-              <span class="material-symbols-outlined text-lg ml-2">clinical_notes</span>
-            </a>
+      <div class="clinic-hero-stage relative flex items-center overflow-hidden bg-cover bg-center px-4 md:px-10 pt-20 pb-44 md:pb-48"
+           aria-label="Portada de la clínica"
+           style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/banner3.png");'>
+        <div class="clinic-hero-inner">
+          <div class="max-w-[830px] flex flex-col items-start gap-6">
+            <span class="clinic-eyebrow text-[#f9d5d1]">Desde 2006 · San Miguel, El Salvador</span>
+            <h1 class="clinic-hero-title text-white font-black">Gracias por confiarnos su salud.</h1>
+            <p class="clinic-hero-desc text-white/90 text-base md:text-xl max-w-2xl">
+              Diagnóstico por imágenes y laboratorio clínico con una trayectoria construida sobre la atención cercana, el compromiso y la confianza.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-1">
+              <a href="/estudios.html" class="clinic-hero-btn inline-flex items-center justify-center bg-primary text-white text-sm font-bold hover:bg-[#81201e] transition-colors">
+                Conocer Nuestros Estudios <span class="material-symbols-outlined text-lg ml-1" aria-hidden="true">arrow_forward</span>
+              </a>
+              <a href="#sedes" class="clinic-hero-btn inline-flex items-center justify-center bg-white/10 border border-white/60 text-white text-sm font-bold hover:bg-white/20 transition-colors">
+                Sedes y Contacto <span class="material-symbols-outlined text-lg ml-1" aria-hidden="true">location_on</span>
+              </a>
+            </div>
+            <div class="clinic-hero-trust mt-4" aria-label="Información institucional">
+              <span><span class="material-symbols-outlined" aria-hidden="true">verified</span> 20 años de trayectoria</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">location_city</span> Tres sedes en San Miguel</span>
+              <span><span class="material-symbols-outlined" aria-hidden="true">favorite</span> Atención cercana</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TARJETAS -->
-    <section class="relative z-20 px-4 md:px-10 -mt-24 md:-mt-32 pb-16">
+    <section class="clinic-quick-section px-4 md:px-10 pb-16">
       <div class="max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a
             href="/estudios.html"
-            class="group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all"
+            class="clinic-quick-card group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 hover:border-primary/30 transition-all"
           >
             <div
-              class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
+              class="clinic-quick-icon mb-6 flex h-14 w-14 items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
             >
               <span class="material-symbols-outlined text-3xl">radiology</span>
             </div>
@@ -132,10 +130,10 @@ export function renderHomePage() {
 
           <a
             href="/laboratorio.html"
-            class="group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all"
+            class="clinic-quick-card group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 hover:border-primary/30 transition-all"
           >
             <div
-              class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
+              class="clinic-quick-icon mb-6 flex h-14 w-14 items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
             >
               <span class="material-symbols-outlined text-3xl">science</span>
             </div>
@@ -156,10 +154,10 @@ export function renderHomePage() {
 
           <a
             href="#sedes"
-            class="group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all"
+            class="clinic-quick-card group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 hover:border-primary/30 transition-all"
           >
             <div
-              class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
+              class="clinic-quick-icon mb-6 flex h-14 w-14 items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors"
             >
               <span class="material-symbols-outlined text-3xl">location_on</span>
             </div>
@@ -190,12 +188,12 @@ export function renderHomePage() {
 
       <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         <div class="order-2 lg:order-1">
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl" aria-label="Imagen de la clínica">
+          <div class="clinic-photo-frame relative rounded-2xl overflow-hidden shadow-2xl" aria-label="Instalaciones de Plaza Farid">
             <div
               class="aspect-video w-full bg-cover bg-center"
               style='background-image: url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/plazaFarid.png");'
             ></div>
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+            <div class="clinic-photo-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p class="text-white font-medium">Calidad, ética y responsabilidad médica</p>
             </div>
           </div>
@@ -206,7 +204,7 @@ export function renderHomePage() {
             <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-xs font-bold mb-4">
               HISTORIA
             </span>
-            <h2 class="text-3xl md:text-4xl font-black text-[#1c0d0d] dark:text-white leading-tight">
+            <h2 class="clinic-section-title text-3xl md:text-4xl font-black text-[#1c0d0d] dark:text-white leading-tight">
               Trayectoria y confianza en San Miguel
             </h2>
           </div>
@@ -221,19 +219,10 @@ export function renderHomePage() {
             cuidando cada detalle del proceso desde la orientación inicial hasta la entrega de resultados.
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div class="rounded-xl border border-[#e9cece] dark:border-[#331f1f] bg-[#fcf8f8] dark:bg-[#2a1212] p-4">
-              <p class="text-xs text-[#9e4747] font-semibold mb-1">Fundación</p>
-              <p class="text-sm font-bold text-[#1c0d0d] dark:text-white">5 de abril de 2006</p>
-            </div>
-            <div class="rounded-xl border border-[#e9cece] dark:border-[#331f1f] bg-[#fcf8f8] dark:bg-[#2a1212] p-4">
-              <p class="text-xs text-[#9e4747] font-semibold mb-1">Calidad</p>
-              <p class="text-sm font-bold text-[#1c0d0d] dark:text-white">Resultados confiables</p>
-            </div>
-            <div class="rounded-xl border border-[#e9cece] dark:border-[#331f1f] bg-[#fcf8f8] dark:bg-[#2a1212] p-4">
-              <p class="text-xs text-[#9e4747] font-semibold mb-1">Atención</p>
-              <p class="text-sm font-bold text-[#1c0d0d] dark:text-white">Trato cercano</p>
-            </div>
+          <div class="grid grid-cols-3 gap-4 pt-4" aria-label="Trayectoria institucional">
+            <div class="clinic-trust-stat"><strong>2006</strong><span>Año de fundación</span></div>
+            <div class="clinic-trust-stat"><strong>20 años</strong><span>Trayectoria en San Miguel</span></div>
+            <div class="clinic-trust-stat"><strong>3 sedes</strong><span>Ubicaciones para atenderle</span></div>
           </div>
 
           <div class="pt-2">
@@ -254,7 +243,7 @@ export function renderHomePage() {
       <div class="max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div class="flex flex-col gap-4">
-            <h2 class="text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white">
+            <h2 class="clinic-section-title text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white">
               Diagnóstico por imágenes
             </h2>
             <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-xl">
@@ -286,50 +275,51 @@ export function renderHomePage() {
             </div>
           </div>
 
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#e9cece] dark:border-[#331f1f]">
+          <div class="clinic-photo-frame relative rounded-2xl overflow-hidden shadow-2xl border border-[#e9cece] dark:border-[#331f1f]">
             <div
               class="aspect-video w-full bg-cover bg-center"
               aria-label="Equipo de diagnóstico por imágenes"
               style='background-image: url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
             ></div>
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+            <div class="clinic-photo-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p class="text-white font-semibold text-sm">Tecnología y precisión</p>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-          <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">radiology</span>
-              <h3 class="font-black text-[#1c0d0d] dark:text-white">Rayos X</h3>
+        <div class="clinic-modality-grid grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+          <a href="/estudios-rayosx.html" class="clinic-modality-card group" aria-label="Ver estudios de Rayos X">
+            <div class="photo"><img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png" loading="lazy" decoding="async" alt="Rayos X · equipo o modalidad diagnóstica"></div>
+            <div class="clinic-modality-copy">
+              <h3 class="text-[#1c0d0d] dark:text-white">Rayos X</h3>
+              <p>Estudios radiográficos</p>
+              <span class="clinic-modality-link">Conocer Estudios <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span>
             </div>
-            <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Estudios radiográficos según indicación médica.</p>
-          </div>
-
-          <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">woman</span>
-              <h3 class="font-black text-[#1c0d0d] dark:text-white">Mamografía</h3>
+          </a>
+          <a href="/estudios-mamografia.html" class="clinic-modality-card group" aria-label="Ver estudios de Mamografía">
+            <div class="photo"><img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png" loading="lazy" decoding="async" alt="Mamografía · equipo o modalidad diagnóstica"></div>
+            <div class="clinic-modality-copy">
+              <h3 class="text-[#1c0d0d] dark:text-white">Mamografía</h3>
+              <p>Estudios de diagnóstico mamario</p>
+              <span class="clinic-modality-link">Conocer Estudios <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span>
             </div>
-            <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Evaluación mamaria con orientación previa cuando aplica.</p>
-          </div>
-
-          <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">scanner</span>
-              <h3 class="font-black text-[#1c0d0d] dark:text-white">Tomografía</h3>
+          </a>
+          <a href="/estudios-tac.html" class="clinic-modality-card group" aria-label="Ver estudios de Tomografía">
+            <div class="photo"><img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png" loading="lazy" decoding="async" alt="Tomografía · equipo o modalidad diagnóstica"></div>
+            <div class="clinic-modality-copy">
+              <h3 class="text-[#1c0d0d] dark:text-white">Tomografía</h3>
+              <p>Tomografía computarizada</p>
+              <span class="clinic-modality-link">Conocer Estudios <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span>
             </div>
-            <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Tomografía computarizada para evaluación clínica.</p>
-          </div>
-
-          <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">radiology</span>
-              <h3 class="font-black text-[#1c0d0d] dark:text-white">Resonancia Magnética</h3>
+          </a>
+          <a href="/estudios-rm.html" class="clinic-modality-card group" aria-label="Ver estudios de Resonancia Magnética">
+            <div class="photo"><img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png" loading="lazy" decoding="async" alt="Resonancia Magnética · equipo o modalidad diagnóstica"></div>
+            <div class="clinic-modality-copy">
+              <h3 class="text-[#1c0d0d] dark:text-white">Resonancia Magnética</h3>
+              <p>Estudios convencionales y especializados</p>
+              <span class="clinic-modality-link">Conocer Estudios <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span></span>
             </div>
-            <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Resonancia magnética según indicación médica.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -341,16 +331,16 @@ export function renderHomePage() {
           <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-[#e9cece] dark:border-[#331f1f] order-2 lg:order-1">
             <div
               class="aspect-video w-full bg-cover bg-center"
-              aria-label="Laboratorio clínico"
+              aria-label="Fotografía ilustrativa de laboratorio clínico"
               style='background-image: url("https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=82");'
             ></div>
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-              <p class="text-white font-semibold text-sm">Control y seguimiento clínico</p>
+            <div class="clinic-photo-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+              <p class="text-white font-semibold text-sm">Laboratorio clínico <span class="font-normal opacity-80">· Imagen ilustrativa</span></p>
             </div>
           </div>
 
           <div class="flex flex-col gap-4 order-1 lg:order-2">
-            <h2 class="text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white">
+            <h2 class="clinic-section-title text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white">
               Laboratorio clínico
             </h2>
             <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-xl">
@@ -400,51 +390,20 @@ export function renderHomePage() {
       </div>
     </section>
 
-    <!-- INFORMACIÓN ÚTIL: sin novedades de relleno -->
-    <section id="novedades" class="py-16 px-4 md:px-10 bg-background-light dark:bg-background-dark">
-      <div class="max-w-[1280px] mx-auto">
-        <div class="mb-9">
-          <span class="inline-flex items-center gap-2 text-primary text-xs font-extrabold tracking-wide uppercase mb-3"><span class="material-symbols-outlined text-lg" aria-hidden="true">info</span>Orientación al paciente</span>
-          <h2 class="text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white mb-3">Información útil</h2>
-          <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-2xl">Acceda a sus resultados, conozca los estudios disponibles y encuentre su sede.</p>
+    <!-- MENSAJE INSTITUCIONAL: servicios reales y vías de contacto -->
+    <section class="clinic-institutional-band py-14 md:py-16 px-4 md:px-10" aria-label="Compromiso de atención">
+      <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-7">
+        <div class="max-w-3xl">
+          <span class="clinic-eyebrow text-[#e9aaa5] mb-4">Compromiso Institucional</span>
+          <h2 class="text-3xl md:text-4xl font-black tracking-tight text-white leading-tight mb-3">Tecnología diagnóstica y atención humana.</h2>
+          <p class="text-sm md:text-base leading-relaxed">Nuestro equipo está a su disposición para orientarle sobre los estudios, exámenes y sedes disponibles.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="/portal-pacientes" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
-            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
-              <span class="flex items-center justify-center rounded-3xl w-24 h-24 bg-white/75 dark:bg-white/10 shadow-sm text-primary"><span class="material-symbols-outlined !text-[58px]">clinical_notes</span></span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <span class="text-xs text-primary font-bold mb-2">PORTAL DE PACIENTES</span>
-              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Consulte sus resultados</h3>
-              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Acceda al portal digital de pacientes para revisar sus resultados de estudios.</p>
-              <span class="text-primary text-sm font-bold flex items-center gap-1">Acceder al portal<span class="material-symbols-outlined text-base">arrow_forward</span></span>
-            </div>
-          </a>
-          <a href="/estudios.html" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
-            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
-              <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png" alt="Conozca nuestros estudios" loading="lazy" decoding="async">
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <span class="text-xs text-primary font-bold mb-2">DIAGNÓSTICO POR IMÁGENES</span>
-              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Conozca nuestros estudios</h3>
-              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Explore las modalidades de diagnóstico por imágenes y los estudios disponibles.</p>
-              <span class="text-primary text-sm font-bold flex items-center gap-1">Ver estudios<span class="material-symbols-outlined text-base">arrow_forward</span></span>
-            </div>
-          </a>
-          <a href="/#sedes" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
-            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
-              <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/plazaFarid.png" alt="Planifique su visita" loading="lazy" decoding="async">
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <span class="text-xs text-primary font-bold mb-2">SEDES Y CONTACTO</span>
-              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Planifique su visita</h3>
-              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Encuentre direcciones y formas de contacto de las tres sedes en San Miguel.</p>
-              <span class="text-primary text-sm font-bold flex items-center gap-1">Ver sedes<span class="material-symbols-outlined text-base">arrow_forward</span></span>
-            </div>
-          </a>
-        </div>
+        <a href="#sedes" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 text-[#831f1e] font-extrabold text-sm hover:bg-[#f6e8e5] transition-colors">
+          Contactar una Sede <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+        </a>
       </div>
     </section>
+
     ${Sedes()}
     ${Footer()}
     ${WhatsAppFloat()}
