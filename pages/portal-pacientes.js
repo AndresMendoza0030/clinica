@@ -1,4 +1,5 @@
 import { Header } from "../components/header.js";
+import { SitePolish } from "../components/site-polish.js";
 
 export function renderPortalPacientesPage() {
   return `<!DOCTYPE html>
@@ -23,18 +24,24 @@ export function renderPortalPacientesPage() {
         },
       };
     </script>
+    ${SitePolish()}
   </head>
   <body class="bg-background-light text-[#1c0d0d] font-display overflow-hidden">
     ${Header()}
 
-    <main class="h-[calc(100vh-4rem)] bg-[#f4f8fb] p-2 sm:p-4">
-      <section class="h-full overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.15)] sm:rounded-xl" aria-label="Portal de Pacientes">
+    <main class="h-[calc(100vh-4rem)] bg-[#f4f8fb] p-2 sm:p-4 flex flex-col gap-2">
+      <div class="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-white border border-[#e4e8ec] px-4 py-3">
+        <span class="text-sm text-[#5b646d]">Acceso al portal de resultados RIACS.</span>
+        <a href="https://drmendoza.riacs.health/patient/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-primary font-bold text-sm hover:underline">Abrir en otra pestaña <span class="material-symbols-outlined text-base">open_in_new</span></a>
+      </div>
+      <section class="flex-1 min-h-0 overflow-hidden rounded-lg bg-white shadow-[0_8px_24px_rgba(0,0,0,0.15)] sm:rounded-xl" aria-label="Portal de Pacientes">
         <iframe
           class="h-full w-full border-0"
           src="https://drmendoza.riacs.health/patient/"
           title="Portal de Pacientes"
           loading="lazy"
           allow="clipboard-read; clipboard-write"
+          referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
       </section>
     </main>
@@ -43,9 +50,15 @@ export function renderPortalPacientesPage() {
       const menuToggle = document.getElementById("menuToggle");
       const mobileMenu = document.getElementById("mobileMenu");
       if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+        menuToggle.addEventListener("click", () => {
+          const isOpen = !mobileMenu.classList.toggle("hidden");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
         mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
+          });
         });
       }
     </script>

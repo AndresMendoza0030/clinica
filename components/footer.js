@@ -5,9 +5,7 @@ export function Footer() {
         <div class="flex flex-col md:flex-row justify-between mb-12 border-b border-gray-800 pb-10 gap-8">
           <div class="max-w-xs">
             <div class="flex items-center gap-2 mb-4">
-              <div class="size-6 text-primary">
-                <span class="material-symbols-outlined text-2xl">local_hospital</span>
-              </div>
+              <img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" class="w-7 h-7 rounded-md object-contain bg-white" alt="" loading="lazy" />
               <h2 class="text-lg font-bold tracking-tight text-white">Clínica Dr. Mendoza</h2>
             </div>
             <p class="text-gray-400 text-sm leading-relaxed">
@@ -22,13 +20,13 @@ export function Footer() {
               Horarios de atención
             </h3>
             <ul class="text-gray-300 text-sm space-y-2">
-              <li class="flex justify-between w-72 border-b border-gray-800 pb-1">
+              <li class="flex justify-between w-full sm:w-72 border-b border-gray-800 pb-1">
                 <span>Lunes a Viernes:</span>
-                <span class="text-white font-medium">6:00 AM – 4:30 PM</span>
+                <span class="text-white font-medium">6:30 AM – 4:30 PM</span>
               </li>
               <li class="flex justify-between w-72">
                 <span>Sábado:</span>
-                <span class="text-white font-medium">6:00 AM – 12:00 PM</span>
+                <span class="text-white font-medium">6:30 AM – 12:00 PM</span>
               </li>
             </ul>
           </div>
@@ -48,7 +46,7 @@ export function Footer() {
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378205613" target="_blank" rel="noopener">
+                <a class="hover:text-white transition-colors" href="https://wa.me/50378205613" target="_blank" rel="noopener noreferrer">
                   WhatsApp: 7820-5613
                 </a>
               </li>
@@ -68,7 +66,7 @@ export function Footer() {
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378195960" target="_blank" rel="noopener">
+                <a class="hover:text-white transition-colors" href="https://wa.me/50378195960" target="_blank" rel="noopener noreferrer">
                   WhatsApp: 7819-5960
                 </a>
               </li>
@@ -88,7 +86,7 @@ export function Footer() {
               </li>
               <li class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378448608" target="_blank" rel="noopener">
+                <a class="hover:text-white transition-colors" href="https://wa.me/50378448608" target="_blank" rel="noopener noreferrer">
                   WhatsApp: 7844-8608
                 </a>
               </li>
@@ -98,10 +96,12 @@ export function Footer() {
 
         <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
           <p>© 2026 Clínica Radiológica y Laboratorio Clínico Dr. Mendoza. Todos los derechos reservados.</p>
-          <div class="flex gap-6">
-            <a class="hover:text-white transition-colors" href="#">Aviso de Privacidad</a>
-            <a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a>
-          </div>
+          <nav class="flex flex-wrap gap-5" aria-label="Enlaces de pie de página">
+            <a class="hover:text-white transition-colors" href="/#institucional">Historia</a>
+            <a class="hover:text-white transition-colors" href="/estudios.html">Estudios</a>
+            <a class="hover:text-white transition-colors" href="/laboratorio.html">Laboratorio</a>
+            <a class="hover:text-white transition-colors" href="/#sedes">Sedes y contacto</a>
+          </nav>
         </div>
       </div>
     </footer>

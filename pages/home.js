@@ -1,4 +1,5 @@
 import { Header } from "../components/header.js";
+import { SitePolish } from "../components/site-polish.js";
 import { Sedes } from "../components/sedes.js";
 import { Footer } from "../components/footer.js";
 import { WhatsAppFloat } from "../components/whatsapp.js";
@@ -54,6 +55,7 @@ export function renderHomePage() {
         overflow: hidden;
       }
     </style>
+    ${SitePolish()}
   </head>
 
   <body
@@ -89,11 +91,11 @@ export function renderHomePage() {
             </a>
 
             <a
-              href="#novedades"
+              href="/portal-pacientes"
               class="inline-flex items-center justify-center rounded-lg h-11 px-7 bg-white/10 text-white border border-white/20 hover:bg-white/15 text-sm font-bold transition-colors"
             >
-              Novedades
-              <span class="material-symbols-outlined text-lg ml-2">campaign</span>
+              Portal de Pacientes
+              <span class="material-symbols-outlined text-lg ml-2">clinical_notes</span>
             </a>
           </div>
         </div>
@@ -129,7 +131,7 @@ export function renderHomePage() {
           </a>
 
           <a
-            href="#laboratorio"
+            href="/laboratorio.html"
             class="group flex flex-col rounded-xl border border-[#e9cece] bg-white dark:bg-[#2a1212] p-6 shadow-xl hover:shadow-2xl hover:border-primary/30 transition-all"
           >
             <div
@@ -256,7 +258,7 @@ export function renderHomePage() {
               Diagnóstico por imágenes
             </h2>
             <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-xl">
-              Conoce la amplia variedad de estudios que realizamos, con tecnología y atención cuidadosa en cada proceso.
+              Conozca la amplia variedad de estudios que realizamos, con tecnología y atención cuidadosa en cada proceso.
             </p>
 
             <div class="flex flex-wrap gap-2 pt-1">
@@ -288,7 +290,7 @@ export function renderHomePage() {
             <div
               class="aspect-video w-full bg-cover bg-center"
               aria-label="Equipo de diagnóstico por imágenes"
-              style='background-image: url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/LogoDrMendoza.png");'
+              style='background-image: url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
             ></div>
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p class="text-white font-semibold text-sm">Tecnología y precisión</p>
@@ -299,7 +301,7 @@ export function renderHomePage() {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
           <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
             <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">add_a_photo</span>
+              <span class="material-symbols-outlined text-primary">radiology</span>
               <h3 class="font-black text-[#1c0d0d] dark:text-white">Rayos X</h3>
             </div>
             <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Estudios radiográficos según indicación médica.</p>
@@ -323,7 +325,7 @@ export function renderHomePage() {
 
           <div class="rounded-2xl border border-[#e9cece] dark:border-[#331f1f] bg-white dark:bg-[#2a1212] p-6 shadow-sm">
             <div class="flex items-center gap-3 mb-3">
-              <span class="material-symbols-outlined text-primary">sensors</span>
+              <span class="material-symbols-outlined text-primary">radiology</span>
               <h3 class="font-black text-[#1c0d0d] dark:text-white">Resonancia Magnética</h3>
             </div>
             <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1]">Resonancia magnética según indicación médica.</p>
@@ -340,7 +342,7 @@ export function renderHomePage() {
             <div
               class="aspect-video w-full bg-cover bg-center"
               aria-label="Laboratorio clínico"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUKLruu28JMqKgi6lPY__qM-1XQDa7r0_--ecA_H0emFqGIuXx7aUdXzPpNqfRpmnY3xSunV9__hHsjtK5WUt5ZR1jj5SsZtCWyGgJyoyEn1QpNyeh5DhlZ4EECKg1wKlGE_1EUYH_wy6wYDtGhGlpFhMP5omsAVbr8Y0GGELowQlotz5eAgRA5Z2iMELpBKy4SEAWFvgC6p38Bvl-y0RVUiFaTl__uLhirWWmdVvl7lbiRJjSNv9W_aEDKRtXt3j4XI53zRiy1tA3");'
+              style='background-image: url("https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=82");'
             ></div>
             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p class="text-white font-semibold text-sm">Control y seguimiento clínico</p>
@@ -379,7 +381,7 @@ export function renderHomePage() {
 
             <div class="flex flex-col sm:flex-row gap-3 pt-2">
               <a
-                href="#"
+                href="/laboratorio.html"
                 class="inline-flex items-center justify-center rounded-lg h-11 px-6 bg-primary text-white hover:opacity-95 text-sm font-bold transition-opacity"
               >
                 Más información
@@ -398,85 +400,51 @@ export function renderHomePage() {
       </div>
     </section>
 
-    <!-- NOVEDADES -->
+    <!-- INFORMACIÓN ÚTIL: sin novedades de relleno -->
     <section id="novedades" class="py-16 px-4 md:px-10 bg-background-light dark:bg-background-dark">
       <div class="max-w-[1280px] mx-auto">
-        <div class="flex items-center justify-between mb-10">
-          <h2 class="text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white">
-            Novedades
-          </h2>
-          <a class="text-primary font-medium hover:underline text-sm md:text-base" href="#">
-            Ver todas
-          </a>
+        <div class="mb-9">
+          <span class="inline-flex items-center gap-2 text-primary text-xs font-extrabold tracking-wide uppercase mb-3"><span class="material-symbols-outlined text-lg" aria-hidden="true">info</span>Orientación al paciente</span>
+          <h2 class="text-2xl md:text-3xl font-black text-[#1c0d0d] dark:text-white mb-3">Información útil</h2>
+          <p class="text-sm md:text-base text-[#634f4f] dark:text-[#d3c1c1] max-w-2xl">Acceda a sus resultados, conozca los estudios disponibles y encuentre su sede.</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <article class="flex flex-col bg-white dark:bg-[#2a1212] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div
-              class="h-44 bg-cover bg-center"
-              aria-label="Novedad"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtR6hlRRp7jViwZMYGrYScVr2gUls2vzjI30_I1tnWIWokf50r98OL1FrniM1igOTYxNL8Ydv12BHlbSjIa_QZAlLJkjuso5_PKamVNn649q2qaZpxylErOUo0YMSQOj46FsOUmPQiSP1QMiw0ZxDiJATeUkLjNGv6gAEMb0njs92_ml2hW2MOl92scGwKRXq7zmLTUrzQNL1qXifE3-2O5vSr-mWD_-KGJPgJzLPPak6L4xhbQzwlt4LenzAOgxFqs3T7Bb-0wdA-");'
-            ></div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs text-[#9e4747] font-semibold">ANUNCIO</span>
-                <time class="text-xs text-[#634f4f] dark:text-[#d3c1c1]" datetime="2026-01-09">09 Ene 2026</time>
-              </div>
-              <h3 class="text-lg font-bold text-[#1c0d0d] dark:text-white mb-3 leading-snug">
-                Horarios de atención
-              </h3>
-              <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3 mb-4">
-                Lunes a viernes 6:00 AM – 4:30 PM. Sábado 6:00 AM – 12:00 PM.
-              </p>
-              <a class="mt-auto text-primary text-sm font-bold hover:underline" href="#">Leer más</a>
+          <a href="/portal-pacientes" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
+              <span class="flex items-center justify-center rounded-3xl w-24 h-24 bg-white/75 dark:bg-white/10 shadow-sm text-primary"><span class="material-symbols-outlined !text-[58px]">clinical_notes</span></span>
             </div>
-          </article>
-
-          <article class="flex flex-col bg-white dark:bg-[#2a1212] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div
-              class="h-44 bg-cover bg-center"
-              aria-label="Novedad"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcO9BfOXuloHuvFQ_jAK9ew_9gl6D1qDyuJG_lcQz1RZhaissm-_9cYZsrie0iPpE0g33VBldGs5EO6aBN_UaS2RHYvXXdkPl1oLsy27KPzK_lwVO7ln5dmPh_Hl_kl-KJZwmDuWWMZSTcXx_pBaFoS9hOlps-USglHUkrDN_aF8bBfTod1UbO7aSu20BAdA-mXaqSQv7QXWRFFYpPWcZ8pDuygEdvbofuphhpJjuANoWyRDwnL9UUZB8VfcS3YZFPijrhXpHNDb8D");'
-            ></div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs text-[#9e4747] font-semibold">AVISO</span>
-                <time class="text-xs text-[#634f4f] dark:text-[#d3c1c1]" datetime="2026-01-09">09 Ene 2026</time>
-              </div>
-              <h3 class="text-lg font-bold text-[#1c0d0d] dark:text-white mb-3 leading-snug">
-                Aviso
-              </h3>
-              <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3 mb-4">
-                (Contenido por publicar)
-              </p>
-              <a class="mt-auto text-primary text-sm font-bold hover:underline" href="#">Leer más</a>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs text-primary font-bold mb-2">PORTAL DE PACIENTES</span>
+              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Consulte sus resultados</h3>
+              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Acceda al portal digital de pacientes para revisar sus resultados de estudios.</p>
+              <span class="text-primary text-sm font-bold flex items-center gap-1">Acceder al portal<span class="material-symbols-outlined text-base">arrow_forward</span></span>
             </div>
-          </article>
-
-          <article class="flex flex-col bg-white dark:bg-[#2a1212] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div
-              class="h-44 bg-cover bg-center"
-              aria-label="Novedad"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUKLruu28JMqKgi6lPY__qM-1XQDa7r0_--ecA_H0emFqGIuXx7aUdXzPpNqfRpmnY3xSunV9__hHsjtK5WUt5ZR1jj5SsZtCWyGgJyoyEn1QpNyeh5DhlZ4EECKg1wKlGE_1EUYH_wy6wYDtGhGlpFhMP5omsAVbr8Y0GGELowQlotz5eAgRA5Z2iMELpBKy4SEAWFvgC6p38Bvl-y0RVUiFaTl__uLhirWWmdVvl7lbiRJjSNv9W_aEDKRtXt3j4XI53zRiy1tA3");'
-            ></div>
-            <div class="p-5 flex flex-col flex-1">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-xs text-[#9e4747] font-semibold">AVISO</span>
-                <time class="text-xs text-[#634f4f] dark:text-[#d3c1c1]" datetime="2026-01-09">09 Ene 2026</time>
-              </div>
-              <h3 class="text-lg font-bold text-[#1c0d0d] dark:text-white mb-3 leading-snug">
-                Aviso
-              </h3>
-              <p class="text-sm text-[#634f4f] dark:text-[#d3c1c1] line-clamp-3 mb-4">
-                (Contenido por publicar)
-              </p>
-              <a class="mt-auto text-primary text-sm font-bold hover:underline" href="#">Leer más</a>
+          </a>
+          <a href="/estudios.html" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
+              <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png" alt="Conozca nuestros estudios" loading="lazy" decoding="async">
             </div>
-          </article>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs text-primary font-bold mb-2">DIAGNÓSTICO POR IMÁGENES</span>
+              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Conozca nuestros estudios</h3>
+              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Explore las modalidades de diagnóstico por imágenes y los estudios disponibles.</p>
+              <span class="text-primary text-sm font-bold flex items-center gap-1">Ver estudios<span class="material-symbols-outlined text-base">arrow_forward</span></span>
+            </div>
+          </a>
+          <a href="/#sedes" class="group flex flex-col overflow-hidden bg-white dark:bg-[#2a1212] rounded-2xl border border-[#ead0d0] dark:border-[#3a1e1e] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all">
+            <div class="h-44 overflow-hidden flex items-center justify-center bg-[#f6eaea] dark:bg-[#341818]">
+              <img class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/plazaFarid.png" alt="Planifique su visita" loading="lazy" decoding="async">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs text-primary font-bold mb-2">SEDES Y CONTACTO</span>
+              <h3 class="text-lg font-black text-[#1c0d0d] dark:text-white mb-3">Planifique su visita</h3>
+              <p class="text-sm leading-relaxed text-[#634f4f] dark:text-[#d3c1c1] flex-1 mb-4">Encuentre direcciones y formas de contacto de las tres sedes en San Miguel.</p>
+              <span class="text-primary text-sm font-bold flex items-center gap-1">Ver sedes<span class="material-symbols-outlined text-base">arrow_forward</span></span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
-
     ${Sedes()}
     ${Footer()}
     ${WhatsAppFloat()}
@@ -503,12 +471,14 @@ export function renderHomePage() {
 
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
+          const isOpen = !mobileMenu.classList.toggle("hidden");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
           });
         });
       }

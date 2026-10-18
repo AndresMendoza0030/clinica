@@ -1,4 +1,5 @@
 import { Header } from "../components/header.js";
+import { SitePolish } from "../components/site-polish.js";
 import { Sedes } from "../components/sedes.js";
 import { Footer } from "../components/footer.js";
 import { WhatsAppFloat } from "../components/whatsapp.js";
@@ -74,6 +75,7 @@ export function renderLaboratorioPage() {
           linear-gradient(180deg, rgba(199, 5, 5, 0.10) 0%, rgba(199, 5, 5, 0.03) 100%);
       }
     </style>
+    ${SitePolish()}
   </head>
 
   <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
@@ -114,7 +116,7 @@ export function renderLaboratorioPage() {
               <a
                 href="https://wa.me/50378205613"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
               >
                 WhatsApp
@@ -128,10 +130,10 @@ export function renderLaboratorioPage() {
     <section id="categorias" class="relative py-10 md:py-14">
       <div class="max-w-[1280px] mx-auto px-4 md:px-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">biotech</span>
               </div>
             </div>
@@ -149,10 +151,10 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">bloodtype</span>
               </div>
             </div>
@@ -170,18 +172,18 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary !text-[84px]">vaccines</span>
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary !text-[84px]">health_and_safety</span>
               </div>
             </div>
             <div class="p-6 flex flex-col gap-4">
               <div class="flex items-center justify-between gap-3">
                 <h2 class="text-xl font-black text-ink dark:text-white">Inmunología</h2>
                 <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
-                  <span class="material-symbols-outlined text-[20px]">vaccines</span>
+                  <span class="material-symbols-outlined text-[20px]">health_and_safety</span>
                 </span>
               </div>
               <a href="/laboratorio-inmunologia.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
@@ -191,10 +193,10 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">emoji_nature</span>
               </div>
             </div>
@@ -212,10 +214,10 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">coronavirus</span>
               </div>
             </div>
@@ -233,10 +235,10 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">water_drop</span>
               </div>
             </div>
@@ -254,18 +256,18 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
-                <span class="material-symbols-outlined text-primary !text-[84px]">experiment</span>
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary !text-[84px]">science</span>
               </div>
             </div>
             <div class="p-6 flex flex-col gap-4">
               <div class="flex items-center justify-between gap-3">
                 <h2 class="text-xl font-black text-ink dark:text-white">Pruebas especiales</h2>
                 <span class="rounded-full bg-[#f9ecec] dark:bg-[#341818] p-2 text-primary">
-                  <span class="material-symbols-outlined text-[20px]">experiment</span>
+                  <span class="material-symbols-outlined text-[20px]">science</span>
                 </span>
               </div>
               <a href="/laboratorio-pruebas-especiales.html" class="inline-flex items-center gap-1 text-primary text-sm font-black hover:underline">
@@ -275,10 +277,10 @@ export function renderLaboratorioPage() {
             </div>
           </article>
 
-          <article class="group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+          <article class="clinic-lab-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
-              <div class="h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
+              <div class="clinic-lab-visual h-56 bg-gradient-to-br from-[#fff3f3] to-[#f9dcdc] dark:from-[#341818] dark:to-[#241010] flex items-center justify-center">
                 <span class="material-symbols-outlined text-primary !text-[84px]">playlist_add_check_circle</span>
               </div>
             </div>
@@ -346,12 +348,14 @@ export function renderLaboratorioPage() {
 
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
+          const isOpen = !mobileMenu.classList.toggle("hidden");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
           });
         });
       }

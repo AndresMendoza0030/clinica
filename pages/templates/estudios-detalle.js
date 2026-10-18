@@ -1,4 +1,5 @@
 import { Header } from "../../components/header.js";
+import { SitePolish } from "../../components/site-polish.js";
 import { Sedes } from "../../components/sedes.js";
 import { Footer } from "../../components/footer.js";
 import { WhatsAppFloat } from "../../components/whatsapp.js";
@@ -142,6 +143,7 @@ export function renderEstudioDetallePage({
           linear-gradient(180deg, rgba(199, 5, 5, 0.12) 0%, rgba(199, 5, 5, 0.03) 100%);
       }
     </style>
+    ${SitePolish()}
   </head>
 
   <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
@@ -184,7 +186,7 @@ export function renderEstudioDetallePage({
               <a
                 href="${ctaHref}"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
               >
                 ${ctaText}
@@ -253,12 +255,14 @@ export function renderEstudioDetallePage({
 
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
+          const isOpen = !mobileMenu.classList.toggle("hidden");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
           });
         });
       }

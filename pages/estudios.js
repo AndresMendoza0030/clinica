@@ -1,4 +1,5 @@
 import { Header } from "../components/header.js";
+import { SitePolish } from "../components/site-polish.js";
 import { Sedes } from "../components/sedes.js";
 import { Footer } from "../components/footer.js";
 import { WhatsAppFloat } from "../components/whatsapp.js";
@@ -74,6 +75,7 @@ export function renderEstudiosPage() {
           linear-gradient(180deg, rgba(199, 5, 5, 0.10) 0%, rgba(199, 5, 5, 0.03) 100%);
       }
     </style>
+    ${SitePolish()}
   </head>
 
   <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
@@ -114,7 +116,7 @@ export function renderEstudiosPage() {
               <a
                 href="https://wa.me/50378205613"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="inline-flex items-center justify-center rounded-full h-11 px-6 border border-white/25 bg-white/10 text-white text-sm font-black backdrop-blur-sm hover:bg-white/15 transition-colors"
               >
                 WhatsApp
@@ -132,9 +134,9 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
-                aria-label="Resonancia Magnética"
+                role="img" aria-label="Equipo de resonancia magnética"
               ></div>
             </div>
             <div class="p-6 flex flex-col gap-4">
@@ -155,9 +157,9 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
-                aria-label="Tomografía"
+                role="img" aria-label="Equipo de tomografía"
               ></div>
             </div>
             <div class="p-6 flex flex-col gap-4">
@@ -178,7 +180,7 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
                 aria-label="Ultrasonografía"
               ></div>
@@ -201,7 +203,7 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
                 aria-label="Rayos X"
               ></div>
@@ -224,7 +226,7 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
                 aria-label="Mamografía"
               ></div>
@@ -247,7 +249,7 @@ export function renderEstudiosPage() {
             <div class="relative">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.webp");'
                 aria-label="Estudios especiales"
               ></div>
@@ -316,12 +318,14 @@ export function renderEstudiosPage() {
 
       if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", function () {
-          mobileMenu.classList.toggle("hidden");
+          const isOpen = !mobileMenu.classList.toggle("hidden");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
             mobileMenu.classList.add("hidden");
+            menuToggle.setAttribute("aria-expanded", "false");
           });
         });
       }

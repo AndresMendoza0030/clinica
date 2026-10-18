@@ -16,38 +16,38 @@ export function Header() {
 
         <nav class="hidden md:flex flex-1 items-center justify-end gap-8">
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             href="/"
           >
             Inicio
           </a>
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="#institucional"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            href="/#institucional"
           >
             Historia
           </a>
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="estudios"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            href="/estudios.html"
           >
             Diagnóstico por imágenes
           </a>
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="laboratorio"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            href="/laboratorio.html"
           >
             Laboratorio clínico
           </a>
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             href="/portal-pacientes"
           >
             Portal Pacientes
           </a>
           <a
-            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6]"
-            href="#sedes"
+            class="text-sm font-medium hover:text-primary transition-colors text-[#1c0d0d] dark:text-[#f4e6e6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            href="/#sedes"
           >
             Sedes y contacto
           </a>
@@ -57,6 +57,8 @@ export function Header() {
           id="menuToggle"
           class="md:hidden p-2 text-[#1c0d0d] dark:text-white"
           aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
           type="button"
         >
           <span class="material-symbols-outlined">menu</span>
@@ -65,15 +67,16 @@ export function Header() {
 
       <div
         id="mobileMenu"
+        aria-label="Navegación móvil"
         class="hidden md:hidden border-t border-[#f4e6e6] dark:border-[#331f1f] bg-[#fcf8f8] dark:bg-[#1c0d0d]"
       >
         <nav class="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-3">
-          <a class="text-sm font-medium hover:text-primary transition-colors" href="#inicio">Inicio</a>
-          <a class="text-sm font-medium hover:text-primary transition-colors" href="#institucional">Historia</a>
-          <a class="text-sm font-medium hover:text-primary transition-colors" href="#imagenes">Diagnóstico por imágenes</a>
-          <a class="text-sm font-medium hover:text-primary transition-colors" href="#laboratorio">Laboratorio clínico</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/#inicio">Inicio</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/#institucional">Historia</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/#imagenes">Diagnóstico por imágenes</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/laboratorio.html">Laboratorio clínico</a>
           <a class="text-sm font-medium hover:text-primary transition-colors" href="/portal-pacientes">Portal Pacientes</a>
-          <a class="text-sm font-medium hover:text-primary transition-colors" href="#sedes">Sedes y contacto</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="/#sedes">Sedes y contacto</a>
         </nav>
       </div>
     </header>
