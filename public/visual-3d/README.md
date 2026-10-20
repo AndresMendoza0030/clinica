@@ -13,3 +13,10 @@ Radiólogo: render 3D, profesional adulto de espaldas en estación de dos monito
 
 ## Integración
 Los archivos de `public/` se sirven con Workers Static Assets (configuración en wrangler.toml). Ruta de revisión `/visual-3d/`. Reutilizar imágenes mediante `/visual-3d/assets/tomografia.webp` y `/visual-3d/assets/radiologo.webp`.
+
+## Preview integrada del sitio
+La portada y los encabezados de estudios y laboratorio ahora usan los renders mediante `components/visual-upgrade.js`, aplicado por el Worker al HTML del servidor. La capa deja intacto el portal de pacientes y conserva el contenido clínico original. Plaza Farid usa el render arquitectónico aprobado, no la maqueta geométrica interactiva.
+
+Nuevos recursos: RM, TAC, US, RX, mamografía, laboratorio, radiólogo y Plaza Farid, en WebP de 1536 px y versiones de 720 px. Los equipos son ilustraciones genéricas, no fotografías de modelos Siemens; la fachada se basa en la foto proporcionada. El logo original se aloja localmente para reducir dependencias.
+
+Validación: `node tests/visual-upgrade.mjs`. Revisión en Chromium a 1440 y 390 px; navegación móvil, ausencia de desbordamiento horizontal, recursos de portada y siete encabezados internos. Para pruebas locales se utilizó una copia del mismo script externo de Tailwind porque el navegador de pruebas no tiene salida directa a Internet. El sitio mantiene su dependencia preexistente del CDN de Tailwind y fuentes Google.
