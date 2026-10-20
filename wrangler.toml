@@ -1,3 +1,6 @@
 name = "clinica"
 main = "worker.js"
 compatibility_date = "2026-03-18"
+
+[assets]
+directory = "./public"
