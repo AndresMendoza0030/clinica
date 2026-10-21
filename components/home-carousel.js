@@ -10,7 +10,7 @@ const slides = [
     alt: 'Recepción de la clínica con el mostrador de madera despejado y las sillas ordenadas, recreada a partir de la fotografía del espacio.',
   },
   {
-    image: 'portada-interpretacion-espaldas',
+    image: 'portada-interpretacion-espaldas-v2',
     title: 'Interpretación de estudios',
     alt: 'Radiólogo visto completamente de espaldas mientras revisa estudios en una estación de diagnóstico. Imagen ilustrativa.',
   },

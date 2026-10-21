@@ -25,7 +25,7 @@ Validación: `node tests/visual-upgrade.mjs`. Revisión en Chromium a 1440 y 390
 
 La portada utiliza `components/home-carousel.js` con cuatro imágenes generadas para esta propuesta: detalle de la gabacha con el logo original y las manos (rostro fuera del encuadre), recepción recreada a partir de la fotografía proporcionada (mostrador despejado y sillas alineadas), revisión de estudios vista completamente de espaldas, y trabajo de laboratorio clínico con muestras y microscopio, sin rostros. No representan personal real ni una reforma realizada. Los renders del catálogo y la fachada aprobada se conservan.
 
-Los recursos `portada-medico-detalle`, `portada-recepcion`, `portada-interpretacion-espaldas` y `portada-laboratorio` se sirven como WebP local de 1536 y 720 px. La primera imagen tiene prioridad de carga y precarga adaptable; las siguientes utilizan carga diferida. La selección de tamaño contempla el recorte de las fotos para mantener nitidez.
+Los recursos `portada-medico-detalle`, `portada-recepcion`, `portada-interpretacion-espaldas-v2` y `portada-laboratorio` se sirven como WebP local de 1536 y 720 px. La primera imagen tiene prioridad de carga y precarga adaptable; las siguientes utilizan carga diferida. La selección de tamaño contempla el recorte de las fotos para mantener nitidez.
 
 Carrusel sin avance automático, con scroll-snap nativo, gesto táctil, arrastre con ratón, flechas, indicadores y teclado (flechas, Inicio y Fin). Incluye etiquetas accesibles, anuncio de cambio de imagen y respeto a movimiento reducido. Sin JavaScript conserva el desplazamiento nativo y oculta los botones inactivos.
 
@@ -43,6 +43,12 @@ Dirección de los prompts: (1) detalle editorial desde la parte superior de la g
 
 Matriz y Advanced usan nuevas visualizaciones arquitectónicas basadas en las fotos proporcionadas, con el estilo del render aprobado de Plaza Farid. Recursos: `public/assets/visuals/sede-matriz{,-720}.webp` y `sede-advanced{,-720}.webp`. Prompts de ImageGen integrado: conservar fachada, proporciones, colores, ventanas, entradas y señalización de referencia; mostrar el edificio completo desde una perspectiva frontal ligeramente elevada, retirar tráfico/personas/cables/vecinos y usar materiales realistas, luz suave y fondo claro como Plaza Farid.
 
-La fotografía histórica `matriz-primeros-anos.webp` conserva la imagen original de los primeros años (solo conversión WebP) y aparece en Nuestra Clínica.
+Nuestra Clínica utiliza `matriz-primeros-anos-restaurada.webp` y su variante de 720 px: la versión restaurada y retocada con ImageGen que aprobó el usuario, de 1448 × 1086 px, sin ampliar artificialmente sus dimensiones al exportar. Conserva el encuadre de la edición aprobada, calidez, brillo, textura moderada y el borde superior corregido. Se retiraron el anuncio, los conos y algunos cables; los rótulos pequeños se reconstruyeron y no deben tomarse como una transcripción histórica exacta. El recurso anterior `matriz-primeros-anos.webp` conserva la fotografía de referencia sin esos retoques.
+
+### Ajustes de fotografías aprobados
+
+La tercera diapositiva usa `portada-interpretacion-espaldas-v2{,-720}.webp`, editada con ImageGen integrado. Prompt: modificar únicamente al médico de la imagen existente, con tono de piel ligeramente más oscuro y uniforme en nuca, orejas y manos, cabello corto oscuro y liso; conservar la vista totalmente de espaldas, bata, postura, monitores, escritorio, iluminación y encuadre, sin mostrar el rostro. Se conservan los recursos anteriores para referencia. Los nuevos nombres evitan reutilizar las imágenes antiguas desde caché.
+
+Verificación de estos dos reemplazos: prueba de integración de diez rutas y revisión en Chromium a 1440 y 390 px; ambas imágenes cargan, la tercera diapositiva se selecciona correctamente y no hay desbordamiento horizontal ni errores de JavaScript.
 
 Verificación: prueba existente de diez rutas; navegador en Inicio, Estudios y detalle de laboratorio; tres contactos exactos por sede, selección de coordenadas y título del mapa, footer compartido, ausencia de avisos ilustrativos visibles y ausencia de errores JS o desbordamiento a 320, 390, 768, 1024 y 1440 px. Alternativa sin JavaScript con contactos y mapa desplegable. El mapa externo se simuló en la prueba del navegador para verificar el cambio de URL sin depender de la red; se conservaron coordenadas y enlaces originales.

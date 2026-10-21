@@ -107,7 +107,7 @@ export function renderHomePage() {
           </div>
         </div>
         <figure class="th-institution-image th-institution-archive" style="margin:0">
-          <img src="/assets/visuals/matriz-primeros-anos.webp" width="640" height="480" alt="Fotografía de la primera Matriz en los primeros años de la clínica" loading="lazy" decoding="async" />
+          <img src="/assets/visuals/matriz-primeros-anos-restaurada.webp" srcset="/assets/visuals/matriz-primeros-anos-restaurada-720.webp 720w, /assets/visuals/matriz-primeros-anos-restaurada.webp 1448w" sizes="(max-width: 760px) 92vw, (max-width: 1440px) 55vw, 780px" width="1448" height="1086" alt="Fotografía restaurada de la primera Matriz en los primeros años de la clínica" loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
