@@ -1,3 +1,4 @@
+import { Sedes } from '../components/sedes.js';
 import { HomeTechHeader, HomeTechFooter, HomeTechStyle } from "../components/home-tech-style.js";
 
 const IMG = "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/";
@@ -88,15 +89,15 @@ export function renderHomePage() {
       <div class="th-shell th-institution-grid">
         <div>
           <div class="th-section-label">Nuestra Clínica</div>
-          <h2 id="inst-title" class="th-headline">Más de dos décadas de compromiso con su salud.</h2>
+          <h2 id="inst-title" class="th-headline">Desde 2006,<br>cerca de usted.</h2>
           <p class="th-body-copy">
             Fundada el 5 de abril de 2006, la Clínica Radiológica y Laboratorio Clínico Dr. Mendoza
             acompaña a pacientes y médicos de San Miguel con servicios de diagnóstico
             y una atención basada en la confianza.
           </p>
           <p class="th-body-copy">
-            Nuestra trayectoria integra imagenología, laboratorio clínico y un compromiso continuo
-            con la calidad de la atención.
+            De nuestra primera Matriz a tres sedes en San Miguel, nuestra historia crece
+            junto a las personas que confían en nosotros.
           </p>
           <a class="th-inline-link" href="#sedes">Conozca Nuestras Sedes <span class="th-arrow" aria-hidden="true">→</span></a>
           <div class="th-facts" aria-label="Nuestra trayectoria">
@@ -105,9 +106,8 @@ export function renderHomePage() {
             <div class="th-fact"><strong>3</strong><span>Sedes en San Miguel</span></div>
           </div>
         </div>
-        <figure class="th-institution-image" style="margin:0">
-          <img src="${IMG}plazaFarid.png" alt="Instalaciones de la clínica en Plaza Farid" loading="lazy" decoding="async" />
-          <figcaption>PLAZA FARID / CLÍNICA DR. MENDOZA</figcaption>
+        <figure class="th-institution-image th-institution-archive" style="margin:0">
+          <img src="/assets/visuals/matriz-primeros-anos.webp" width="640" height="480" alt="Fotografía de la primera Matriz en los primeros años de la clínica" loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
@@ -115,7 +115,6 @@ export function renderHomePage() {
     <section id="laboratorio" class="th-lab-feature" aria-labelledby="lab-title">
       <div class="th-lab-image">
         <img src="${LAB_IMAGE}" alt="Material de laboratorio clínico, imagen ilustrativa" loading="lazy" decoding="async" />
-        <span>IMAGEN ILUSTRATIVA</span>
       </div>
       <div class="th-lab-content">
         <div class="th-section-label">Laboratorio Clínico</div>
@@ -128,46 +127,7 @@ export function renderHomePage() {
       </div>
     </section>
 
-    <section id="sedes" class="th-locations" aria-labelledby="sedes-title">
-      <div class="th-shell">
-        <div class="th-locations-head">
-          <div><div class="th-section-label">Sedes y Contacto</div><h2 id="sedes-title">Siempre cerca de usted.</h2></div>
-          <p>Consulte dónde se realiza el estudio que necesita antes de visitar nuestras instalaciones.</p>
-        </div>
-        <div class="th-location-grid">
-          <article class="th-location">
-            <span class="th-location-number">01 / SEDE PRINCIPAL</span>
-            <h3>Clínica Matriz</h3>
-            <p>9.ª Avenida Sur #411, Barrio La Merced, San Miguel.</p>
-            <a href="tel:+50326612345" class="th-location-phone">2661-2345</a>
-            <div class="th-location-actions">
-              <a href="https://maps.app.goo.gl/cXRW57bte2G2VioK6" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-              <a href="https://wa.me/50378205613" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-            </div>
-          </article>
-          <article class="th-location">
-            <span class="th-location-number">02 / SEDE</span>
-            <h3>Plaza Farid</h3>
-            <p>Avenida Roosevelt Norte #412, Barrio San Felipe, San Miguel.</p>
-            <a href="tel:+50326697475" class="th-location-phone">2669-7475</a>
-            <div class="th-location-actions">
-              <a href="https://maps.app.goo.gl/1KysDJYFLpXdvZMi6" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-              <a href="https://wa.me/50378195960" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-            </div>
-          </article>
-          <article class="th-location">
-            <span class="th-location-number">03 / SEDE</span>
-            <h3>Advanced Radiology</h3>
-            <p>Avenida Roosevelt Norte #411, San Miguel.</p>
-            <a href="tel:+50326697988" class="th-location-phone">2669-7988</a>
-            <div class="th-location-actions">
-              <a href="https://maps.app.goo.gl/RGyf8VcgsaMdJWHx5" target="_blank" rel="noopener noreferrer">Google Maps ↗</a>
-              <a href="https://wa.me/50378448608" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    ${Sedes()}
   </main>
   ${HomeTechFooter()}
   <script>

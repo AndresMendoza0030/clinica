@@ -2,25 +2,21 @@ const slides = [
   {
     image: 'portada-medico-detalle',
     title: 'Atención médica',
-    note: 'Imagen ilustrativa',
     alt: 'Detalle de la gabacha con el logo original de la clínica y manos sosteniendo una tableta, sin mostrar el rostro. Imagen ilustrativa.',
   },
   {
     image: 'portada-recepcion',
     title: 'Recepción y sala de espera',
-    note: 'Propuesta visual de la recepción',
     alt: 'Recepción de la clínica con el mostrador de madera despejado y las sillas ordenadas, recreada a partir de la fotografía del espacio.',
   },
   {
     image: 'portada-interpretacion-espaldas',
     title: 'Interpretación de estudios',
-    note: 'Imagen ilustrativa',
     alt: 'Radiólogo visto completamente de espaldas mientras revisa estudios en una estación de diagnóstico. Imagen ilustrativa.',
   },
   {
     image: 'portada-laboratorio',
     title: 'Laboratorio Clínico',
-    note: 'Imagen ilustrativa',
     alt: 'Manos con guantes organizando muestras junto a un microscopio y equipo de laboratorio clínico. Imagen ilustrativa.',
   },
 ];
@@ -31,7 +27,7 @@ export function HomeCarousel() {
     <div id="hc-viewport" class="hc-viewport" tabindex="0" aria-label="Imágenes de la clínica" aria-describedby="hc-help">
       ${slides.map((slide, index) => `<figure class="hc-slide hc-slide--${index + 1}" role="group" aria-roledescription="diapositiva" aria-label="${index + 1} de ${slides.length}: ${slide.title}">
         <img src="/assets/visuals/${slide.image}.webp" srcset="/assets/visuals/${slide.image}-720.webp 720w, /assets/visuals/${slide.image}.webp 1536w" sizes="(max-width: 760px) 130vw, 1000px" width="1536" height="1024" alt="${slide.alt}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
-        <figcaption class="hc-caption"><span class="hc-eyebrow">CLÍNICA DR. MENDOZA <span aria-hidden="true">/ ${String(index + 1).padStart(2, '0')}</span></span><strong>${slide.title}</strong><span class="hc-note">${slide.note}</span></figcaption>
+        <figcaption class="hc-caption"><span class="hc-eyebrow">CLÍNICA DR. MENDOZA <span aria-hidden="true">/ ${String(index + 1).padStart(2, '0')}</span></span><strong>${slide.title}</strong></figcaption>
       </figure>`).join('')}
     </div>
     <div class="hc-controls" hidden>
@@ -55,7 +51,6 @@ export const HomeCarouselStyles = `<style id="home-carousel-style">
 .hc-carousel .hc-caption{position:absolute;left:32px;right:32px;bottom:88px;z-index:1;color:#fff;letter-spacing:normal;font-family:inherit;pointer-events:none}
 .hc-eyebrow{display:block;font-size:9px;line-height:1.5;letter-spacing:.17em;font-weight:600;color:#e5e3df}
 .hc-caption strong{display:block;margin-top:10px;font-size:clamp(23px,2.1vw,32px);font-weight:500;line-height:1.15;letter-spacing:-.025em}
-.hc-note{display:block;margin-top:10px;font-size:10px;line-height:1.4;color:#d8d8d6}
 .hc-controls{position:absolute;bottom:22px;left:32px;right:32px;display:flex;align-items:center;gap:14px;z-index:2;border-top:1px solid #ffffff36;padding-top:14px}
 .hc-controls[hidden]{display:none}
 .hc-controls button{border:0;cursor:pointer;background:transparent;color:#fff;padding:0;font:inherit;display:flex;align-items:center;justify-content:center;touch-action:manipulation}

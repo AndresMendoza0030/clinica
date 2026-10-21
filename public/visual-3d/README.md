@@ -36,3 +36,13 @@ Verificación en Chromium a 1440 y 390 px: imágenes cargadas, navegación circu
 Recursos en `public/assets/visuals/`, generados y editados con la herramienta integrada ImageGen y optimizados a WebP. Las variantes con los nuevos nombres evitan que las fotos antiguas permanezcan visibles por caché.
 
 Dirección de los prompts: (1) detalle editorial desde la parte superior de la gabacha hasta las caderas, rostro fuera del encuadre, logo original y manos con tableta, equipo de diagnóstico al fondo; (2) revisión de imágenes desde la espalda, sin perfil facial, con monitores y entorno clínico conservados; (3) manos con guantes manipulando tubos cerrados junto a un microscopio y analizador, sin cabeza ni rostro, luz neutra y composición compatible con recorte cuadrado.
+
+## Sedes, historia y footer compartido
+
+`components/clinic-locations.js` centraliza las tres sedes y sus contactos existentes. `Sedes()` muestra las fachadas, teléfonos, WhatsApp, Maps y Waze, con un mapa desplegable que permite cambiar de sede. `Footer()` se comparte entre Inicio, catálogo y páginas de detalle, con identidad, navegación, horarios y contacto directo. Se retiraron los controladores duplicados del mapa y las etiquetas visibles de imagen/visualización ilustrativa. Se conservan descripciones alternativas en las imágenes.
+
+Matriz y Advanced usan nuevas visualizaciones arquitectónicas basadas en las fotos proporcionadas, con el estilo del render aprobado de Plaza Farid. Recursos: `public/assets/visuals/sede-matriz{,-720}.webp` y `sede-advanced{,-720}.webp`. Prompts de ImageGen integrado: conservar fachada, proporciones, colores, ventanas, entradas y señalización de referencia; mostrar el edificio completo desde una perspectiva frontal ligeramente elevada, retirar tráfico/personas/cables/vecinos y usar materiales realistas, luz suave y fondo claro como Plaza Farid.
+
+La fotografía histórica `matriz-primeros-anos.webp` conserva la imagen original de los primeros años (solo conversión WebP) y aparece en Nuestra Clínica.
+
+Verificación: prueba existente de diez rutas; navegador en Inicio, Estudios y detalle de laboratorio; tres contactos exactos por sede, selección de coordenadas y título del mapa, footer compartido, ausencia de avisos ilustrativos visibles y ausencia de errores JS o desbordamiento a 320, 390, 768, 1024 y 1440 px. Alternativa sin JavaScript con contactos y mapa desplegable. El mapa externo se simuló en la prueba del navegador para verificar el cambio de URL sin depender de la red; se conservaron coordenadas y enlaces originales.

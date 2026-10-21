@@ -1,109 +1,15 @@
-export function Footer() {
-  return `
-    <footer class="bg-[#1c0d0d] text-white pt-16 pb-8">
-      <div class="max-w-[1280px] mx-auto px-4 md:px-10">
-        <div class="flex flex-col md:flex-row justify-between mb-12 border-b border-gray-800 pb-10 gap-8">
-          <div class="max-w-xs">
-            <div class="flex items-center gap-2 mb-4">
-              <img src="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" class="w-7 h-7 rounded-md object-contain bg-white" alt="" loading="lazy" />
-              <h2 class="text-lg font-bold tracking-tight text-white">Clínica Dr. Mendoza</h2>
-            </div>
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Clínica Radiológica y Laboratorio Clínico Dr. Mendoza — Gracias por confiarnos su salud.
-            </p>
-            <p class="text-gray-500 text-xs mt-3">Fundada el 5 de abril de 2006</p>
-          </div>
-
-          <div>
-            <h3 class="font-bold text-white mb-4 flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary">schedule</span>
-              Horarios de atención
-            </h3>
-            <ul class="text-gray-300 text-sm space-y-2">
-              <li class="flex justify-between w-full sm:w-72 border-b border-gray-800 pb-1">
-                <span>Lunes a Viernes:</span>
-                <span class="text-white font-medium">6:30 AM – 4:30 PM</span>
-              </li>
-              <li class="flex justify-between w-72">
-                <span>Sábado:</span>
-                <span class="text-white font-medium">6:30 AM – 12:00 PM</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div>
-            <h4 class="text-primary font-black text-lg mb-4">Clínica Matriz</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg mt-0.5">location_on</span>
-                <span>9° Av. Sur #411, Barrio La Merced, San Miguel</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg">call</span>
-                <a class="hover:text-white transition-colors" href="tel:+50326612345">2661-2345</a>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378205613" target="_blank" rel="noopener noreferrer">
-                  WhatsApp: 7820-5613
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-primary font-black text-lg mb-4">Plaza Farid</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg mt-0.5">location_on</span>
-                <span>Av. Roosevelt Norte #412, Barrio San Felipe, San Miguel</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg">call</span>
-                <a class="hover:text-white transition-colors" href="tel:+50326697475">2669-7475</a>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378195960" target="_blank" rel="noopener noreferrer">
-                  WhatsApp: 7819-5960
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-primary font-black text-lg mb-4">Advanced Radiology</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex items-start gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg mt-0.5">location_on</span>
-                <span>Av. Roosevelt Norte #411, San Miguel</span>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-gray-500 text-lg">call</span>
-                <a class="hover:text-white transition-colors" href="tel:+50326697988">2669-7988</a>
-              </li>
-              <li class="flex items-center gap-3">
-                <span class="material-symbols-outlined text-green-500 text-lg">chat</span>
-                <a class="hover:text-white transition-colors" href="https://wa.me/50378448608" target="_blank" rel="noopener noreferrer">
-                  WhatsApp: 7844-8608
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© 2026 Clínica Radiológica y Laboratorio Clínico Dr. Mendoza. Todos los derechos reservados.</p>
-          <nav class="flex flex-wrap gap-5" aria-label="Enlaces de pie de página">
-            <a class="hover:text-white transition-colors" href="/#institucional">Historia</a>
-            <a class="hover:text-white transition-colors" href="/estudios.html">Estudios</a>
-            <a class="hover:text-white transition-colors" href="/laboratorio.html">Laboratorio</a>
-            <a class="hover:text-white transition-colors" href="/#sedes">Sedes y contacto</a>
-          </nav>
-        </div>
-      </div>
-    </footer>
-  `;
-}
+import { locations, ContactIcon as icon } from './clinic-locations.js';
+export function Footer(){return `${styles}<footer class="cf-footer" aria-label="Información y enlaces de la clínica"><div class="cf-shell">
+ <div class="cf-main"><div class="cf-identity"><a class="cf-brand" href="/" aria-label="Clínica Dr. Mendoza, inicio"><img src="/assets/visuals/favicon.webp" width="58" height="58" alt="" loading="lazy"><span><small>CLÍNICA RADIOLÓGICA<br>Y LABORATORIO CLÍNICO</small><strong>Dr. Mendoza</strong></span></a><p>Desde 2006, al servicio de su salud.<br>San Miguel, El Salvador.</p><a class="cf-history" href="/#institucional">Conozca Nuestra Historia ${icon('arrow')}</a></div>
+ <nav class="cf-nav" aria-label="Explorar el sitio"><h2>Explore</h2><a href="/">Inicio</a><a href="/estudios.html">Diagnóstico por Imágenes</a><a href="/laboratorio.html">Laboratorio Clínico</a><a href="/#sedes">Sedes y Contacto</a></nav>
+ <div class="cf-hours"><h2>${icon('clock')}Horario de Atención</h2><dl><div><dt>Lunes a Viernes</dt><dd>6:30 a. m. <span>—</span> 4:30 p. m.</dd></div><div><dt>Sábado</dt><dd>6:30 a. m. <span>—</span> 12:00 m.</dd></div></dl></div></div>
+ <div class="cf-contacts" aria-label="Contacto directo por sede">${locations.map((site,i)=>`<div class="cf-contact"><span class="cf-number" aria-hidden="true">0${i+1}</span><div><span class="cf-site-name">${site.name}</span><a class="cf-phone" href="${site.phoneHref}" aria-label="Llamar a ${site.name}: ${site.phone}">${site.phone} ${icon('arrow')}</a><a class="cf-chat" href="${site.whatsappHref}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ${site.name}: ${site.whatsapp}">WhatsApp · ${site.whatsapp}</a></div></div>`).join('')}</div>
+ <div class="cf-bottom"><span>© ${new Date().getFullYear()} Clínica Radiológica y Laboratorio Clínico Dr. Mendoza.<span class="cf-rights"> Todos los derechos reservados.</span></span><a href="#top" aria-label="Volver al inicio de la página">Volver al Inicio ${icon('up')}</a></div>
+</div></footer>`;}
+const styles=`<style id="clinic-footer-style">
+.cf-footer,.cf-footer *{box-sizing:border-box}.cf-footer{padding:64px 0 22px;background:#101a23;color:#f1f3f4;font-family:"Manrope","Segoe UI",Arial,sans-serif;border-top:3px solid #9d2320}.cf-shell{width:min(100% - 96px,1344px);margin:auto}.cf-main{display:grid;grid-template-columns:1.4fr 1fr 1.1fr;gap:64px;padding-bottom:48px}.cf-footer a{color:inherit;text-decoration:none}.cf-footer a:focus-visible{outline:2px solid #f1b0a7;outline-offset:5px}.cf-brand{display:inline-flex;align-items:center;gap:15px}.cf-brand img{width:56px;height:56px;object-fit:contain}.cf-brand small{display:block;font-size:9px;letter-spacing:.12em;line-height:1.6;color:#e0e5e8;font-weight:650}.cf-brand strong{display:block;font-size:25px;letter-spacing:-.03em;line-height:1.2;color:#fff;margin-top:3px;font-weight:650}.cf-identity p{font-size:13px;line-height:1.9;color:#aab6be;margin:23px 0 18px}.cf-history{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600}.cf-history .contact-icon{width:16px;color:#e68b81}.cf-footer h2{font-size:13px;font-weight:650;margin:0 0 22px;line-height:1.4;color:#fff;letter-spacing:.01em}.cf-nav{display:flex;flex-direction:column;align-items:flex-start;gap:13px}.cf-nav h2{margin-bottom:7px}.cf-nav a{font-size:12px;color:#b6c1c8;line-height:1.6}.cf-footer a:hover{color:#fff}.cf-nav a:hover,.cf-history:hover{text-decoration:underline;text-underline-offset:5px}.cf-hours h2{display:flex;gap:11px;align-items:center}.cf-hours h2 .contact-icon{color:#e49288;width:19px;height:19px}.cf-hours dl{margin:0}.cf-hours dl>div{padding:0 0 17px;margin-bottom:17px;border-bottom:1px solid #34414b}.cf-hours dl>div:last-child{border:0;margin:0;padding:0}.cf-hours dt{font-size:11px;line-height:1.6;color:#aab6be;margin-bottom:7px}.cf-hours dd{font-size:15px;line-height:1.5;font-weight:550;white-space:nowrap;margin:0;font-variant-numeric:tabular-nums}.cf-hours dd span{color:#627681;margin:0 6px}.cf-contacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #34414b;border-bottom:1px solid #34414b;padding:28px 0}.cf-contact{display:flex;gap:18px;align-items:flex-start;padding:0 34px;border-left:1px solid #34414b}.cf-contact:first-child{padding-left:0;border-left:0}.cf-number{font:10px monospace;color:#bd726b;margin-top:4px}.cf-site-name{display:block;font-size:12px;color:#aab6be;margin-bottom:6px}.cf-phone{display:flex;align-items:center;gap:22px;font-size:21px;font-weight:550;letter-spacing:.015em;line-height:1.7;width:fit-content}.cf-phone .contact-icon{width:17px;height:17px;color:#bd726b;transform:rotate(-45deg);transition:transform .2s}.cf-phone:hover .contact-icon{transform:rotate(-45deg) translateX(3px)}.cf-chat{display:inline-block;font-size:10px;color:#aab6be!important;padding:8px 0;min-height:32px}.cf-chat:hover{color:#fff!important;text-decoration:underline;text-underline-offset:4px}.cf-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:24px;font-size:9px;color:#99a8b2;line-height:1.8}.cf-bottom a{display:inline-flex;align-items:center;gap:12px;white-space:nowrap;font-size:10px;padding:10px 0}.cf-bottom .contact-icon{width:16px;height:16px}.cf-footer .contact-icon{display:inline-block;vertical-align:middle;flex-shrink:0}
+@media(max-width:1050px){.cf-main{gap:36px;grid-template-columns:1.2fr 1fr 1fr}.cf-shell{width:calc(100% - 48px)}.cf-contact{padding:0 20px;gap:12px}.cf-hours dd{font-size:13px}.cf-hours dd span{margin:0 3px}}
+@media(max-width:760px){.cf-footer{padding-top:44px}.cf-main{grid-template-columns:1fr 1fr;gap:35px 25px;padding-bottom:35px}.cf-identity{grid-column:1/-1}.cf-identity p{margin-top:18px}.cf-brand strong{font-size:26px}.cf-nav a{font-size:12px}.cf-hours dd{font-size:12px}.cf-hours h2{font-size:12px;gap:7px}.cf-contacts{grid-template-columns:1fr;padding:0}.cf-contact,.cf-contact:first-child{padding:21px 0;border-left:0;border-bottom:1px solid #34414b;gap:22px}.cf-contact:last-child{border:0}.cf-contact>div{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 25px;width:100%}.cf-site-name{grid-column:1/-1}.cf-phone{font-size:20px}.cf-phone .contact-icon{display:none}.cf-chat{font-size:10px;padding:7px 0}.cf-bottom{align-items:flex-start;font-size:9px;gap:25px;margin-top:20px}.cf-rights{display:none}.cf-bottom a{font-size:0;gap:0;padding:6px}.cf-bottom .contact-icon{width:20px;height:20px}}
+@media(max-width:380px){.cf-shell{width:calc(100% - 36px)}.cf-main{grid-template-columns:1fr}.cf-identity{grid-column:auto}.cf-hours dd{font-size:15px}.cf-contact>div{gap:2px 10px}.cf-contact{gap:12px}.cf-chat{font-size:9px}.cf-phone{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.cf-phone .contact-icon{transition:none}.cf-phone:hover .contact-icon{transform:rotate(-45deg)}}
+</style>`;

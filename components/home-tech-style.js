@@ -1,3 +1,4 @@
+import { Footer } from './footer.js';
 // Componentes exclusivos del Inicio: estética médica tecnológica, sin iconografía decorativa.
 // Se utiliza el favicon institucional y no se modifica el encabezado del resto de páginas.
 const ASSETS = "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/";
@@ -39,32 +40,7 @@ export function HomeTechHeader() {
   `;
 }
 
-export function HomeTechFooter() {
-  return `
-    <footer class="th-footer">
-      <div class="th-shell th-footer-grid">
-        <div class="th-footer-identity">
-          <img src="${ASSETS}faviconDr.png" alt="" width="35" height="35" loading="lazy" />
-          <div><strong>Dr. Mendoza</strong><span>Clínica Radiológica y Laboratorio Clínico</span></div>
-        </div>
-        <div class="th-footer-hours">
-          <strong>Horario de atención</strong>
-          <span>Lunes a viernes · 6:30 a. m. – 4:30 p. m.</span>
-          <span>Sábado · 6:30 a. m. – 12:00 m.</span>
-        </div>
-        <div class="th-footer-links">
-          <a href="/estudios.html">Imagenología</a>
-          <a href="/laboratorio.html">Laboratorio</a>
-          <a href="#sedes">Contacto</a>
-        </div>
-      </div>
-      <div class="th-shell th-footer-bottom">
-        <span>© 2026 Clínica Radiológica y Laboratorio Clínico Dr. Mendoza</span>
-        <span>San Miguel, El Salvador · Fundada en 2006</span>
-      </div>
-    </footer>
-  `;
-}
+export function HomeTechFooter() { return Footer(); }
 
 export function HomeTechStyle() {
   return `
@@ -155,7 +131,6 @@ export function HomeTechStyle() {
     .th-fact span { display:block; margin-top:5px; color:#6b7780; font:500 10px/1.6 var(--th-mono); text-transform:uppercase; letter-spacing:.035em; }
     .th-institution-image { position:relative; overflow:hidden; aspect-ratio:1.18; background:#cdd6da; }
     .th-institution-image img { width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
-    .th-institution-image figcaption { position:absolute; left:0; bottom:0; right:0; padding:24px; background:linear-gradient(transparent,#08141cc9); color:white; font-size:12px; letter-spacing:.04em; }
     .th-lab-feature { display:grid; grid-template-columns:1fr 1fr; min-height:358px; background:#e8eff3; overflow:hidden; }
     .th-lab-image { position:relative; overflow:hidden; background:#b6c6d1; }
     .th-lab-image img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; filter:saturate(.7); }
@@ -163,30 +138,6 @@ export function HomeTechStyle() {
     .th-lab-content { padding:58px clamp(30px,6vw,105px); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
     .th-lab-content h2 { font-size:clamp(33px,3vw,47px); font-weight:750; line-height:1.16; letter-spacing:-.044em; margin:18px 0 17px; }
     .th-lab-content p { margin:0 0 22px; max-width:450px; color:#586772; line-height:1.8; font-size:14px; }
-    .th-locations { padding:80px 0 94px; background:#fff; }
-    .th-locations-head { display:flex; justify-content:space-between; align-items:flex-end; gap:35px; margin-bottom:30px; }
-    .th-locations-head h2 { font-size:clamp(32px,3vw,46px); letter-spacing:-.044em; margin:12px 0 0; line-height:1.2; }
-    .th-locations-head p { color:#6a7780; max-width:360px; font-size:13px; margin:0; line-height:1.7; }
-    .th-location-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #cbd4d9; border-bottom:1px solid #cbd4d9; }
-    .th-location { padding:28px 26px 29px; border-left:1px solid #cbd4d9; }
-    .th-location:first-child { border-left:0; padding-left:0; }
-    .th-location-number { font:500 10px var(--th-mono); color:#a33532; letter-spacing:.12em; }
-    .th-location h3 { font-size:19px; font-weight:790; letter-spacing:-.03em; margin:15px 0 10px; }
-    .th-location p { color:#5c6973; line-height:1.7; font-size:12.8px; min-height:64px; margin:0 0 11px; }
-    .th-location-phone { font-weight:720; font-size:13px; color:#26333c!important; }
-    .th-location-actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:17px; }
-    .th-location-actions a { color:var(--th-red); font-weight:750; font-size:12px; border-bottom:1px solid #c8afac; padding-bottom:3px; }
-    .th-footer { color:#d4e0e7; background:#0a141e; border-top:1px solid #2a3945; padding:40px 0 18px; }
-    .th-footer-grid { display:grid; grid-template-columns:1.5fr 1fr auto; align-items:start; gap:30px; }
-    .th-footer-identity { display:flex; align-items:center; gap:12px; }
-    .th-footer-identity img { width:35px; height:35px; object-fit:contain; }
-    .th-footer-identity div, .th-footer-hours { display:flex; flex-direction:column; gap:3px; }
-    .th-footer-identity strong { color:#fff; font-size:16px; }
-    .th-footer-identity span, .th-footer-hours span { color:#a3b1bb; font-size:11.5px; }
-    .th-footer-hours strong { color:#fff; font-size:12px; margin-bottom:6px; }
-    .th-footer-links { display:flex; gap:18px; font-size:12px; }
-    .th-footer-links a:hover { color:white; }
-    .th-footer-bottom { display:flex; justify-content:space-between; gap:18px; border-top:1px solid #31404b; padding-top:16px; margin-top:36px; font-size:10px; color:#80929d; }
     @media(max-width:1190px) {
       .th-shell { width:min(100% - 64px,1390px); }
       .th-nav { gap:15px; }
@@ -204,8 +155,6 @@ export function HomeTechStyle() {
       .th-modality { min-height:210px; }
       .th-institution-grid { grid-template-columns:1fr 1fr; gap:32px; }
       .th-fact { padding-inline:11px; }
-      .th-footer-grid { grid-template-columns:1fr 1fr; }
-      .th-footer-links { grid-column:1/-1; }
     }
     @media(max-width:670px) {
       .th-shell { width:calc(100% - 38px); }
@@ -231,16 +180,6 @@ export function HomeTechStyle() {
       .th-lab-feature { grid-template-columns:1fr; }
       .th-lab-image { min-height:245px; }
       .th-lab-content { padding:47px 24px 50px; }
-      .th-locations { padding:60px 0; }
-      .th-locations-head { display:block; }
-      .th-locations-head p { margin-top:16px; }
-      .th-location-grid { grid-template-columns:1fr; }
-      .th-location { padding:24px 0!important; border-left:0; border-top:1px solid #d6dfe2; }
-      .th-location:first-child { border-top:0; }
-      .th-location p { min-height:0; }
-      .th-footer-grid { grid-template-columns:1fr; }
-      .th-footer-links { grid-column:auto; }
-      .th-footer-bottom { flex-direction:column; }
     }
     @media(max-width:395px) {
       .th-home-hero h1 { font-size:37px; }

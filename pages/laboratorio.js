@@ -341,22 +341,6 @@ export function renderLaboratorioPage() {
     ${WhatsAppFloat()}
 
     <script>
-      function setMap(lat, lng) {
-        const frame = document.getElementById("mapFrame");
-        if (frame) {
-          frame.src = "https://www.google.com/maps?q=" + lat + "," + lng + "&z=17&output=embed";
-        }
-      }
-
-      document.addEventListener("click", function (e) {
-        const btn = e.target.closest(".map-btn");
-        if (btn) {
-          const lat = btn.dataset.lat;
-          const lng = btn.dataset.lng;
-          setMap(lat, lng);
-        }
-      });
-
       const menuToggle = document.getElementById("menuToggle");
       const mobileMenu = document.getElementById("mobileMenu");
 
