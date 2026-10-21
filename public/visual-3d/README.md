@@ -23,10 +23,16 @@ Validación: `node tests/visual-upgrade.mjs`. Revisión en Chromium a 1440 y 390
 
 ## Carrusel fotográfico de portada
 
-La portada utiliza `components/home-carousel.js` con tres imágenes generadas para esta propuesta: médico ilustrativo con el logo original en la gabacha, recepción recreada a partir de la fotografía proporcionada (mostrador despejado y sillas alineadas), y revisión de estudios por el mismo médico ilustrativo. No representan personal real ni una reforma realizada. Los renders del catálogo y la fachada aprobada se conservan.
+La portada utiliza `components/home-carousel.js` con cuatro imágenes generadas para esta propuesta: detalle de la gabacha con el logo original y las manos (rostro fuera del encuadre), recepción recreada a partir de la fotografía proporcionada (mostrador despejado y sillas alineadas), revisión de estudios vista completamente de espaldas, y trabajo de laboratorio clínico con muestras y microscopio, sin rostros. No representan personal real ni una reforma realizada. Los renders del catálogo y la fachada aprobada se conservan.
 
-Los recursos `portada-medico`, `portada-recepcion` y `portada-interpretacion` se sirven como WebP local de 1536 y 720 px. La primera imagen tiene prioridad de carga y precarga adaptable; las siguientes utilizan carga diferida. La selección de tamaño contempla el recorte de las fotos para mantener nitidez.
+Los recursos `portada-medico-detalle`, `portada-recepcion`, `portada-interpretacion-espaldas` y `portada-laboratorio` se sirven como WebP local de 1536 y 720 px. La primera imagen tiene prioridad de carga y precarga adaptable; las siguientes utilizan carga diferida. La selección de tamaño contempla el recorte de las fotos para mantener nitidez.
 
 Carrusel sin avance automático, con scroll-snap nativo, gesto táctil, arrastre con ratón, flechas, indicadores y teclado (flechas, Inicio y Fin). Incluye etiquetas accesibles, anuncio de cambio de imagen y respeto a movimiento reducido. Sin JavaScript conserva el desplazamiento nativo y oculta los botones inactivos.
 
 Verificación en Chromium a 1440 y 390 px: imágenes cargadas, navegación circular, indicadores, teclado, arrastre de ratón, gesto táctil mediante eventos de entrada, movimiento reducido y alternativa sin JavaScript; sin errores de JavaScript ni desbordamiento horizontal. Las diez rutas de la prueba de integración siguen funcionando.
+
+### Ajuste de encuadres y laboratorio
+
+Recursos en `public/assets/visuals/`, generados y editados con la herramienta integrada ImageGen y optimizados a WebP. Las variantes con los nuevos nombres evitan que las fotos antiguas permanezcan visibles por caché.
+
+Dirección de los prompts: (1) detalle editorial desde la parte superior de la gabacha hasta las caderas, rostro fuera del encuadre, logo original y manos con tableta, equipo de diagnóstico al fondo; (2) revisión de imágenes desde la espalda, sin perfil facial, con monitores y entorno clínico conservados; (3) manos con guantes manipulando tubos cerrados junto a un microscopio y analizador, sin cabeza ni rostro, luz neutra y composición compatible con recorte cuadrado.

@@ -1,9 +1,9 @@
 const slides = [
   {
-    image: 'portada-medico',
+    image: 'portada-medico-detalle',
     title: 'Atención médica',
     note: 'Imagen ilustrativa',
-    alt: 'Médico con el logo original de la clínica en su gabacha, junto a equipo y estudios de diagnóstico. Imagen ilustrativa.',
+    alt: 'Detalle de la gabacha con el logo original de la clínica y manos sosteniendo una tableta, sin mostrar el rostro. Imagen ilustrativa.',
   },
   {
     image: 'portada-recepcion',
@@ -12,16 +12,22 @@ const slides = [
     alt: 'Recepción de la clínica con el mostrador de madera despejado y las sillas ordenadas, recreada a partir de la fotografía del espacio.',
   },
   {
-    image: 'portada-interpretacion',
+    image: 'portada-interpretacion-espaldas',
     title: 'Interpretación de estudios',
     note: 'Imagen ilustrativa',
-    alt: 'Radiólogo revisando estudios en una estación de diagnóstico. Imagen ilustrativa.',
+    alt: 'Radiólogo visto completamente de espaldas mientras revisa estudios en una estación de diagnóstico. Imagen ilustrativa.',
+  },
+  {
+    image: 'portada-laboratorio',
+    title: 'Laboratorio Clínico',
+    note: 'Imagen ilustrativa',
+    alt: 'Manos con guantes organizando muestras junto a un microscopio y equipo de laboratorio clínico. Imagen ilustrativa.',
   },
 ];
 
 export function HomeCarousel() {
   return `<div class="v3-home-art hc-carousel" role="region" aria-roledescription="carrusel" aria-label="Conozca nuestra clínica">
-    <p id="hc-help" class="hc-sr-only">Deslice para explorar las tres imágenes. También puede usar las flechas del teclado.</p>
+    <p id="hc-help" class="hc-sr-only">Deslice para explorar las ${slides.length} imágenes. También puede usar las flechas del teclado.</p>
     <div id="hc-viewport" class="hc-viewport" tabindex="0" aria-label="Imágenes de la clínica" aria-describedby="hc-help">
       ${slides.map((slide, index) => `<figure class="hc-slide hc-slide--${index + 1}" role="group" aria-roledescription="diapositiva" aria-label="${index + 1} de ${slides.length}: ${slide.title}">
         <img src="/assets/visuals/${slide.image}.webp" srcset="/assets/visuals/${slide.image}-720.webp 720w, /assets/visuals/${slide.image}.webp 1536w" sizes="(max-width: 760px) 130vw, 1000px" width="1536" height="1024" alt="${slide.alt}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">

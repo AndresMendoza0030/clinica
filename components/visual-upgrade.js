@@ -24,8 +24,8 @@ export function applyVisualUpgrade(html, path) {
   if (home) {
     html = html.replace('<div class="th-hero-photo" role="img" aria-label="Fotografía de resonancia magnética del catálogo institucional"></div>',
       HomeCarousel());
-    html = html.replace('<link rel="preload" as="image" href="/assets/visuals/resonancia.webp" />', '<link rel="preload" as="image" href="/assets/visuals/portada-medico.webp" imagesrcset="/assets/visuals/portada-medico-720.webp 720w, /assets/visuals/portada-medico.webp 1536w" imagesizes="(max-width: 760px) 130vw, 1000px" />');
-    html = html.replace('<meta property="og:image" content="/assets/visuals/resonancia.webp" />', '<meta property="og:image" content="/assets/visuals/portada-medico.webp" />');
+    html = html.replace('<link rel="preload" as="image" href="/assets/visuals/resonancia.webp" />', '<link rel="preload" as="image" href="/assets/visuals/portada-medico-detalle.webp" imagesrcset="/assets/visuals/portada-medico-detalle-720.webp 720w, /assets/visuals/portada-medico-detalle.webp 1536w" imagesizes="(max-width: 760px) 130vw, 1000px" />');
+    html = html.replace('<meta property="og:image" content="/assets/visuals/resonancia.webp" />', '<meta property="og:image" content="/assets/visuals/portada-medico-detalle.webp" />');
     html = html.replace('</body>', `${HomeCarouselScript}</body>`);
     html = html.replace('<span class="th-photo-note" aria-hidden="true">DIAGNÓSTICO POR IMÁGENES / RM</span>', '');
     html = html.replace('alt="Instalaciones de la clínica en Plaza Farid"', 'alt="Render arquitectónico de la fachada de Plaza Farid"');
