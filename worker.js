@@ -1,3 +1,4 @@
+import { applyVisualUpgrade } from "./components/visual-upgrade.js";
 import { renderHomePage } from "./pages/home.js";
 import { renderEstudiosPage } from "./pages/estudios.js";
 import { renderEstudiosRMPage } from "./pages/estudios-rm.js";
@@ -77,7 +78,7 @@ export default {
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : render(), {
+      return new Response(request.method === "HEAD" ? null : applyVisualUpgrade(render(), path), {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,
@@ -86,7 +87,7 @@ export default {
 
     if (path === "/favicon.ico") {
       return Response.redirect(
-        "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png",
+        new URL("/assets/visuals/favicon.webp", request.url).href,
         302
       );
     }

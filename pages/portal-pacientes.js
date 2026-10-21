@@ -10,8 +10,8 @@ export function renderPortalPacientesPage() {
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="description" content="Acceso al Portal de Pacientes de Clínica Dr. Mendoza." />
     <title>Portal Pacientes | Clínica Dr. Mendoza</title>
-    <link rel="icon" type="image/png" href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/webp" href="/assets/visuals/favicon.webp" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
@@ -19,18 +19,18 @@ export function renderPortalPacientesPage() {
         darkMode: "class",
         theme: {
           extend: {
-            colors: { primary: "#c70505", "background-light": "#fcf8f8", "background-dark": "#230f0f" },
-            fontFamily: { display: ["Public Sans", "sans-serif"] },
+            colors: { primary: "#9d2320", "background-light": "#faf9f7", "background-dark": "#101a23" },
+            fontFamily: { display: ["Manrope", "sans-serif"] },
           },
         },
       };
     </script>
     ${SitePolish()}
   </head>
-  <body class="bg-background-light text-[#1c0d0d] font-display overflow-hidden">
-    ${Header()}
+  <body class="bg-background-light text-[#19242d] font-display overflow-hidden">
+    ${Header('')}
 
-    <main class="h-[calc(100vh-4rem)] bg-[#f4f8fb] p-2 sm:p-4 flex flex-col gap-2">
+    <main class="h-[calc(100dvh-var(--site-header-height)-1px)] bg-[#f4f8fb] p-2 sm:p-4 flex flex-col gap-2">
       <div class="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-white border border-[#e4e8ec] px-4 py-3">
         <span class="text-sm text-[#5b646d]">Acceso al portal de resultados RIACS.</span>
         <a href="https://drmendoza.riacs.health/patient/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-primary font-bold text-sm hover:underline">Abrir en otra pestaña <span class="material-symbols-outlined text-base">open_in_new</span></a>
@@ -47,22 +47,6 @@ export function renderPortalPacientesPage() {
       </section>
     </main>
 
-    <script>
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-      if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener("click", () => {
-          const isOpen = !mobileMenu.classList.toggle("hidden");
-          menuToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            mobileMenu.classList.add("hidden");
-            menuToggle.setAttribute("aria-expanded", "false");
-          });
-        });
-      }
-    </script>
   </body>
 </html>`;
 }

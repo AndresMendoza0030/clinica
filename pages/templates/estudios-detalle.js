@@ -78,6 +78,7 @@ export function renderEstudioDetallePage({
   return `<!DOCTYPE html>
 <html class="light" lang="es">
   <head>
+    <meta name="theme-color" content="#0a131d" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>${title} | Clínica Dr. Mendoza</title>
@@ -87,12 +88,12 @@ export function renderEstudioDetallePage({
     />
     <link
       rel="icon"
-      type="image/png"
-      href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png"
+      type="image/webp"
+      href="/assets/visuals/favicon.webp"
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -108,13 +109,13 @@ export function renderEstudioDetallePage({
           extend: {
             colors: {
               primary: "#9d2320",
-              "background-light": "#fcf8f8",
-              "background-dark": "#230f0f",
-              ink: "#1c0d0d",
-              soft: "#6f5a5a",
+              "background-light": "#faf9f7",
+              "background-dark": "#101a23",
+              ink: "#19242d",
+              soft: "#606a71",
             },
             fontFamily: {
-              display: ["Public Sans", "sans-serif"],
+              display: ["Manrope", "sans-serif"],
             },
             boxShadow: {
               soft: "0 10px 30px rgba(80, 20, 20, 0.08)",
@@ -147,7 +148,7 @@ export function renderEstudioDetallePage({
   </head>
 
   <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
-    ${Header()}
+    ${Header('estudios')}
 
     <section id="top" class="relative overflow-hidden">
       <div
@@ -233,40 +234,6 @@ export function renderEstudioDetallePage({
     ${Footer()}
     ${WhatsAppFloat()}
 
-    <script>
-      function setMap(lat, lng) {
-        const frame = document.getElementById("mapFrame");
-        if (frame) {
-          frame.src = "https://www.google.com/maps?q=" + lat + "," + lng + "&z=17&output=embed";
-        }
-      }
-
-      document.addEventListener("click", function (e) {
-        const btn = e.target.closest(".map-btn");
-        if (btn) {
-          const lat = btn.dataset.lat;
-          const lng = btn.dataset.lng;
-          setMap(lat, lng);
-        }
-      });
-
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener("click", function () {
-          const isOpen = !mobileMenu.classList.toggle("hidden");
-          menuToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-            menuToggle.setAttribute("aria-expanded", "false");
-          });
-        });
-      }
-    </script>
   </body>
 </html>`;
 }

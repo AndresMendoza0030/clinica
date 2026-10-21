@@ -10,7 +10,7 @@ export function SitePolish() {
         vertical-align: middle;
       }
       a:focus-visible, button:focus-visible {
-        outline: 3px solid #e4a15f;
+        outline: 3px solid #e9938c;
         outline-offset: 3px;
         border-radius: 5px;
       }
@@ -49,22 +49,7 @@ export function SitePolish() {
       }
 
       /* Refinamiento institucional: fotografías, composición editorial y tarjetas. */
-      :root { --clinic-red:#9d2320; --clinic-deep:#711c1c; --clinic-ink:#251e21; --clinic-soft:#74676a; --clinic-line:#ecdfdc; }
-      .clinic-header {
-        background:rgba(255,251,249,.975); border-color:rgba(108,41,40,.10);
-        box-shadow:0 4px 22px rgba(46,22,22,.045);
-      }
-      .clinic-header-inner { min-height:81px; height:auto; gap:22px; }
-      .clinic-logo img { height:58px; max-width:min(33vw,240px); transition:opacity .2s ease; }
-      .clinic-logo:hover img { opacity:.87; }
-      .clinic-nav { gap:22px; }
-      .clinic-nav a { font-size:13px; font-weight:670; letter-spacing:-.01em; }
-      .clinic-nav a:hover { color:var(--clinic-red); }
-      .clinic-nav-cta { padding:10px 14px; font-size:13px; font-weight:740;
-        border:1px solid #eacdc9; border-radius:10px; color:var(--clinic-red);
-        background:#fff7f6; white-space:nowrap; }
-      .clinic-nav-cta:hover { background:#f7e9e6; }
-      .clinic-menu-toggle { border:1px solid var(--clinic-line); border-radius:10px; background:white; }
+      :root { --clinic-red:#9d2320; --clinic-deep:#711c1c; --clinic-ink:#19242d; --clinic-soft:#606a71; --clinic-line:#dce0dd; }
       .clinic-eyebrow { display:inline-flex; align-items:center; gap:10px;
         font-size:11px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
       .clinic-eyebrow:before { content:""; width:27px; height:2px; flex-shrink:0;
@@ -132,14 +117,7 @@ export function SitePolish() {
       .clinic-category-intro { border-left:3px solid var(--clinic-red); padding-left:16px; margin-bottom:27px; }
       .clinic-institutional-band { background:#281e22; color:white; }
       .clinic-institutional-band p { color:#e0cecb; }
-      @media(min-width:768px) and (max-width:1100px) {
-        .clinic-nav { gap:13px; }
-        .clinic-nav a { font-size:12px; }
-        .clinic-nav-cta { display:none!important; }
-      }
       @media(max-width:767px) {
-        .clinic-header-inner { min-height:72px; }
-        .clinic-logo img { height:50px; max-width:220px; }
         .clinic-hero-stage { min-height:635px; background-position:58% center; }
         .clinic-hero-stage:before { background:linear-gradient(90deg,rgba(21,15,19,.89),rgba(21,15,19,.66)); }
         .clinic-hero-title { font-size:clamp(41px,10vw,60px); }

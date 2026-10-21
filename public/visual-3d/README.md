@@ -1,0 +1,64 @@
+# Identidad 3D — estudio 01
+
+Abrir `index.html` con sus recursos relativos. Vista de propuesta independiente: no sustituye el inicio institucional.
+
+- Emblema: reconstrucción geométrica CSS del símbolo adjunto, 4 cuadrantes, 25 capas por cuadrante. Giro, separación y orientación manual. No es un archivo GLB ni un modelo industrial.
+- Tomografía y radiólogo: renders generados con ImageGen, convertidos a WebP. Perspectiva CSS suave, no rotación volumétrica de los objetos.
+- Pausa manual, reduced-motion, suspensión en pestaña oculta, diseño móvil, sin dependencias externas.
+- Los renders son ilustrativos, no representan modelos Siemens ni empleados reales.
+
+## Dirección de arte / prompts
+Tomografía: render 3D de producto, tomógrafo blanco y grafito con detalles rojo brillante, vista elevada tres cuartos, equipo y mesa completos, fondo gris cálido, materiales realistas, sombras suaves, sin marcas ni texto.
+Radiólogo: render 3D, profesional adulto de espaldas en estación de dos monitores diagnósticos, bata blanca, mobiliario blanco/grafito y acentos rojos, cámara elevada trasera, estudios ficticios sin identificadores, fondo gris cálido, sin marcas ni texto.
+
+## Integración
+Los archivos de `public/` se sirven con Workers Static Assets (configuración en wrangler.toml). Ruta de revisión `/visual-3d/`. Reutilizar imágenes mediante `/visual-3d/assets/tomografia.webp` y `/visual-3d/assets/radiologo.webp`.
+
+## Preview integrada del sitio
+La portada y los encabezados de estudios y laboratorio ahora usan los renders mediante `components/visual-upgrade.js`, aplicado por el Worker al HTML del servidor. La capa deja intacto el portal de pacientes y conserva el contenido clínico original. Plaza Farid usa el render arquitectónico aprobado, no la maqueta geométrica interactiva.
+
+Nuevos recursos: RM, TAC, US, RX, mamografía, laboratorio, radiólogo y Plaza Farid, en WebP de 1536 px y versiones de 720 px. Los equipos son ilustraciones genéricas, no fotografías de modelos Siemens; la fachada se basa en la foto proporcionada. El logo original se aloja localmente para reducir dependencias.
+
+Validación: `node tests/visual-upgrade.mjs`. Revisión en Chromium a 1440 y 390 px; navegación móvil, ausencia de desbordamiento horizontal, recursos de portada y siete encabezados internos. Para pruebas locales se utilizó una copia del mismo script externo de Tailwind porque el navegador de pruebas no tiene salida directa a Internet. El sitio mantiene su dependencia preexistente del CDN de Tailwind y fuentes Google.
+
+## Carrusel fotográfico de portada
+
+La portada utiliza `components/home-carousel.js` con cuatro imágenes generadas para esta propuesta: detalle de la gabacha con el logo original y las manos (rostro fuera del encuadre), recepción recreada a partir de la fotografía proporcionada (mostrador despejado y sillas alineadas), revisión de estudios vista completamente de espaldas, y trabajo de laboratorio clínico con muestras y microscopio, sin rostros. No representan personal real ni una reforma realizada. Los renders del catálogo y la fachada aprobada se conservan.
+
+Los recursos `portada-medico-detalle-v2`, `portada-recepcion`, `portada-interpretacion-espaldas-v2` y `portada-laboratorio` se sirven como WebP local de 1536 y 720 px. La primera imagen tiene prioridad de carga y precarga adaptable; las siguientes utilizan carga diferida. La selección de tamaño contempla el recorte de las fotos para mantener nitidez.
+
+Carrusel sin avance automático, con scroll-snap nativo, gesto táctil, arrastre con ratón, flechas, indicadores y teclado (flechas, Inicio y Fin). Incluye etiquetas accesibles, anuncio de cambio de imagen y respeto a movimiento reducido. Sin JavaScript conserva el desplazamiento nativo y oculta los botones inactivos.
+
+Verificación en Chromium a 1440 y 390 px: imágenes cargadas, navegación circular, indicadores, teclado, arrastre de ratón, gesto táctil mediante eventos de entrada, movimiento reducido y alternativa sin JavaScript; sin errores de JavaScript ni desbordamiento horizontal. Las diez rutas de la prueba de integración siguen funcionando.
+
+### Ajuste de encuadres y laboratorio
+
+Recursos en `public/assets/visuals/`, generados y editados con la herramienta integrada ImageGen y optimizados a WebP. Las variantes con los nuevos nombres evitan que las fotos antiguas permanezcan visibles por caché.
+
+Dirección de los prompts: (1) detalle editorial desde la parte superior de la gabacha hasta las caderas, rostro fuera del encuadre, logo original y manos con tableta, equipo de diagnóstico al fondo; (2) revisión de imágenes desde la espalda, sin perfil facial, con monitores y entorno clínico conservados; (3) manos con guantes manipulando tubos cerrados junto a un microscopio y analizador, sin cabeza ni rostro, luz neutra y composición compatible con recorte cuadrado.
+
+## Sedes, historia y footer compartido
+
+`components/clinic-locations.js` centraliza las tres sedes y sus contactos existentes. `Sedes()` muestra las fachadas, teléfonos, WhatsApp, Maps y Waze, con un mapa desplegable que permite cambiar de sede. `Footer()` se comparte entre Inicio, catálogo y páginas de detalle, con identidad, navegación, horarios y contacto directo. Se retiraron los controladores duplicados del mapa y las etiquetas visibles de imagen/visualización ilustrativa. Se conservan descripciones alternativas en las imágenes.
+
+Matriz y Advanced usan nuevas visualizaciones arquitectónicas basadas en las fotos proporcionadas, con el estilo del render aprobado de Plaza Farid. Recursos: `public/assets/visuals/sede-matriz{,-720}.webp` y `sede-advanced{,-720}.webp`. Prompts de ImageGen integrado: conservar fachada, proporciones, colores, ventanas, entradas y señalización de referencia; mostrar el edificio completo desde una perspectiva frontal ligeramente elevada, retirar tráfico/personas/cables/vecinos y usar materiales realistas, luz suave y fondo claro como Plaza Farid.
+
+Nuestra Historia utiliza `matriz-primeros-anos-restaurada.webp` y su variante de 720 px: la versión restaurada y retocada con ImageGen que aprobó el usuario, de 1448 × 1086 px, sin ampliar artificialmente sus dimensiones al exportar. Conserva el encuadre de la edición aprobada, calidez, brillo, textura moderada y el borde superior corregido. Se retiraron el anuncio, los conos y algunos cables; los rótulos pequeños se reconstruyeron y no deben tomarse como una transcripción histórica exacta. El recurso anterior `matriz-primeros-anos.webp` conserva la fotografía de referencia sin esos retoques.
+
+### Ajustes de fotografías aprobados
+
+La tercera diapositiva usa `portada-interpretacion-espaldas-v2{,-720}.webp`, editada con ImageGen integrado. Prompt: modificar únicamente al médico de la imagen existente, con tono de piel ligeramente más oscuro y uniforme en nuca, orejas y manos, cabello corto oscuro y liso; conservar la vista totalmente de espaldas, bata, postura, monitores, escritorio, iluminación y encuadre, sin mostrar el rostro. Se conservan los recursos anteriores para referencia. Los nuevos nombres evitan reutilizar las imágenes antiguas desde caché.
+
+Verificación de estos dos reemplazos: prueba de integración de diez rutas y revisión en Chromium a 1440 y 390 px; ambas imágenes cargan, la tercera diapositiva se selecciona correctamente y no hay desbordamiento horizontal ni errores de JavaScript.
+
+### Identidad compartida y movimiento
+
+`components/header.js` es el encabezado común de Inicio, Estudios, Laboratorio, sus detalles y el acceso al portal. Mantiene el emblema local, composición, tipografía Manrope, enlaces, colores y tamaños del Inicio; indica la sección activa. La navegación móvil usa un desplegable nativo con cierre por Escape, enlace o clic exterior y funciona sin JavaScript. Se retiran los encabezados y controladores de menú duplicados. La sección institucional y los enlaces ahora se llaman Nuestra Historia. Favicon local y tipografía coherentes entre páginas; el portal conserva su contenido, noindex y ausencia de promoción.
+
+La primera diapositiva utiliza `portada-medico-detalle-v2{,-720}.webp`. Prompt de edición con ImageGen integrado: oscurecer un solo tono, de manera sutil y uniforme, las manos y la pequeña zona visible de cuello; conservar exactamente el encuadre sin rostro, logo original bordado, gabacha, tableta, iluminación y equipo de fondo. Precarga y Open Graph apuntan al mismo recurso nuevo.
+
+`components/visual-motion.js` añade elevación, acercamiento y sombra a las sedes; perspectiva suave y un barrido de luz a los equipos; enfoque a laboratorio y acercamiento a la escena de interpretación. Son efectos sobre imágenes, no modelos volumétricos ni simulaciones de funcionamiento médico. La perspectiva sigue el mouse únicamente durante la interacción, sin bucles en reposo. Los enlaces permiten activar el efecto con teclado. Se desactiva en pantallas táctiles y con movimiento reducido; se conservan contactos y navegación. Las fotografías histórica y del carrusel no se inclinan.
+
+Verificación: integración de diez rutas; Chromium en Inicio, Estudios, RM, Laboratorio y Química, con identidad de encabezado idéntica, sección activa, enlaces de historia y ausencia de desbordamiento entre 320 y 1440 px. Se comprobaron hover, perspectiva, restablecimiento al salir, foco de teclado, movimiento reducido, pantalla táctil y menú móvil sin JavaScript.
+
+Verificación: prueba existente de diez rutas; navegador en Inicio, Estudios y detalle de laboratorio; tres contactos exactos por sede, selección de coordenadas y título del mapa, footer compartido, ausencia de avisos ilustrativos visibles y ausencia de errores JS o desbordamiento a 320, 390, 768, 1024 y 1440 px. Alternativa sin JavaScript con contactos y mapa desplegable. El mapa externo se simuló en la prueba del navegador para verificar el cambio de URL sin depender de la red; se conservaron coordenadas y enlaces originales.
