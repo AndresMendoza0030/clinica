@@ -1,4 +1,6 @@
-// Server-rendered visual layer: no client-side image swapping or extra dependencies.
+import { HomeCarousel, HomeCarouselStyles, HomeCarouselScript } from './home-carousel.js';
+
+// Server-rendered visual layer with progressive carousel controls; no dependencies.
 const ROOT = '/assets/visuals/';
 const CLINIC = 'https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/';
 const replacements = {
@@ -21,7 +23,10 @@ export function applyVisualUpgrade(html, path) {
   const home = ['/', '/index', '/index.html'].includes(path);
   if (home) {
     html = html.replace('<div class="th-hero-photo" role="img" aria-label="Fotografía de resonancia magnética del catálogo institucional"></div>',
-      `<figure class="v3-home-art">${visualImage('resonancia', 'Visualización ilustrativa de resonancia magnética', true)}<figcaption>RESONANCIA MAGNÉTICA · VISUALIZACIÓN 3D</figcaption></figure>`);
+      HomeCarousel());
+    html = html.replace('<link rel="preload" as="image" href="/assets/visuals/resonancia.webp" />', '<link rel="preload" as="image" href="/assets/visuals/portada-medico.webp" imagesrcset="/assets/visuals/portada-medico-720.webp 720w, /assets/visuals/portada-medico.webp 1536w" imagesizes="(max-width: 760px) 130vw, 1000px" />');
+    html = html.replace('<meta property="og:image" content="/assets/visuals/resonancia.webp" />', '<meta property="og:image" content="/assets/visuals/portada-medico.webp" />');
+    html = html.replace('</body>', `${HomeCarouselScript}</body>`);
     html = html.replace('<span class="th-photo-note" aria-hidden="true">DIAGNÓSTICO POR IMÁGENES / RM</span>', '');
     html = html.replace('alt="Instalaciones de la clínica en Plaza Farid"', 'alt="Render arquitectónico de la fachada de Plaza Farid"');
     html = html.replace('PLAZA FARID / CLÍNICA DR. MENDOZA', 'PLAZA FARID / VISUALIZACIÓN ARQUITECTÓNICA');
@@ -34,7 +39,7 @@ export function applyVisualUpgrade(html, path) {
       return `${section}<div class="${classes} v3-page-hero"><figure class="v3-page-art">${visualImage(name, 'Visualización ilustrativa de ' + (name === 'radiologo' ? 'interpretación radiológica' : name.replace('-', ' ')), true)}<figcaption>VISUALIZACIÓN ILUSTRATIVA</figcaption></figure>`;
     });
   }
-  html = html.replace('</head>', `${styles}</head>`);
+  html = html.replace('</head>', `${styles}${home ? HomeCarouselStyles : ''}</head>`);
   return html;
 }
 
