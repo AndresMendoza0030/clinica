@@ -9,7 +9,7 @@ export const VisualMotionStyles = `<style id="visual-motion">
 [data-visual-motion="clinic"] .vm-stage::after{content:"";position:absolute;z-index:1;left:20%;right:20%;bottom:7%;height:9%;border-radius:50%;background:radial-gradient(ellipse,#18273330,transparent 68%);opacity:0;transform:scale(.8)}
 [data-visual-motion="scan"] .vm-stage::after,.vm-stage[data-visual-motion="scan"]::after{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(110deg,transparent 35%,#fff9 49%,#b6473b33 50%,transparent 55%);transform:translateX(-110%);opacity:0}
 [data-visual-motion="lab"] .vm-stage::after,.vm-stage[data-visual-motion="lab"]::after{content:"";position:absolute;z-index:2;width:38%;aspect-ratio:1;left:31%;top:20%;border:1px solid #9d232073;border-radius:50%;box-shadow:0 0 0 12px #fff2;opacity:0;transform:scale(.8)}
-/* One shared state respects the system preference until the visitor overrides it.
+/* Effects start enabled; visitors can reduce them with the footer control.
    Do not gate this on the primary pointer: hybrid computers can report touch. */
 html[data-visual-effects="on"] [data-visual-motion] .vm-media{transition:transform .55s cubic-bezier(.2,.7,.2,1)!important}
 html[data-visual-effects="on"] .cl-card[data-visual-motion]{transition:box-shadow .4s,border-color .4s!important}
@@ -27,7 +27,6 @@ html:not([data-visual-effects="on"]) [data-visual-motion] .vm-stage::after,html:
 </style>`;
 
 export const VisualMotionScript = `<script>(() => {
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const root = document.documentElement;
   const storageKey = 'clinic-visual-effects';
   const controls = [...document.querySelectorAll('[data-visual-effects-toggle]')];
@@ -76,7 +75,7 @@ export const VisualMotionScript = `<script>(() => {
   });
   const resetAll = () => resetters.forEach(reset => reset());
   const applyPreference = () => {
-    enabled = preference === 'on' || (preference !== 'off' && !reducedMotion.matches);
+    enabled = preference !== 'off';
     root.dataset.visualEffects = enabled ? 'on' : 'off';
     resetAll();
     controls.forEach(button => {
@@ -91,7 +90,6 @@ export const VisualMotionScript = `<script>(() => {
     applyPreference();
   }));
   applyPreference();
-  reducedMotion.addEventListener('change', applyPreference);
   window.addEventListener('blur', resetAll);
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetAll(); });
 })();</script>`;
