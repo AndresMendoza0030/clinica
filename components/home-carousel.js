@@ -1,6 +1,6 @@
 const slides = [
   {
-    image: 'portada-medico-detalle',
+    image: 'portada-medico-detalle-v2',
     title: 'Atención médica',
     alt: 'Detalle de la gabacha con el logo original de la clínica y manos sosteniendo una tableta, sin mostrar el rostro. Imagen ilustrativa.',
   },

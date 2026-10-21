@@ -8,6 +8,7 @@ export function renderEstudiosPage() {
   return `<!DOCTYPE html>
 <html class="light" lang="es">
   <head>
+    <meta name="theme-color" content="#0a131d" />
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Estudios | Clínica Dr. Mendoza</title>
@@ -17,12 +18,12 @@ export function renderEstudiosPage() {
     />
     <link
       rel="icon"
-      type="image/png"
-      href="https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png"
+      type="image/webp"
+      href="/assets/visuals/favicon.webp"
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -38,13 +39,13 @@ export function renderEstudiosPage() {
           extend: {
             colors: {
               primary: "#9d2320",
-              "background-light": "#fcf8f8",
-              "background-dark": "#230f0f",
-              ink: "#1c0d0d",
-              soft: "#6f5a5a",
+              "background-light": "#faf9f7",
+              "background-dark": "#101a23",
+              ink: "#19242d",
+              soft: "#606a71",
             },
             fontFamily: {
-              display: ["Public Sans", "sans-serif"],
+              display: ["Manrope", "sans-serif"],
             },
             boxShadow: {
               soft: "0 10px 30px rgba(80, 20, 20, 0.08)",
@@ -79,7 +80,7 @@ export function renderEstudiosPage() {
   </head>
 
   <body class="bg-background-light dark:bg-background-dark text-ink dark:text-[#f4e6e6] font-display overflow-x-hidden">
-    ${Header()}
+    ${Header('estudios')}
 
     <section id="top" class="relative overflow-hidden">
       <div
@@ -132,15 +133,15 @@ export function renderEstudiosPage() {
       <div class="max-w-[1280px] mx-auto px-4 md:px-10">
         <div class="clinic-category-intro">
           <span class="clinic-eyebrow text-primary mb-3">Nuestros Servicios</span>
-          <h2 class="clinic-section-title text-[#1c0d0d] dark:text-white mb-3">Estudios por modalidad</h2>
+          <h2 class="clinic-section-title text-[#19242d] dark:text-white mb-3">Estudios por modalidad</h2>
           <p class="text-sm md:text-base text-[#695e61] dark:text-[#d3c1c1] leading-relaxed">Seleccione una modalidad para consultar los estudios incluidos.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png");'
                 role="img" aria-label="Equipo de resonancia magnética"
               ></div>
@@ -160,11 +161,11 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/TAC.png");'
                 role="img" aria-label="Equipo de tomografía"
               ></div>
@@ -184,11 +185,11 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Ultrasonografia.png");'
                 aria-label="Ultrasonografía"
               ></div>
@@ -208,11 +209,11 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Rayos%20X.png");'
                 aria-label="Rayos X"
               ></div>
@@ -232,11 +233,11 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Mamografia.png");'
                 aria-label="Mamografía"
               ></div>
@@ -256,11 +257,11 @@ export function renderEstudiosPage() {
             </div>
           </article>
 
-          <article class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-            <div class="relative">
+          <article data-visual-motion="scan" class="clinic-category-card group overflow-hidden rounded-3xl border border-[#ead0d0] dark:border-[#3a1e1e] bg-white dark:bg-[#2a1212] shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1">
+            <div class="relative vm-stage">
               <div class="absolute inset-x-0 top-0 h-1 bg-primary z-10"></div>
               <div
-                class="clinic-image h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
+                class="clinic-image vm-media h-56 bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.03]"
                 style='background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/EstudiosEspeciales.webp");'
                 aria-label="Estudios especiales"
               ></div>
@@ -308,24 +309,6 @@ export function renderEstudiosPage() {
     ${Footer()}
     ${WhatsAppFloat()}
 
-    <script>
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener("click", function () {
-          const isOpen = !mobileMenu.classList.toggle("hidden");
-          menuToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-
-        mobileMenu.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
-            menuToggle.setAttribute("aria-expanded", "false");
-          });
-        });
-      }
-    </script>
   </body>
 </html>`;
 }

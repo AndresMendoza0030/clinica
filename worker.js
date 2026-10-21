@@ -87,7 +87,7 @@ export default {
 
     if (path === "/favicon.ico") {
       return Response.redirect(
-        "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/faviconDr.png",
+        new URL("/assets/visuals/favicon.webp", request.url).href,
         302
       );
     }

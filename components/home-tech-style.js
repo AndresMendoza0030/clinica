@@ -1,44 +1,7 @@
 import { Footer } from './footer.js';
-// Componentes exclusivos del Inicio: estética médica tecnológica, sin iconografía decorativa.
-// Se utiliza el favicon institucional y no se modifica el encabezado del resto de páginas.
-const ASSETS = "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/";
+import { Header } from './header.js';
 
-export function HomeTechHeader() {
-  return `
-    <header class="th-header" id="top">
-      <div class="th-shell th-nav-shell">
-        <a href="/" class="th-brand" aria-label="Clínica Radiológica y Laboratorio Clínico Dr. Mendoza, inicio">
-          <img src="${ASSETS}faviconDr.png" width="52" height="52" alt="" class="th-brand-icon" />
-          <span class="th-brand-name">
-            <span>CLÍNICA RADIOLÓGICA</span>
-            <span>Y LABORATORIO CLÍNICO</span>
-            <strong>Dr. Mendoza</strong>
-          </span>
-        </a>
-        <nav class="th-nav" aria-label="Navegación principal">
-          <a href="/" aria-current="page">Inicio</a>
-          <a href="/estudios.html">Diagnóstico por Imágenes</a>
-          <a href="/laboratorio.html">Laboratorio Clínico</a>
-          <a href="#institucional">Nuestra Clínica</a>
-          <a href="#sedes">Sedes</a>
-        </nav>
-        <a class="th-nav-contact" href="https://wa.me/50378205613" target="_blank" rel="noopener noreferrer">Contacto <span aria-hidden="true">↗</span></a>
-        <button type="button" class="th-menu-button" id="techMenuToggle"
-          aria-label="Abrir menú de navegación" aria-controls="techMobileNav" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-      <nav class="th-mobile-nav" id="techMobileNav" aria-label="Navegación móvil" hidden>
-        <a href="/">Inicio</a>
-        <a href="/estudios.html">Diagnóstico por Imágenes</a>
-        <a href="/laboratorio.html">Laboratorio Clínico</a>
-        <a href="#institucional">Nuestra Clínica</a>
-        <a href="#sedes">Sedes y Contacto</a>
-        <a href="https://wa.me/50378205613" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
-      </nav>
-    </header>
-  `;
-}
+export function HomeTechHeader() { return Header('home'); }
 
 export function HomeTechFooter() { return Footer(); }
 
@@ -64,23 +27,6 @@ export function HomeTechStyle() {
     .th-body a { text-decoration:none; color:inherit; }
     .th-body a:focus-visible, .th-body button:focus-visible { outline:3px solid #e9938c; outline-offset:4px; }
     .th-shell { width:min(100% - 100px, 1390px); margin-inline:auto; }
-    .th-header { position:sticky; top:0; z-index:50; background:rgba(8,18,28,.985); border-bottom:1px solid rgba(255,255,255,.12); backdrop-filter:blur(15px); color:#fff; }
-    .th-nav-shell { height:80px; display:flex; align-items:center; gap:clamp(12px,1.75vw,30px); }
-    .th-brand { display:flex; align-items:center; gap:12px; flex:none; min-width:215px; color:#fff; }
-    .th-brand-icon { display:block; width:46px; height:46px; object-fit:contain; }
-    .th-brand-name { display:flex; flex-direction:column; line-height:1.25; letter-spacing:.14em; font-size:9px; font-weight:750; white-space:nowrap; }
-    .th-brand-name strong { display:block; margin-top:2px; font-size:16px; font-weight:800; letter-spacing:.012em; text-transform:none; }
-    .th-nav { display:flex; align-items:center; justify-content:center; flex:1; gap:clamp(15px,2.2vw,38px); height:100%; white-space:nowrap; }
-    .th-nav a { height:100%; display:inline-flex; align-items:center; position:relative; color:#d0d9e0; font-size:12.5px; font-weight:580; transition:color .2s ease; }
-    .th-nav a:hover, .th-nav a[aria-current="page"] { color:#fff; }
-    .th-nav a[aria-current="page"]::after { content:""; position:absolute; left:0; bottom:0; height:2px; width:100%; background:var(--th-red-hover); }
-    .th-nav-contact { display:inline-flex; align-items:center; justify-content:center; gap:15px; padding:10px 0 10px 21px; border-left:1px solid rgba(255,255,255,.30); font-size:12.5px; font-weight:720; white-space:nowrap; }
-    .th-nav-contact span { font-size:17px; font-weight:400; color:#ef9993; }
-    .th-menu-button { display:none; background:none; border:1px solid #53606a; border-radius:6px; height:42px; width:45px; color:#fff; align-items:center; justify-content:center; flex-direction:column; gap:5px; cursor:pointer; }
-    .th-menu-button span { width:20px; height:1.5px; background:#fff; display:block; }
-    .th-mobile-nav { display:none; background:#0d1924; padding:12px 24px 24px; border-top:1px solid #2c3b48; }
-    .th-mobile-nav:not([hidden]) { display:flex; flex-direction:column; }
-    .th-mobile-nav a { padding:13px 4px; color:#edf2f5; border-bottom:1px solid #273640; font-size:14px; }
     .th-home-hero { position:relative; isolation:isolate; min-height:615px; overflow:hidden; background-color:#13202d; display:flex; align-items:center; color:white; }
     .th-home-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,rgba(5,15,23,.97) 0%,rgba(6,17,26,.92) 31%,rgba(7,20,29,.55) 54%,rgba(4,14,24,.10) 82%),linear-gradient(0deg,rgba(2,12,19,.26),transparent 50%); }
     .th-hero-photo { position:absolute; inset:0; z-index:-2; background-image:url("https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/Resonancia%20magnetica.png"); background-size:cover; background-position:center 46%; filter:saturate(.75) contrast(1.08); }
@@ -140,15 +86,9 @@ export function HomeTechStyle() {
     .th-lab-content p { margin:0 0 22px; max-width:450px; color:#586772; line-height:1.8; font-size:14px; }
     @media(max-width:1190px) {
       .th-shell { width:min(100% - 64px,1390px); }
-      .th-nav { gap:15px; }
-      .th-nav a { font-size:11.5px; }
-      .th-brand { min-width:200px; }
       .th-modality { padding:20px 16px; }
     }
     @media(max-width:980px) {
-      .th-nav, .th-nav-contact { display:none; }
-      .th-nav-shell { justify-content:space-between; }
-      .th-menu-button { display:flex; }
       .th-home-hero { min-height:585px; }
       .th-hero-photo { background-position:62% center; }
       .th-modality-strip { grid-template-columns:repeat(3,minmax(0,1fr)); }
@@ -158,11 +98,6 @@ export function HomeTechStyle() {
     }
     @media(max-width:670px) {
       .th-shell { width:calc(100% - 38px); }
-      .th-nav-shell { height:70px; }
-      .th-brand { min-width:0; gap:9px; }
-      .th-brand-icon { width:37px; height:37px; }
-      .th-brand-name { font-size:8px; letter-spacing:.11em; }
-      .th-brand-name strong { font-size:14px; }
       .th-home-hero { min-height:595px; }
       .th-home-hero::before { background:linear-gradient(90deg,rgba(5,15,23,.93),rgba(5,15,23,.76) 62%,rgba(5,15,23,.48)); }
       .th-hero-photo { background-position:64% center; }

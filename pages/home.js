@@ -18,7 +18,7 @@ export function renderHomePage() {
   <meta property="og:title" content="Clínica Radiológica y Laboratorio Clínico Dr. Mendoza" />
   <meta property="og:description" content="Tecnología diagnóstica y atención cercana en San Miguel desde 2006." />
   <meta property="og:image" content="${IMG}Resonancia%20magnetica.png" />
-  <link rel="icon" type="image/png" href="${IMG}faviconDr.png" />
+  <link rel="icon" type="image/webp" href="/assets/visuals/favicon.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://lwjusnpkibgoxkcvrvww.supabase.co" />
@@ -53,33 +53,33 @@ export function renderHomePage() {
     </section>
 
     <nav class="th-modality-strip" aria-label="Nuestros servicios">
-      <a class="th-modality" href="/estudios-rm.html">
-        <img src="${IMG}Resonancia%20magnetica.png" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality" href="/estudios-rm.html" data-visual-motion="scan">
+        <span class="vm-stage"><img class="vm-media" src="${IMG}Resonancia%20magnetica.png" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">01 / IMAGENOLOGÍA</span>
         <div><h2>Resonancia Magnética</h2><p>Estudios convencionales y especializados.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
-      <a class="th-modality" href="/estudios-tac.html">
-        <img src="${IMG}TAC.png" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality" href="/estudios-tac.html" data-visual-motion="scan">
+        <span class="vm-stage"><img class="vm-media" src="${IMG}TAC.png" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">02 / IMAGENOLOGÍA</span>
         <div><h2>Tomografía</h2><p>Tomografía multidetectores y otras modalidades.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
-      <a class="th-modality" href="/estudios-rayosx.html">
-        <img src="${IMG}Rayos%20X.png" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality" href="/estudios-rayosx.html" data-visual-motion="scan">
+        <span class="vm-stage"><img class="vm-media" src="${IMG}Rayos%20X.png" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">03 / IMAGENOLOGÍA</span>
         <div><h2>Rayos X</h2><p>Estudios radiográficos según indicación médica.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
-      <a class="th-modality" href="/estudios-mamografia.html">
-        <img src="${IMG}Mamografia.png" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality" href="/estudios-mamografia.html" data-visual-motion="scan">
+        <span class="vm-stage"><img class="vm-media" src="${IMG}Mamografia.png" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">04 / IMAGENOLOGÍA</span>
         <div><h2>Mamografía</h2><p>Estudios de imagen para evaluación mamaria.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
-      <a class="th-modality" href="/estudios-us.html">
-        <img src="${IMG}Ultrasonografia.png" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality" href="/estudios-us.html" data-visual-motion="scan">
+        <span class="vm-stage"><img class="vm-media" src="${IMG}Ultrasonografia.png" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">05 / IMAGENOLOGÍA</span>
         <div><h2>Ultrasonografía</h2><p>Ultrasonido convencional y Doppler.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
-      <a class="th-modality th-modality--lab" href="/laboratorio.html">
-        <img src="${LAB_IMAGE}" alt="" loading="lazy" decoding="async" />
+      <a class="th-modality th-modality--lab" href="/laboratorio.html" data-visual-motion="lab">
+        <span class="vm-stage"><img class="vm-media" src="${LAB_IMAGE}" alt="" loading="lazy" decoding="async" /></span>
         <span class="th-modality-number">06 / LABORATORIO</span>
         <div><h2>Laboratorio Clínico</h2><p>Exámenes y perfiles para el seguimiento clínico.</p><span class="th-modality-link" aria-hidden="true">→</span></div>
       </a>
@@ -88,7 +88,7 @@ export function renderHomePage() {
     <section id="institucional" class="th-institution" aria-labelledby="inst-title">
       <div class="th-shell th-institution-grid">
         <div>
-          <div class="th-section-label">Nuestra Clínica</div>
+          <div class="th-section-label">Nuestra Historia</div>
           <h2 id="inst-title" class="th-headline">Desde 2006,<br>cerca de usted.</h2>
           <p class="th-body-copy">
             Fundada el 5 de abril de 2006, la Clínica Radiológica y Laboratorio Clínico Dr. Mendoza
@@ -113,8 +113,8 @@ export function renderHomePage() {
     </section>
 
     <section id="laboratorio" class="th-lab-feature" aria-labelledby="lab-title">
-      <div class="th-lab-image">
-        <img src="${LAB_IMAGE}" alt="Material de laboratorio clínico, imagen ilustrativa" loading="lazy" decoding="async" />
+      <div class="th-lab-image vm-stage" data-visual-motion="lab">
+        <img class="vm-media" src="${LAB_IMAGE}" alt="Material de laboratorio clínico, imagen ilustrativa" loading="lazy" decoding="async" />
       </div>
       <div class="th-lab-content">
         <div class="th-section-label">Laboratorio Clínico</div>
@@ -130,24 +130,6 @@ export function renderHomePage() {
     ${Sedes()}
   </main>
   ${HomeTechFooter()}
-  <script>
-    (() => {
-      const toggle = document.getElementById("techMenuToggle");
-      const menu = document.getElementById("techMobileNav");
-      if (!toggle || !menu) return;
-      const setOpen = (open) => {
-        menu.hidden = !open;
-        toggle.setAttribute("aria-expanded", String(open));
-        toggle.setAttribute("aria-label", open ? "Cerrar menú de navegación" : "Abrir menú de navegación");
-      };
-      toggle.addEventListener("click", () => setOpen(menu.hidden));
-      menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
-      document.addEventListener("keydown", (event) => { if (event.key === "Escape") setOpen(false); });
-      document.addEventListener("click", (event) => {
-        if (!menu.hidden && !menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
-      });
-    })();
-  </script>
 </body>
 </html>`;
 }
