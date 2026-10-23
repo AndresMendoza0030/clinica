@@ -1,6 +1,6 @@
 const slides = [
   {
-    image: 'portada-medico-detalle-v2',
+    image: 'portada-medico-detalle-v3',
     title: 'Atención médica',
     alt: 'Detalle de la gabacha con el logo original de la clínica y manos sosteniendo una tableta, sin mostrar el rostro. Imagen ilustrativa.',
   },
@@ -10,7 +10,7 @@ const slides = [
     alt: 'Recepción de la clínica con el mostrador de madera despejado y las sillas ordenadas, recreada a partir de la fotografía del espacio.',
   },
   {
-    image: 'portada-interpretacion-espaldas-v2',
+    image: 'portada-interpretacion-espaldas-v3',
     title: 'Interpretación de estudios',
     alt: 'Radiólogo visto completamente de espaldas mientras revisa estudios en una estación de diagnóstico. Imagen ilustrativa.',
   },
