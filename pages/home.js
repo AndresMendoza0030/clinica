@@ -1,3 +1,4 @@
+import { HistoryTimeline } from '../components/history-timeline.js';
 import { Sedes } from '../components/sedes.js';
 import { HomeTechHeader, HomeTechFooter, HomeTechStyle } from "../components/home-tech-style.js";
 
@@ -85,32 +86,7 @@ export function renderHomePage() {
       </a>
     </nav>
 
-    <section id="institucional" class="th-institution" aria-labelledby="inst-title">
-      <div class="th-shell th-institution-grid">
-        <div>
-          <div class="th-section-label">Nuestra Historia</div>
-          <h2 id="inst-title" class="th-headline">Desde 2006,<br>cerca de usted.</h2>
-          <p class="th-body-copy">
-            Fundada el 5 de abril de 2006, la Clínica Radiológica y Laboratorio Clínico Dr. Mendoza
-            acompaña a pacientes y médicos de San Miguel con servicios de diagnóstico
-            y una atención basada en la confianza.
-          </p>
-          <p class="th-body-copy">
-            De nuestra primera Matriz a tres sedes en San Miguel, nuestra historia crece
-            junto a las personas que confían en nosotros.
-          </p>
-          <a class="th-inline-link" href="#sedes">Conozca Nuestras Sedes <span class="th-arrow" aria-hidden="true">→</span></a>
-          <div class="th-facts" aria-label="Nuestra trayectoria">
-            <div class="th-fact"><strong>2006</strong><span>Año de fundación</span></div>
-            <div class="th-fact"><strong>20 años</strong><span>De trayectoria</span></div>
-            <div class="th-fact"><strong>3</strong><span>Sedes en San Miguel</span></div>
-          </div>
-        </div>
-        <figure class="th-institution-image th-institution-archive" style="margin:0">
-          <img src="/assets/visuals/matriz-primeros-anos-restaurada.webp" srcset="/assets/visuals/matriz-primeros-anos-restaurada-720.webp 720w, /assets/visuals/matriz-primeros-anos-restaurada.webp 1448w" sizes="(max-width: 760px) 92vw, (max-width: 1440px) 55vw, 780px" width="1448" height="1086" alt="Fotografía restaurada de la primera Matriz en los primeros años de la clínica" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-    </section>
+    ${HistoryTimeline()}
 
     <section id="laboratorio" class="th-lab-feature" aria-labelledby="lab-title">
       <div class="th-lab-image vm-stage" data-visual-motion="lab">
