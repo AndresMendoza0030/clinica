@@ -1,5 +1,6 @@
 import { applyVisualUpgrade } from "./components/visual-upgrade.js";
 import { renderHomePage } from "./pages/home.js";
+import { renderHistoriaPage } from "./pages/historia.js";
 import { renderEstudiosPage } from "./pages/estudios.js";
 import { renderEstudiosRMPage } from "./pages/estudios-rm.js";
 import { renderEstudiosTACPage } from "./pages/estudios-tac.js";
@@ -22,6 +23,8 @@ const pageRoutes = {
   "/": renderHomePage,
   "/index": renderHomePage,
   "/index.html": renderHomePage,
+  "/historia": renderHistoriaPage,
+  "/historia.html": renderHistoriaPage,
   "/portal-pacientes": renderPortalPacientesPage,
   "/portal-pacientes.html": renderPortalPacientesPage,
   "/estudios": renderEstudiosPage,

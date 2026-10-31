@@ -3,7 +3,7 @@ const links = [
   ['home', '/', 'Inicio'],
   ['estudios', '/estudios.html', 'Diagnóstico por Imágenes'],
   ['laboratorio', '/laboratorio.html', 'Laboratorio Clínico'],
-  ['historia', '/#institucional', 'Nuestra Historia'],
+  ['historia', '/historia', 'Nuestra Historia'],
   ['sedes', '/#sedes', 'Sedes y Contacto'],
 ];
 export function Header(section = '') {
