@@ -60,11 +60,11 @@ export function renderEstudiosUSPage() {
       {
         id: "convencional",
         title: "US. Convencional",
-        icon: "ultrasonic_sensor",
+        icon: "monitor_heart",
         groups: [
           {
             title: "Abdominal",
-            icon: "abdomen",
+            icon: "accessibility_new",
             items: [
               "Hígado",
               "Vesícula y vías biliares",

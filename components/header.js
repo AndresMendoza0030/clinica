@@ -32,7 +32,10 @@ export function Header(section = '') {
       if (event.key === 'Escape' && menu.open) { menu.open = false; toggle.focus(); }
     });
     document.addEventListener('click', event => { if (menu.open && !menu.contains(event.target)) menu.open = false; });
-    matchMedia('(min-width: 1101px)').addEventListener('change', event => { if (event.matches) menu.open = false; });
+    const wide = matchMedia('(min-width: 1101px)');
+    const closeOnWide = event => { if (event.matches) menu.open = false; };
+    if (wide.addEventListener) wide.addEventListener('change', closeOnWide);
+    else if (wide.addListener) wide.addListener(closeOnWide);
   })();</script>`;
 }
 const styles = `<style id="clinic-header-style">
@@ -59,7 +62,7 @@ const styles = `<style id="clinic-header-style">
 .th-menu[open] .th-menu-button span:first-child{transform:translateY(6.5px) rotate(45deg)}
 .th-menu[open] .th-menu-button span:nth-child(2){opacity:0}
 .th-menu[open] .th-menu-button span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
-.th-mobile-nav{position:absolute;top:100%;left:0;right:0;background:#0d1924;padding:12px 24px 24px;border-top:1px solid #2c3b48;box-shadow:0 16px 24px #0003;max-height:calc(100dvh - var(--site-header-height));overflow-y:auto}
+.th-mobile-nav{position:absolute;top:100%;left:0;right:0;background:#0d1924;padding:12px 24px 24px;border-top:1px solid #2c3b48;box-shadow:0 16px 24px #0003;max-height:calc(100vh - var(--site-header-height));max-height:calc(100dvh - var(--site-header-height));overflow-y:auto;-webkit-overflow-scrolling:touch}
 .th-menu[open] .th-mobile-nav{display:flex;flex-direction:column}
 .th-header .th-mobile-nav a{padding:13px 4px;color:#edf2f5;border-bottom:1px solid #273640;font-size:14px}
 .th-header .th-mobile-nav a[aria-current="page"]{color:#f4b1a9}
