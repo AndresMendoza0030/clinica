@@ -99,7 +99,7 @@ export function renderEstudiosRayosXPage() {
       {
         id: "abdomen",
         title: "Abdomen",
-        icon: "abdomen",
+        icon: "accessibility_new",
         groups: [
           {
             title: "Abdomen simple",

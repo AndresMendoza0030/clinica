@@ -95,7 +95,7 @@ export const HomeCarouselScript = `<script>
   }
   function go(index, instant = false) {
     const next = (index + slides.length) % slides.length;
-    viewport.scrollTo({left: next * viewport.clientWidth, behavior: instant || reducedMotion.matches ? 'instant' : 'smooth'});
+    viewport.scrollTo({left: next * viewport.clientWidth, behavior: instant || reducedMotion.matches ? 'auto' : 'smooth'});
   }
   root.querySelector('[data-hc-prev]').addEventListener('click', () => go(current - 1));
   root.querySelector('[data-hc-next]').addEventListener('click', () => go(current + 1));
@@ -124,7 +124,8 @@ export const HomeCarouselScript = `<script>
   viewport.addEventListener('pointerup', finishDrag);
   viewport.addEventListener('pointercancel', finishDrag);
   viewport.addEventListener('lostpointercapture', finishDrag);
-  new ResizeObserver(() => go(current, true)).observe(viewport);
+  if ('ResizeObserver' in window) new ResizeObserver(() => go(current, true)).observe(viewport);
+  else window.addEventListener('resize', () => go(current, true));
   root.querySelector('.hc-controls').hidden = false;
   root.dataset.enhanced = 'true';
   sync(false);
