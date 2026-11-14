@@ -10,7 +10,7 @@ export function LunaPatients(enabled = false) {
 <header><h2 id="luna-title">Luna Pacientes</h2><button id="luna-close" type="button" aria-label="Cerrar Luna">Cerrar</button></header>
 <p id="luna-note">${enabled ? 'Información pública de la clínica, con ayuda de IA.' : 'Guía informativa · preguntas rápidas sin IA.'}</p>
 <small>No comparta datos personales ni resultados. Luna no brinda orientación médica.${enabled ? ' Su consulta se envía a OpenAI para identificar el tema.' : ''}</small>
-<div id="luna-choices" aria-label="Preguntas rápidas">${catalog.map(x=>`<button type="button" data-luna-id="${x.id}">${x.label}</button>`).join('')}</div>
+<div id="luna-choices" aria-label="Preguntas rápidas">${catalog.filter(x => x.quick !== false).map(x=>`<button type="button" data-luna-id="${x.id}">${x.label}</button>`).join('')}</div>
 <form id="luna-form" ${enabled ? '' : 'hidden'}><label for="luna-question">¿Qué información necesita?</label><input id="luna-question" name="message" maxlength="400" autocomplete="off" required><button type="submit">Consultar</button></form>
 <div role="status" aria-live="polite" aria-atomic="true"><p id="luna-answer"></p><div id="luna-links"></div></div>
 <a href="${contact.href}" target="_blank" rel="noopener noreferrer">${contact.label}</a>
