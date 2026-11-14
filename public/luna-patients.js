@@ -10,6 +10,15 @@
   const welcome = document.getElementById('luna-welcome');
   const scroll = document.getElementById('luna-scroll');
   const enabled = panel.dataset.enabled === 'true';
+  const state = document.getElementById('luna-state');
+  const stateLabels = {attentive: 'Con gusto le ayudo', reading: 'Estoy leyendo su consulta…', thinking: 'Estoy buscando la información…', responding: 'Aquí tiene la información', happy: 'Es un gusto ayudarle'};
+  let reactionTimer;
+  function setMode(mode = 'attentive', duration = 0) {
+    clearTimeout(reactionTimer);
+    panel.dataset.lunaMode = mode;
+    state.textContent = enabled ? stateLabels[mode] : 'Chat en preparación';
+    if (duration) reactionTimer = setTimeout(() => setMode(), duration);
+  }
   let active;
   let pendingContext;
   const clearContext = () => { pendingContext = undefined; };
@@ -17,12 +26,12 @@
   function reset() {
     active?.abort(); active = null; clearContext();
     messages.replaceChildren(); status.textContent = ''; form.reset();
-    welcome.hidden = false; send.disabled = !enabled;
+    welcome.hidden = false; send.disabled = !enabled; setMode();
   }
-  launch.addEventListener('click', () => { panel.showModal(); if (enabled) input.focus(); });
+  launch.addEventListener('click', () => { panel.showModal(); panel.dataset.lunaAnimate = 'true'; if (enabled) { setMode('happy', 2200); input.focus(); } });
   document.getElementById('luna-close').addEventListener('click', () => panel.close());
   document.getElementById('luna-reset').addEventListener('click', () => { reset(); if (enabled) input.focus(); });
-  panel.addEventListener('close', () => { reset(); launch.focus(); });
+  panel.addEventListener('close', () => { delete panel.dataset.lunaAnimate; reset(); launch.focus(); });
   function addMessage(text, role, links = []) {
     welcome.hidden = true;
     const message = document.createElement('div'); message.className = 'luna-message luna-message-' + role;
@@ -50,17 +59,27 @@
     const controller = new AbortController(); active = controller;
     const timeout = setTimeout(() => controller.abort(), 12000);
     send.disabled = true; input.value = '';
-    addMessage(message, 'user'); status.textContent = 'Luna está consultando…'; scrollToEnd();
+    addMessage(message, 'user'); setMode('reading'); status.textContent = 'Con gusto, permítame revisar su consulta…'; scrollToEnd();
+    const thinkingTimer = setTimeout(() => {
+      if (active === controller) { setMode('thinking'); status.textContent = 'Estoy buscando la información para ayudarle…'; }
+    }, 700);
     try {
       const response = await fetch('/api/luna-pacientes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal});
       const result = await response.json();
       if (active !== controller) return;
       if (response.ok && ['sede', 'estudio'].includes(result.context)) pendingContext = {id:result.context, expires:Date.now() + 5 * 60 * 1000};
-      addMessage(typeof result.text === 'string' ? result.text : 'No pude consultar esa información. Puede hablar con la clínica usando el enlace de abajo.', 'assistant', result.links);
+      clearTimeout(thinkingTimer);
+      const text = typeof result.text === 'string' ? result.text : 'Con gusto quisiera ayudarle, pero no pude consultar esa información. Si lo desea, puede comunicarse con nuestro equipo mediante el enlace de abajo.';
+      addMessage(text, 'assistant', result.links);
+      const reaction = response.ok && ['happy', 'responding'].includes(result.reaction) ? result.reaction : response.ok && result.reaction !== 'attentive' && !result.context ? 'responding' : 'attentive';
+      setMode(reaction, reaction === 'attentive' ? 0 : Math.min(6000, Math.max(2800, text.length * 25)));
     } catch {
-      if (active === controller) addMessage('No pude conectarme en este momento. Puede volver a escribir o hablar con la clínica.', 'assistant');
+      if (active === controller) {
+        addMessage('Gracias por su paciencia. No pude conectarme en este momento. Puede volver a intentarlo o, si prefiere, nuestro equipo le atenderá con gusto por WhatsApp.', 'assistant');
+        setMode();
+      }
     } finally {
-      clearTimeout(timeout);
+      clearTimeout(timeout); clearTimeout(thinkingTimer);
       if (active === controller) { active = null; status.textContent = ''; send.disabled = !enabled; scrollToEnd(); }
     }
   }
