@@ -1,3 +1,17 @@
+# Actualización: cordialidad y reacciones (2026-11-14)
+
+Luna mantiene el trato de usted y responde con textos más cálidos en información, aclaraciones, saludos, agradecimientos y fallos. El catálogo incluye ahora el horario **general** publicado en `components/footer.js` y cotejado con la portada pública: lunes a viernes 6:30 a. m.–4:30 p. m.; sábado 6:30 a. m.–12:00 del mediodía. Las preguntas sobre atención en una sede, fecha concreta, festivo o disponibilidad de un estudio no obtienen garantías a partir de ese horario.
+
+La pregunta «A que hora habre uste» y variantes acotadas se resuelven localmente después de validar entrada y habilitación. No consumen una solicitud al proveedor; el matcher exige la pregunta completa y no absorbe texto clínico, fechas o consultas mixtas. La IA sigue clasificando las demás formulaciones en IDs del catálogo; no se muestra prosa libre del proveedor. Se incorporan `saludo` y `gracias`, y enlaces al contacto junto a los catálogos. La clave, el modelo, los bindings, las migraciones y los límites se conservan.
+
+`components/luna-mascot.js` sustituye las imágenes del panel por un SVG original sin recursos externos, IDs ni filtros. Cinco poses: atento (respiración/parpadeo), leyendo (papel y mirada), pensando (inclinación y puntos), respondiendo (boca y mano), feliz (ojos sonrientes, saludo y destellos). El panel recibe `data-luna-mode` y solo anima mientras está abierto (`data-luna-animate`). Una consulta activa comienza leyendo y, tras 700 ms, pasa a pensando; el resultado determina su reacción. No se retrasa la respuesta para completar una animación. La pose regresa a atento; cerrar/borrar cancela el estado y la solicitud. Los errores y derivaciones no activan felicidad. Movimiento reducido conserva las poses y suprime las animaciones.
+
+Validación: 120 comprobaciones de servidor, contexto, pruebas del controlador con reloj y red simulados (reacciones/cancelación/respuestas tardías/salida segura), configuración, regresión de páginas, sintaxis, diff y empaquetado Wrangler local. Proveedor simulado en pruebas; la prueba visual local usa respuestas simuladas. El test histórico `search-metadata.mjs` sigue fallando por Historia ausente del sitemap, fuera de este cambio. Chromium lanzado por CLI no está disponible en este entorno (socket EPERM); la revisión visual se hace en el navegador de vista previa. La configuración activada de producción se conserva.
+
+Las notas inferiores describen revisiones anteriores; sus estados de activación y despliegue son históricos.
+
+---
+
 > Rediseño en revisión (2026-11-14): la rama `feat/luna-friendly-chat` sustituye el menú por un chat con entrada libre, burbujas, estado de consulta, borrado y contacto humano. Esta rama conserva la configuración de producción: `LUNA_PATIENTS_ENABLED=true` y el modelo explícito, sin modificar variables, bindings ni migraciones. No ha sido fusionada ni desplegada. El PR #7 anterior fue fusionado externamente y el endpoint público informó `enabled:true` al comenzar este trabajo. Las notas de activación inferiores son históricas.
 >
 > Mascota: `public/luna-bear.svg` es una **ilustración vectorial provisional original**, no una reproducción fiel de una referencia. Osito blanco con detalles rojos, lentes rojos y bata blanca; saludo CSS de una sola ejecución. El avatar de cabecera se identifica por `[data-luna-mascot]`; reemplazar el SVG manteniendo el viewBox/proporción o actualizar las tres imágenes (lanzador, cabecera y bienvenida). Se respeta `prefers-reduced-motion`; no es una animación animatrónica compleja.
