@@ -49,6 +49,6 @@ const budget=new LunaBudget({storage});
 const results=await Promise.all(Array.from({length:12},()=>budget.fetch()));assert.equal(results.filter(x=>x.status===204).length,5);cases++;
 saved={...saved,burst:0,daily:100};assert.equal((await budget.fetch()).status,429);cases++;
 saved={...saved,day:saved.day-1,minute:saved.minute-1};assert.equal((await budget.fetch()).status,204);assert.equal(saved.daily,1);cases++;
-const home=await (await worker.fetch(new Request('https://clinic.example/'))).text();assert.match(home,/Guía informativa/);assert.match(home,/id="luna-form" hidden/);cases++;
+const home=await (await worker.fetch(new Request('https://clinic.example/'))).text();assert.match(home,/Chat en preparación/);assert.match(home,/<textarea[^>]+disabled/);assert.doesNotMatch(home,/id="luna-choices"/);cases++;
 for(const path of ['/portal-pacientes','/portal-pacientes.html']) {assert.doesNotMatch(await(await worker.fetch(new Request('https://clinic.example'+path))).text(),/id="luna-panel"/);cases++;}
 console.log(`PASS: ${cases} Luna checks; all provider responses simulated, no paid calls. Semantic quality of a live model is not measured.`);
