@@ -2,6 +2,7 @@ import { LunaPatients } from './components/luna-patients.js';
 import { handleLuna, isEnabled } from './luna/server.js';
 export { LunaBudget } from './luna/server.js';
 import { applyVisualUpgrade } from "./components/visual-upgrade.js";
+import { applySearchMetadata, renderSitemap, robotsTxt } from "./components/search-metadata.js";
 import { renderHomePage } from "./pages/home.js";
 import { renderHistoriaPage } from "./pages/historia.js";
 import { renderEstudiosPage } from "./pages/estudios.js";
@@ -81,11 +82,20 @@ export default {
 
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
-    const render = pageRoutes[path];
+    if (path === "/sitemap.xml" || path === "/robots.txt") {
+      const sitemap = path === "/sitemap.xml";
+      return new Response(request.method === "HEAD" ? null : sitemap ? renderSitemap() : robotsTxt, {
+        headers: {
+          "content-type": sitemap ? "application/xml; charset=UTF-8" : "text/plain; charset=UTF-8",
+          "x-content-type-options": "nosniff",
+        },
+      });
+    }
+    const render = Object.hasOwn(pageRoutes, path) ? pageRoutes[path] : null;
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : applyVisualUpgrade(render(), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env))) + "</body>"), {
+      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(), path), path), {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,

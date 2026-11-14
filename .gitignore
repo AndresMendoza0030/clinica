@@ -1,5 +1,6 @@
-# Local tooling and secrets (previously tracked build files are left untouched).
-.wrangler/
-node_modules/
-.env*
+# wrangler files
+.wrangler
 .dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
