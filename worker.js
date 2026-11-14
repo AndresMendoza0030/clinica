@@ -1,3 +1,6 @@
+import { LunaPatients } from './components/luna-patients.js';
+import { handleLuna, isEnabled } from './luna/server.js';
+export { LunaBudget } from './luna/server.js';
 import { applyVisualUpgrade } from "./components/visual-upgrade.js";
 import { applySearchMetadata, renderSitemap, robotsTxt } from "./components/search-metadata.js";
 import { renderHomePage } from "./pages/home.js";
@@ -68,7 +71,8 @@ const baseHeaders = {
 };
 
 export default {
-  async fetch(request) {
+  async fetch(request, env = {}) {
+    if (new URL(request.url).pathname === "/api/luna-pacientes") return handleLuna(request, env);
     if (request.method !== "GET" && request.method !== "HEAD") {
       return new Response("Método no permitido", {
         status: 405,
