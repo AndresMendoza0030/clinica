@@ -1,0 +1,5 @@
+# Local tooling and secrets (previously tracked build files are left untouched).
+.wrangler/
+node_modules/
+.env*
+.dev.vars*

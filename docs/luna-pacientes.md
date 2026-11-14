@@ -1,0 +1,40 @@
+# Luna Pacientes — implementación pendiente de activación
+
+Estado: modo informativo local listo para revisión. IA deshabilitada. No se creó, reutilizó ni escribió una clave; no se hicieron llamadas reales de OpenAI, despliegues ni fusiones. Esta rama parte de main `f8c8f7010c2daf9bc324c389baf3152e6d7f9576` y no incluye el PR SEO #3.
+
+## Contenido y alcance
+
+`luna/catalog.js` registra fuente y fecha de revisión por entrada (2026-11-14). Sedes, direcciones y teléfonos provienen directamente de `components/clinic-locations.js`; las tres sedes y sus WhatsApp se cotejaron también con el HTML público de https://clinicadrmendoza.com/. Las categorías proceden de las páginas públicas existentes. Es una revisión de procedencia, no una nueva aprobación clínica. Cada cambio de contenido requiere revisión humana del texto y de su página de origen; una edición del archivo compartido de sedes también cambia Luna.
+
+El catálogo inicial ofrece contactos por sede y enlaces a categorías de estudios/laboratorio. No afirma que un estudio esté disponible en una sede. Se excluyen precios, horarios (no se verificaron por sede), preparaciones, diagnósticos, medicamentos, interpretación de resultados y datos privados. No se enlaza ni consulta el portal de pacientes ni Gestión de empleados. Para ampliar cobertura, agregar textos administrativos aprobados con identificadores estables y procedencia; nunca introducir documentos privados en el catálogo.
+
+La IA clasifica una sola pregunta (incluidas variantes gramaticales y errores ortográficos) en `answer`, `clarify` o `handoff`. Responses usa JSON Schema estricto con enumeraciones. El servidor valida nuevamente forma, ID y combinación, y entrega exclusivamente texto del catálogo o una frase fija. Ninguna prosa del proveedor llega al navegador. Ambigüedades permiten aclarar sede o nombre del estudio. Cada envío es independiente: no hay memoria conversacional; el usuario debe incluir la información necesaria en su consulta siguiente. Una clasificación equivocada aún puede elegir un texto administrativo irrelevante: el esquema limita la salida, pero no demuestra precisión semántica.
+
+## Activación exclusiva y presupuesto
+
+1. El hilo principal coordina una clave **nueva**, exclusiva de Luna Pacientes. No usar `OPENAI_API_KEY` de otro sistema, ni credenciales de Gestión. El único secreto leído es `LUNA_PATIENTS_OPENAI_API_KEY`, instalado como secreto del Worker mediante un canal seguro y con autorización. Nunca guardarlo en código, PR, logs, `.dev.vars` versionado o navegador.
+2. Seleccionar y comprobar un ID de modelo accesible en el proyecto, compatible con Responses y Structured Outputs, y fijarlo explícitamente en `LUNA_PATIENTS_MODEL`. No hay modelo por defecto. El nombre comercial «Luna Pacientes» no identifica un modelo de OpenAI ni confirma acceso a `gpt-6-luna`. Preferir una versión fija cuando la cuenta la ofrezca; validar calidad, precio y compatibilidad antes de habilitar.
+3. Revisar y provisionar el binding `LUNA_PATIENTS_BUDGET` y su migración SQLite `LunaBudget` en Cloudflare. No se ha aplicado ninguna migración remota. El mismo objeto global consume una reserva atómica antes de cada intento: máximo 5/minuto y 100/día UTC, incluidos errores, sin reintentos. La ausencia/falla del binding cierra el acceso al proveedor. Son límites de solicitudes, no un presupuesto monetario exacto: confirmar tarifa del modelo, fijar controles/alertas del proyecto y calcular el máximo con 100 intentos de hasta 400 caracteres + catálogo fijo de entrada y 256 tokens de salida. Un atacante puede agotar el cupo compartido; los enlaces y preguntas rápidas continúan disponibles. Reforzar reglas WAF en producción si se requiere disponibilidad ante abuso distribuido.
+4. Solo tras la revisión y pruebas autorizadas, configurar `LUNA_PATIENTS_ENABLED="true"`. La habilitación requiere los cuatro valores. Para apagar basta `false`. Las preguntas rápidas no consumen OpenAI.
+5. No desplegar desde este trabajo. Antes de un despliegue autorizado comprobar que la nueva migración y los assets sean compatibles con el proyecto existente. No configurar observabilidad que registre cuerpos de solicitudes.
+
+Privacidad: no se guardan preguntas, respuestas ni IP. El contador almacena solo fecha, minuto y acumulados bajo una clave. OpenAI recibe solo la pregunta actual y el catálogo público, con `store:false`; esto no equivale a una promesa de retención cero del proveedor (revisar controles de datos del proyecto). El panel informa de ese envío cuando está habilitado, solicita no compartir información personal y borra su estado al cerrarse. No incluye analítica, cookies ni localStorage. El endpoint limita el cuerpo a 2048 bytes, la pregunta a 400 unidades UTF-16, rechaza controles/bidi, exige JSON y origen coincidente. El origen no sustituye autenticación y puede falsificarse fuera del navegador; el presupuesto global es la barrera de costo. Timeout OpenAI 8s, navegador 12s. Fallos devuelven contacto público, sin detalles internos.
+
+## Contrato y documentación consultada
+
+- [Responses API](https://developers.openai.com/api/reference/resources/responses/methods/create): POST `/v1/responses`, `input`, `instructions`, `store:false`, `max_output_tokens`, estado completo y contenido `output_text`.
+- [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs): `text.format`, `json_schema`, `strict`, propiedades requeridas y `additionalProperties:false`; rechazos y respuestas incompletas se manejan separadamente.
+- [Catálogo de modelos](https://developers.openai.com/api/docs/models): verificar acceso y vigencia al activar; no se seleccionó un modelo por su nombre comercial.
+- [Almacenamiento de Durable Objects](https://developers.cloudflare.com/durable-objects/api/legacy-kv-storage-api/): transacciones y API KV disponibles también con backend SQLite.
+
+## Verificación reproducible
+
+- `node tests/visual-upgrade.mjs`: regresión existente de páginas, imágenes, HEAD, aislamiento del portal y 404.
+- `node tests/luna.mjs`: 77 comprobaciones de catálogo, IDs inventados, campos extra, injection simulada, ambigüedad, fuera de alcance, Unicode, entrada vacía/grande, origen, tipos, configuración independiente, presupuesto, fallos HTTP/refusals/incomplete/JSON y timeout. El proveedor siempre es simulado. Las preguntas de ejemplo no son una evaluación real de comprensión del modelo.
+- `node --check worker.js`, `node --check luna/server.js`, `node --check public/luna-patients.js`, `git diff --check`.
+- `wrangler deploy --dry-run --outdir /tmp/luna-dry-run`: empaquetado local; no despliega ni aplica migraciones.
+- `LUNA_PLAYWRIGHT_MODULE=/ruta/a/playwright/index.mjs node tests/luna-ui.mjs` con Wrangler local en puerto 8787: navegador Chromium, escritorio y móvil, cierre/Escape/reapertura, foco, preguntas rápidas, errores y contenido inyectado renderizado como texto.
+
+Pendiente antes de activar: evaluación real autorizada con la nueva clave/modelo, frases con faltas ortográficas y ambigüedad (p. ej. «donde keda farid», «tienen resonansia», «qué estudio necesito por dolor»), controles de datos/costos del proyecto y aprobación editorial. No afirmar calidad del modelo o conexión API hasta ejecutar esa evaluación.
+
+Resultados de esta revisión: pasaron las 77 comprobaciones, la regresión existente, comprobaciones de sintaxis y diff, y Chromium en 1280×900, 390×844 y 320×568. Los recursos externos se bloquearon en la prueba UI; se verificó el componente con recursos locales, no todos los servicios externos del sitio. Wrangler 4.162.0 completó el dry run (200.03 KiB, gzip 42.46 KiB). Una prueba adicional con un Worker temporal que invoca `LunaBudget`, bajo Wrangler local y SQLite, envió 10 solicitudes concurrentes: 5 permitidas y 5 rechazadas, sin OpenAI. No se probó persistencia tras reinicio remoto ni facturación real.

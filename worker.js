@@ -1,3 +1,6 @@
+import { LunaPatients } from './components/luna-patients.js';
+import { handleLuna, isEnabled } from './luna/server.js';
+export { LunaBudget } from './luna/server.js';
 import { applyVisualUpgrade } from "./components/visual-upgrade.js";
 import { renderHomePage } from "./pages/home.js";
 import { renderHistoriaPage } from "./pages/historia.js";
@@ -67,7 +70,8 @@ const baseHeaders = {
 };
 
 export default {
-  async fetch(request) {
+  async fetch(request, env = {}) {
+    if (new URL(request.url).pathname === "/api/luna-pacientes") return handleLuna(request, env);
     if (request.method !== "GET" && request.method !== "HEAD") {
       return new Response("Método no permitido", {
         status: 405,
@@ -81,7 +85,7 @@ export default {
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : applyVisualUpgrade(render(), path), {
+      return new Response(request.method === "HEAD" ? null : applyVisualUpgrade(render(), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env))) + "</body>"), {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,
