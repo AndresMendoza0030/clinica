@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" role="img" aria-labelledby="title desc">
+<title id="title">Osito Luna, avatar provisional original</title><desc id="desc">Osito animatrónico blanco sonriente, con lentes rojos, detalles rojos y bata blanca.</desc>
+<defs><linearGradient id="fur" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#eee5e2"/></linearGradient></defs>
+<ellipse cx="80" cy="170" rx="44" ry="7" fill="#e9c6c4"/>
+<g stroke="#92343a" stroke-width="2.5" stroke-linejoin="round">
+<path d="M44 126Q23 133 27 159L40 161 55 137M116 126Q137 133 133 159L120 161 105 137" fill="url(#fur)"/>
+<path d="M56 150v19h19v-22m10 0v22h19v-19" fill="#b22c36"/>
+<path d="M49 120Q80 108 111 120L121 160Q80 172 39 160Z" fill="#fff"/>
+<path d="m63 116 17 17 17-17-7 38H70Z" fill="#b22c36"/>
+<path d="m60 116-6 18 12 3-4 9 18 13m20-43 6 18-12 3 4 9-18 13" fill="#fff"/>
+<path d="M80 144v20M97 145h14v11H97Z" fill="none"/>
+<circle cx="39" cy="40" r="21" fill="url(#fur)"/><circle cx="121" cy="40" r="21" fill="url(#fur)"/>
+<circle cx="39" cy="40" r="11" fill="#c8454e"/><circle cx="121" cy="40" r="11" fill="#c8454e"/>
+<path d="M27 69Q25 25 80 25t53 44v18q-4 36-53 36T27 87Z" fill="url(#fur)"/>
+<path d="M80 27v9M29 86h8m86 0h8" fill="none" stroke="#d2b6b3"/>
+<circle cx="36" cy="89" r="3" fill="#b22c36" stroke="none"/><circle cx="124" cy="89" r="3" fill="#b22c36" stroke="none"/>
+<ellipse cx="80" cy="96" rx="25" ry="18" fill="#fff8f1" stroke="#e6c9c2"/>
+<g fill="#fff" fill-opacity=".55" stroke="#bb2935" stroke-width="5"><rect x="37" y="57" width="35" height="29" rx="12"/><rect x="88" y="57" width="35" height="29" rx="12"/><path d="M73 66q7-5 14 0M28 61l9 5m86 0 9-5" fill="none"/></g>
+<g fill="#402c30" stroke="none"><ellipse cx="56" cy="72" rx="4" ry="6"/><ellipse cx="104" cy="72" rx="4" ry="6"/></g>
+<g fill="#fff" stroke="none"><circle cx="57" cy="70" r="1.5"/><circle cx="105" cy="70" r="1.5"/></g>
+<path d="M73 89q7-5 14 0-2 9-7 9t-7-9" fill="#a32832" stroke="none"/>
+<path d="M69 102q11 11 22 0" fill="none" stroke-linecap="round"/>
+<circle cx="43" cy="95" r="6" fill="#f2bab8" stroke="none"/><circle cx="117" cy="95" r="6" fill="#f2bab8" stroke="none"/>
+</g></svg>
