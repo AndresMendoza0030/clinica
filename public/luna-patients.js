@@ -6,16 +6,20 @@
   const links = document.getElementById('luna-links');
   const form = document.getElementById('luna-form');
   let active;
+  let pendingContext;
+  const clearContext = () => { pendingContext = undefined; };
   launch.addEventListener('click', () => panel.showModal());
   document.getElementById('luna-close').addEventListener('click', () => panel.close());
   panel.addEventListener('close', () => {
-    active?.abort(); active = null;
+    active?.abort(); active = null; clearContext();
     answer.textContent = ''; links.replaceChildren(); form.reset();
     panel.querySelectorAll('button').forEach(b => { b.disabled = false; });
     launch.focus();
   });
   async function ask(body) {
     if (active) return;
+    if (body.message && pendingContext && Date.now() < pendingContext.expires) body.context = pendingContext.id;
+    clearContext();
     const controller = new AbortController(); active = controller;
     const timeout = setTimeout(() => controller.abort(), 12000);
     panel.querySelectorAll('#luna-choices button, #luna-form button').forEach(b => { b.disabled = true; });
@@ -24,6 +28,7 @@
       const response = await fetch('/api/luna-pacientes', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal });
       const result = await response.json();
       if (active !== controller) return;
+      if (response.ok && ['sede', 'estudio'].includes(result.context)) pendingContext = {id: result.context, expires: Date.now() + 5 * 60 * 1000};
       answer.textContent = typeof result.text === 'string' ? result.text : 'No pude consultar la información. Contacte a la clínica por WhatsApp.';
       for (const link of result.links || []) {
         const url = new URL(link.href, location.origin);
