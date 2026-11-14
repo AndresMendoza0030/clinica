@@ -14,6 +14,7 @@ try {
    return route.fulfill({status:res.status,json:await res.json()});
   }
   if(route.request().url().endsWith('/luna-patients.js'))return route.fulfill({contentType:'text/javascript; charset=utf-8',body:fs.readFileSync(new URL('../public/luna-patients.js',import.meta.url),'utf8')});
+  if(new URL(route.request().url()).pathname==='/assets/luna/luna-ivory-v2.webp')return route.fulfill({contentType:'image/webp',body:fs.readFileSync(new URL('../public/assets/luna/luna-ivory-v2.webp',import.meta.url))});
   return route.fulfill({contentType:'text/html; charset=utf-8',body:'<!doctype html><html><body>'+LunaPatients(true)+'</body></html>'});
  });
  await page.goto('https://test.local/');await page.locator('#luna-launch').click();
