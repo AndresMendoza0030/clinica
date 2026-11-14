@@ -1,3 +1,9 @@
+# Ajuste del lanzador móvil (2026-11-14)
+
+Se retira el borde blanco exterior por resultar demasiado marcado. El botón usa un contorno rosa apagado de 1 px y una sombra suave. En móvil muestra «Luna / ¿Le ayudo?» con retrato de 36 px y altura táctil de 52 px; el ancho observado es de aproximadamente 121 px. En escritorio conserva «Converse con Luna» y la descripción. El nombre accesible sigue siendo «Converse con Luna». Se verificaron contraste, visualización en 320/390/414 px y apertura del diálogo en Chrome. Sin nuevas dependencias ni cambios del controlador o servidor. Pasan sintaxis, pruebas existentes de mascota y regresión de páginas, y diff check. Sustituye el contorno blanco descrito en la nota anterior.
+
+---
+
 # Actualización: contraste y navegación del chat (2026-11-14)
 
 Luna usa cabecera grafito, conversación marfil y mensajes propios en rojo institucional. El lanzador conserva el retrato aprobado con contorno blanco y sombra discreta para distinguirse sobre fotos, fondos claros y oscuros. El campo tiene borde y placeholder explícitos; los estilos no heredan el modo oscuro de los catálogos. La composición es más compacta y se respetan áreas seguras móviles. Se fija también `max-width` del diálogo, evitando que el límite predeterminado del navegador lo estreche de forma asimétrica.
