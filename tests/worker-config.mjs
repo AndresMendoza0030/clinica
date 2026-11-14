@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const root=new URL('../',import.meta.url);
+const config=JSON.parse(fs.readFileSync(new URL('wrangler.jsonc',root),'utf8'));
+assert.equal(fs.existsSync(new URL('wrangler.toml',root)),false,'One canonical Wrangler configuration');
+assert.equal(config.name,'clinica');
+assert.equal(config.main,'worker.js','Cloudflare must deploy executable Worker, not assets-only');
+assert.equal(config.assets.directory,'./public','Never publish repository root as static assets');
+assert.equal(config.compatibility_date,'2026-03-18');
+assert.equal(config.vars.LUNA_PATIENTS_ENABLED,'false');
+assert.ok(config.compatibility_flags.includes('nodejs_compat'));
+assert.equal(config.observability.enabled,true);
+assert.deepEqual(config.durable_objects.bindings,[{name:'LUNA_PATIENTS_BUDGET',class_name:'LunaBudget'}]);
+assert.deepEqual(config.migrations,[{tag:'luna-budget-v1',new_sqlite_classes:['LunaBudget']}]);
+assert.ok(fs.existsSync(new URL(config.main,root)));
+assert.ok(fs.existsSync(new URL(config.assets.directory,root)));
+console.log('PASS: canonical Worker config, public-only assets, Luna bindings/migration and existing options');

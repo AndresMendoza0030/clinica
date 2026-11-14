@@ -95,7 +95,7 @@ export default {
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(), path), path), {
+      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(), path), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env))) + "</body>"), {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,
