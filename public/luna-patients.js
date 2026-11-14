@@ -21,6 +21,7 @@
   }
   let active;
   let pendingContext;
+  let focusAfterClose;
   const clearContext = () => { pendingContext = undefined; };
   const scrollToEnd = () => { scroll.scrollTop = scroll.scrollHeight; };
   function reset() {
@@ -31,21 +32,66 @@
   launch.addEventListener('click', () => { panel.showModal(); panel.dataset.lunaAnimate = 'true'; if (enabled) { setMode('happy', 2200); input.focus(); } });
   document.getElementById('luna-close').addEventListener('click', () => panel.close());
   document.getElementById('luna-reset').addEventListener('click', () => { reset(); if (enabled) input.focus(); });
-  panel.addEventListener('close', () => { delete panel.dataset.lunaAnimate; reset(); launch.focus(); });
+  panel.addEventListener('close', () => {
+    const target = focusAfterClose; focusAfterClose = null;
+    delete panel.dataset.lunaAnimate; reset();
+    if (!target) { launch.focus(); return; }
+    if (!target.hasAttribute('tabindex')) {
+      target.setAttribute('tabindex', '-1');
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), {once:true});
+    }
+    target.focus({preventScroll:true});
+  });
+  function actionSvg(pathData) {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    for (const [name, value] of Object.entries({viewBox:'0 0 24 24', width:'20', height:'20', fill:'none', stroke:'currentColor', 'stroke-width':'1.7', 'stroke-linecap':'round', 'stroke-linejoin':'round', 'aria-hidden':'true', focusable:'false'})) svg.setAttribute(name, value);
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', pathData);
+    svg.append(path);
+    return svg;
+  }
+  function actionIcon(external) {
+    const svg = actionSvg(external ? 'M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5ZM8 9h8M8 13h5' : 'M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8ZM14 3v5h5M9 12h6M9 16h6');
+    const icon = document.createElement('span'); icon.className = 'luna-action-icon'; icon.append(svg);
+    return icon;
+  }
   function addMessage(text, role, links = []) {
     welcome.hidden = true;
     const message = document.createElement('div'); message.className = 'luna-message luna-message-' + role;
     const label = document.createElement('small'); label.textContent = role === 'user' ? 'Usted' : 'Luna';
     const p = document.createElement('p'); p.textContent = text;
     message.append(label, p);
+    const actions = document.createElement('div'); actions.className = 'luna-actions';
+    const destinations = new Set();
     for (const link of Array.isArray(links) ? links : []) {
       if (!link || typeof link.href !== 'string' || typeof link.label !== 'string') continue;
       let url; try { url = new URL(link.href, location.origin); } catch { continue; }
       if (url.origin !== location.origin && url.origin !== 'https://wa.me') continue;
-      const a = document.createElement('a'); a.href = url.href; a.textContent = link.label + ' ↗';
-      if (url.origin !== location.origin) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
-      message.append(a);
+      if (destinations.has(url.href)) continue;
+      destinations.add(url.href);
+      const external = url.origin !== location.origin;
+      const a = document.createElement('a'); a.href = url.href; a.className = 'luna-action' + (external ? ' luna-action-external' : '');
+      const copy = document.createElement('span'); copy.className = 'luna-action-copy';
+      const actionLabel = document.createElement('span'); actionLabel.className = 'luna-action-label'; actionLabel.textContent = link.label;
+      const hint = document.createElement('span'); hint.className = 'luna-action-hint'; hint.textContent = external ? 'Abrir WhatsApp' : 'Ver información';
+      copy.append(actionLabel, hint);
+      const arrow = actionSvg(external ? 'M7 17 17 7M7 7h10v10' : 'M5 12h14m-6-6 6 6-6 6'); arrow.setAttribute('class', 'luna-action-arrow');
+      a.append(actionIcon(external), copy, arrow);
+      if (external) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      else a.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (url.pathname === location.pathname && url.search === location.search && url.hash) {
+          try {
+            const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+            if (target && !panel.contains(target)) focusAfterClose = target;
+          } catch { /* An invalid fragment still follows normal browser navigation. */ }
+        }
+        panel.close();
+      });
+      actions.append(a);
     }
+    if (actions.childElementCount) message.append(actions);
     messages.append(message);
     // Only the last four visible exchanges; never sent as model history or persisted.
     while (messages.childElementCount > 8) messages.firstElementChild.remove();

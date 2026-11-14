@@ -42,10 +42,21 @@ try {
   await page.screenshot({path:`/tmp/luna-chat-welcome-${viewport.width}-${viewport.height}.png`});
   async function ask(text){await page.locator('#luna-question').fill(text);await page.locator('#luna-question').press('Enter');await page.waitForFunction(()=>!document.querySelector('#luna-send').disabled);}
   await ask('¿Dónde queda Plaza Farid?');assert.equal(calls,1);assert.equal(await page.locator('#luna-panel').getAttribute('data-luna-mode'),'responding');assert.equal(await page.locator('.luna-message-user').count(),1);assert.match(await page.locator('.luna-message-assistant').last().textContent(),/Roosevelt/);
+  const suggestion=page.locator('.luna-message-assistant').last().locator('.luna-action');
+  assert.equal(await suggestion.count(),1);
+  assert.equal(await suggestion.getAttribute('href'),'https://wa.me/50378195960');
+  assert.equal(await suggestion.locator('.luna-action-label').textContent(),'Contactar Plaza Farid');
+  assert.equal(await suggestion.locator('.luna-action-hint').textContent(),'Abrir WhatsApp');
+  assert.equal(await suggestion.locator('svg').count(),2, 'CTA has its own icon and navigation arrow');
+  assert.ok(await suggestion.locator('svg').evaluateAll(els=>els.every(el=>el.getAttribute('aria-hidden')==='true'&&el.getAttribute('focusable')==='false')), 'CTA artwork is decorative');
   await page.screenshot({path:`/tmp/luna-chat-answer-${viewport.width}-${viewport.height}.png`});
   mode='limit';await ask('Otra consulta');assert.match(await page.locator('.luna-message-assistant').last().textContent(),/Por ahora/);
   mode='error';await ask('Hola');assert.match(await page.locator('.luna-message-assistant').last().textContent(),/No pude conectarme/);assert.equal(await page.locator('#luna-panel').getAttribute('data-luna-mode'),'attentive');
-  mode='xss';await ask('<svg onload=alert(1)>');assert.equal(await page.locator('#luna-messages img,#luna-messages svg').count(),0);assert.equal(await page.locator('.luna-message-assistant').last().locator('a').count(),0);
+  mode='xss';await ask('<svg onload=alert(1)>');
+  const unsafeAnswer=page.locator('.luna-message-assistant').last();
+  assert.equal(await unsafeAnswer.locator('p img,p svg').count(),0, 'Response text cannot inject artwork or executable markup');
+  assert.equal(await unsafeAnswer.locator('p').textContent(),'<img src=x onerror=alert(1)>');
+  assert.equal(await unsafeAnswer.locator('a').count(),0, 'Rejected destinations do not create suggestion links');
   mode='ok';await ask('Hola');assert.equal(await page.locator('.luna-message').count(),8);
   await page.locator('#luna-reset').click();assert.equal(await page.locator('.luna-message').count(),0);assert.ok(await page.locator('#luna-welcome').isVisible());
   mode='late';await page.locator('#luna-question').fill('Consulta pendiente');await page.locator('#luna-send').click();

@@ -1,3 +1,15 @@
+# Actualización: contraste y navegación del chat (2026-11-14)
+
+Luna usa cabecera grafito, conversación marfil y mensajes propios en rojo institucional. El lanzador conserva el retrato aprobado con contorno blanco y sombra discreta para distinguirse sobre fotos, fondos claros y oscuros. El campo tiene borde y placeholder explícitos; los estilos no heredan el modo oscuro de los catálogos. La composición es más compacta y se respetan áreas seguras móviles. Se fija también `max-width` del diálogo, evitando que el límite predeterminado del navegador lo estreche de forma asimétrica.
+
+Las sugerencias aparecen como tarjetas pulsables: icono, nombre del destino, indicación «Ver información» o «Abrir WhatsApp» y flecha SVG. La navegación interna y WhatsApp se distinguen por color y por texto/iconografía. Son enlaces nativos con foco visible y áreas de al menos 44 px; no requieren fuentes de iconos, imágenes nuevas ni dependencias. Se conservan la lista de destinos permitidos y la inserción de texto segura, y se eliminan enlaces duplicados dentro de una respuesta.
+
+Al seguir un enlace interno se cierra el diálogo para dejar visible la página. Si el destino es una sección del documento actual (por ejemplo `/#sedes` desde la portada), recibe foco y se respeta el salto nativo. Los clics con modificadores conservan su comportamiento habitual. Cerrar o navegar limpia la conversación y cancela solicitudes pendientes; WhatsApp abre una pestaña independiente.
+
+Validación: pruebas Node de controlador (incluidas tarjetas, SVG decorativos, enlaces rechazados/duplicados, navegación, foco y limpieza), catálogo/servidor (120 comprobaciones), contexto, mascota, configuración y regresión de páginas; sintaxis y `git diff --check`. Todas pasaron. El script Playwright existente se ajustó a los nuevos SVG, pero no se ejecutó en este entorno. Se revisó visualmente en Chrome mediante vista previa, con respuestas simuladas y páginas reales renderizadas: escritorio, 320×568, 390×844 (catálogo), 414×896 y 390×380; sin desborde horizontal, enviar visible y tarjetas legibles. Se comprobó navegación al catálogo de tomografía y salto a Sedes con cierre/foco/limpieza. Contrastes calculados: texto principal y secundario ≥5.24:1, borde del campo 3.85:1. Safari y teclado físico de iPhone no se ejecutaron en un dispositivo Apple.
+
+---
+
 # Actualización: diseño marfil por capas (2026-11-14)
 
 La mascota adopta el diseño aprobado de Luna: cuerpo marfil, hocico crema, lentes grafito, uniforme rojo y bata blanca entallada con el símbolo circular de la clínica dividido en cuatro cuadrantes separados, bordado sobre el pecho. La ilustración se distribuye como recurso WebP versionado (`/assets/luna/luna-ivory-v2.webp`) y se presenta mediante las capas del SVG; no se necesitan GIF independientes para cada reacción. `LunaMascot({id, portrait})` recibe identificadores distintos para lanzador, cabecera y bienvenida, de modo que sus definiciones SVG no colisionen.
