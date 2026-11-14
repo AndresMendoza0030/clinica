@@ -7,7 +7,7 @@ assert.equal(config.name,'clinica');
 assert.equal(config.main,'worker.js','Cloudflare must deploy executable Worker, not assets-only');
 assert.equal(config.assets.directory,'./public','Never publish repository root as static assets');
 assert.equal(config.compatibility_date,'2026-03-18');
-assert.equal(config.vars.LUNA_PATIENTS_ENABLED,'false');
+assert.equal(config.vars.LUNA_PATIENTS_ENABLED,'true');
 assert.equal(config.vars.LUNA_PATIENTS_MODEL,'gpt-5.4-mini-2026-03-17');
 assert.ok(config.compatibility_flags.includes('nodejs_compat'));
 assert.equal(config.observability.enabled,true);
