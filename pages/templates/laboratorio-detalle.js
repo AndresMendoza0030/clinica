@@ -2,7 +2,6 @@ import { Header } from "../../components/header.js";
 import { SitePolish } from "../../components/site-polish.js";
 import { Sedes } from "../../components/sedes.js";
 import { Footer } from "../../components/footer.js";
-import { WhatsAppFloat } from "../../components/whatsapp.js";
 
 export function renderLaboratorioDetallePage({
   title,
@@ -234,7 +233,6 @@ export function renderLaboratorioDetallePage({
 
     ${Sedes()}
     ${Footer()}
-    ${WhatsAppFloat()}
 
   </body>
 </html>`;

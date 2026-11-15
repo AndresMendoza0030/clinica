@@ -2,7 +2,6 @@ import { Header } from "../components/header.js";
 import { SitePolish } from "../components/site-polish.js";
 import { Sedes } from "../components/sedes.js";
 import { Footer } from "../components/footer.js";
-import { WhatsAppFloat } from "../components/whatsapp.js";
 
 export function renderLaboratorioPage() {
   return `<!DOCTYPE html>
@@ -339,7 +338,6 @@ export function renderLaboratorioPage() {
 
     ${Sedes()}
     ${Footer()}
-    ${WhatsAppFloat()}
 
   </body>
 </html>`;
