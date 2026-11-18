@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosTACPage() {
+export function renderEstudiosTACPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios de tomografía",
     breadcrumb: "Tomografía (TAC)",
@@ -74,5 +74,5 @@ export function renderEstudiosTACPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

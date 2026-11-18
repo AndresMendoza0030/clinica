@@ -1,3 +1,4 @@
+import { pilotOrigin, readBookingCatalog, resolveBookingQuestion } from './booking-catalog.js';
 import { catalog, fallback, clarifications, contact } from './catalog.js';
 const ids = catalog.map(x => x.id);
 const json = (value, status = 200) => Response.json(value, { status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
@@ -87,7 +88,8 @@ async function readBody(request) {
   return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
 }
 export async function handleLuna(request, env = {}, provider = (message, env, context) => selectWithOpenAI(message, env, fetch, 8000, context)) {
-  if (request.method === 'GET') return json({ enabled: isEnabled(env), choices: catalog.filter(x => x.quick !== false).map(({id,label}) => ({id,label})) });
+  const bookingOrigin = pilotOrigin(env, request);
+  if (request.method === 'GET') return json({ enabled: isEnabled(env) || !!bookingOrigin, choices: catalog.filter(x => x.quick !== false).map(({id,label}) => ({id,label})) });
   if (request.method !== 'POST') return reply(fallback, 405);
   if (request.headers.get('origin') !== new URL(request.url).origin) return reply(fallback, 403);
   if (!request.headers.get('content-type')?.startsWith('application/json')) return reply(fallback, 415);
@@ -100,6 +102,12 @@ export async function handleLuna(request, env = {}, provider = (message, env, co
   if (!body || !['message', 'context,message'].includes(Object.keys(body).sort().join()) || typeof body.message !== 'string' || (Object.hasOwn(body, 'context') && (typeof body.context !== 'string' || !Object.hasOwn(clarifications, body.context)))) return reply(fallback, 400);
   const message = body.message.trim().normalize('NFC');
   if (!message || message.length > 400 || /[\p{Cc}\p{Cf}]/u.test(message)) return reply('Con gusto le ayudo. Por favor, escriba una consulta breve, de hasta 400 caracteres.', 400);
+  if (bookingOrigin) {
+    const local = resolveCommonQuestion(message) || resolveFollowup(message, body.context);
+    if (local) return json(local);
+    const match = resolveBookingQuestion(message, await readBookingCatalog(env, bookingOrigin), bookingOrigin);
+    if (match) return json(match);
+  }
   if (!isEnabled(env)) return reply('En este momento el chat no está disponible. Nuestro equipo puede ayudarle por WhatsApp; le comparto el enlace para que pueda comunicarse con la clínica.', 503);
   const common = resolveCommonQuestion(message);
   if (common) return json(common);

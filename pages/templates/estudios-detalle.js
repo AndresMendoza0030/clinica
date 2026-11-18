@@ -12,7 +12,7 @@ export function renderEstudioDetallePage({
   ctaText = "Consultar por WhatsApp",
   preparationNote = "",
   sections = [],
-}) {
+}, renderStudyLink = name => name) {
   const preparationHtml = preparationNote
     ? `
       <section class="py-8 md:py-10">
@@ -60,7 +60,7 @@ export function renderEstudioDetallePage({
                     </div>
 
                     <ul class="space-y-3 text-sm md:text-base text-soft dark:text-[#d3c1c1] font-medium">
-                      ${group.items.map((item) => `<li>${item}</li>`).join("")}
+                      ${group.items.map((item) => `<li>${renderStudyLink(item, group.title, section.title)}</li>`).join("")}
                     </ul>
                   </div>
                 </article>

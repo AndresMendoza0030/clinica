@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioPerfilesPage() {
+export function renderLaboratorioPerfilesPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Perfiles de laboratorio",
     breadcrumb: "Perfiles de laboratorio",
@@ -46,5 +46,5 @@ export function renderLaboratorioPerfilesPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosUSPage() {
+export function renderEstudiosUSPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios de ultrasonografía",
     breadcrumb: "Ultrasonografía",
@@ -135,5 +135,5 @@ export function renderEstudiosUSPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

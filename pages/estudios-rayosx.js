@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosRayosXPage() {
+export function renderEstudiosRayosXPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios de rayos X",
     breadcrumb: "Rayos X",
@@ -193,5 +193,5 @@ export function renderEstudiosRayosXPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

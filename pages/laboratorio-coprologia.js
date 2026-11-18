@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioCoprologiaPage() {
+export function renderLaboratorioCoprologiaPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de coprología",
     breadcrumb: "Coprología",
@@ -42,5 +42,5 @@ export function renderLaboratorioCoprologiaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

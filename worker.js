@@ -1,3 +1,4 @@
+import { pilotOrigin, readBookingCatalog, studyLinkRenderer } from './luna/booking-catalog.js';
 import { LunaPatients } from './components/luna-patients.js';
 import { handleLuna, isEnabled } from './luna/server.js';
 export { LunaBudget } from './luna/server.js';
@@ -95,7 +96,11 @@ export default {
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(), path), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env))) + "</body>"), {
+      const origin = pilotOrigin(env, request);
+      const detail = /^\/(?:estudios|laboratorio)-/.test(path);
+      const studyLinks = origin && detail && request.method === 'GET'
+        ? studyLinkRenderer(await readBookingCatalog(env, origin), origin, path) : undefined;
+      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(studyLinks), path), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env), origin)) + "</body>"), {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,

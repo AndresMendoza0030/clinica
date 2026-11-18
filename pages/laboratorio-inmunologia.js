@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioInmunologiaPage() {
+export function renderLaboratorioInmunologiaPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de inmunología",
     breadcrumb: "Inmunología",
@@ -73,5 +73,5 @@ export function renderLaboratorioInmunologiaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }
