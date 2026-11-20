@@ -113,7 +113,7 @@
       const response = await fetch('/api/luna-pacientes', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body), signal:controller.signal});
       const result = await response.json();
       if (active !== controller) return;
-      if (response.ok && ['sede', 'estudio'].includes(result.context)) pendingContext = {id:result.context, expires:Date.now() + 5 * 60 * 1000};
+      if (response.ok && ['sede', 'estudio', 'preparacion'].includes(result.context)) pendingContext = {id:result.context, expires:Date.now() + 5 * 60 * 1000};
       clearTimeout(thinkingTimer);
       const text = typeof result.text === 'string' ? result.text : 'Con gusto quisiera ayudarle, pero no pude consultar esa información. Si lo desea, puede comunicarse con nuestro equipo mediante el enlace de abajo.';
       addMessage(text, 'assistant', result.links);
