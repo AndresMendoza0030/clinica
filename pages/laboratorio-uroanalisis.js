@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioUroanalisisPage() {
+export function renderLaboratorioUroanalisisPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de uroanálisis",
     breadcrumb: "Uroanálisis",
@@ -50,5 +50,5 @@ export function renderLaboratorioUroanalisisPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

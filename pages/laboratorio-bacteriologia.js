@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioBacteriologiaPage() {
+export function renderLaboratorioBacteriologiaPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de bacteriología",
     breadcrumb: "Bacteriología",
@@ -46,5 +46,5 @@ export function renderLaboratorioBacteriologiaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

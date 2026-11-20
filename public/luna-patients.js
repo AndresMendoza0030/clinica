@@ -67,14 +67,16 @@
     for (const link of Array.isArray(links) ? links : []) {
       if (!link || typeof link.href !== 'string' || typeof link.label !== 'string') continue;
       let url; try { url = new URL(link.href, location.origin); } catch { continue; }
-      if (url.origin !== location.origin && url.origin !== 'https://wa.me') continue;
+      const booking = panel.dataset.bookingOrigin && url.origin === panel.dataset.bookingOrigin
+        && url.pathname === '/reservar' && !url.search && /^#estudio=[a-zA-Z0-9_-]{1,100}$/.test(url.hash);
+      if (url.origin !== location.origin && url.origin !== 'https://wa.me' && !booking) continue;
       if (destinations.has(url.href)) continue;
       destinations.add(url.href);
       const external = url.origin !== location.origin;
       const a = document.createElement('a'); a.href = url.href; a.className = 'luna-action' + (external ? ' luna-action-external' : '');
       const copy = document.createElement('span'); copy.className = 'luna-action-copy';
       const actionLabel = document.createElement('span'); actionLabel.className = 'luna-action-label'; actionLabel.textContent = link.label;
-      const hint = document.createElement('span'); hint.className = 'luna-action-hint'; hint.textContent = external ? 'Abrir WhatsApp' : 'Ver información';
+      const hint = document.createElement('span'); hint.className = 'luna-action-hint'; hint.textContent = booking ? 'Abrir en Citas' : external ? 'Abrir WhatsApp' : 'Ver información';
       copy.append(actionLabel, hint);
       const arrow = actionSvg(external ? 'M7 17 17 7M7 7h10v10' : 'M5 12h14m-6-6 6 6-6 6'); arrow.setAttribute('class', 'luna-action-arrow');
       a.append(actionIcon(external), copy, arrow);

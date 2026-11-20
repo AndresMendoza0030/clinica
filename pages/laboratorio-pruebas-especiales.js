@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioPruebasEspecialesPage() {
+export function renderLaboratorioPruebasEspecialesPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Pruebas especiales de laboratorio",
     breadcrumb: "Pruebas especiales",
@@ -63,5 +63,5 @@ export function renderLaboratorioPruebasEspecialesPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

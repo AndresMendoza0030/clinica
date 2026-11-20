@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosMamografiaPage() {
+export function renderEstudiosMamografiaPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios de mamografía",
     breadcrumb: "Mamografía",
@@ -26,5 +26,5 @@ export function renderEstudiosMamografiaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

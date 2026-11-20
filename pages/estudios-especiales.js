@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosEspecialesPage() {
+export function renderEstudiosEspecialesPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios especiales",
     breadcrumb: "Estudios especiales",
@@ -42,5 +42,5 @@ export function renderEstudiosEspecialesPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioQuimicaPage() {
+export function renderLaboratorioQuimicaPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de química sanguínea",
     breadcrumb: "Química sanguínea",
@@ -52,5 +52,5 @@ export function renderLaboratorioQuimicaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

@@ -1,6 +1,6 @@
 import { renderEstudioDetallePage } from "./templates/estudios-detalle.js";
 
-export function renderEstudiosRMPage() {
+export function renderEstudiosRMPage(renderStudyLink) {
   return renderEstudioDetallePage({
     title: "Estudios de resonancia magnética",
     breadcrumb: "Resonancia Magnética",
@@ -62,5 +62,5 @@ export function renderEstudiosRMPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }

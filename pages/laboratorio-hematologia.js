@@ -1,6 +1,6 @@
 import { renderLaboratorioDetallePage } from "./templates/laboratorio-detalle.js";
 
-export function renderLaboratorioHematologiaPage() {
+export function renderLaboratorioHematologiaPage(renderStudyLink) {
   return renderLaboratorioDetallePage({
     title: "Exámenes de hematología",
     breadcrumb: "Hematología",
@@ -60,5 +60,5 @@ export function renderLaboratorioHematologiaPage() {
         ],
       },
     ],
-  });
+  }, renderStudyLink);
 }
