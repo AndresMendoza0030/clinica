@@ -1,4 +1,5 @@
 import { Sedes } from '../components/sedes.js';
+import { HomeCarousel, homeCarouselCover, homeCarouselPreload } from '../components/home-carousel.js';
 import { HomeTechHeader, HomeTechFooter, HomeTechStyle } from "../components/home-tech-style.js";
 
 const IMG = "https://lwjusnpkibgoxkcvrvww.supabase.co/storage/v1/object/public/ClinicaIMG/";
@@ -17,12 +18,12 @@ export function renderHomePage() {
   <meta property="og:locale" content="es_SV" />
   <meta property="og:title" content="Clínica Radiológica y Laboratorio Clínico Dr. Mendoza" />
   <meta property="og:description" content="Tecnología diagnóstica y atención cercana en San Miguel desde 2006." />
-  <meta property="og:image" content="${IMG}Resonancia%20magnetica.png" />
+  <meta property="og:image" content="${homeCarouselCover}" />
   <link rel="icon" type="image/webp" href="/assets/visuals/favicon.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://lwjusnpkibgoxkcvrvww.supabase.co" />
-  <link rel="preload" as="image" href="${IMG}Resonancia%20magnetica.png" />
+  ${homeCarouselPreload}
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   ${HomeTechStyle()}
 </head>
@@ -31,13 +32,13 @@ export function renderHomePage() {
   ${HomeTechHeader()}
   <main id="contenido">
     <section id="inicio" class="th-home-hero" aria-labelledby="hero-title">
-      <div class="th-hero-photo" role="img" aria-label="Fotografía de resonancia magnética del catálogo institucional"></div>
+      ${HomeCarousel()}
       <div class="th-shell th-hero-content">
         <div class="th-kicker">Diagnóstico por Imágenes · Laboratorio Clínico</div>
         <h1 id="hero-title">Tecnología para un diagnóstico preciso.</h1>
         <p class="th-hero-lead">
-          Diagnóstico por imágenes con equipamiento Siemens y servicios de laboratorio clínico,
-          respaldados por experiencia, compromiso y atención cercana en San Miguel.
+          En San Miguel, le ofrecemos estudios de imagen con equipos modernos de alta calidad
+          y servicios de laboratorio clínico.
         </p>
         <div class="th-actions">
           <a href="/estudios.html" class="th-button th-button-primary">Conozca Nuestros Estudios <span class="th-arrow" aria-hidden="true">→</span></a>
@@ -46,7 +47,7 @@ export function renderHomePage() {
         <div class="th-hero-proof" aria-label="Datos institucionales">
           <div class="th-proof"><strong>Desde 2006</strong><span>Trayectoria</span></div>
           <div class="th-proof"><strong>3 sedes</strong><span>San Miguel</span></div>
-          <div class="th-proof"><strong>Siemens</strong><span>Equipos de imagen</span></div>
+          <div class="th-proof"><strong>Tecnología reciente</strong><span>Equipos de imagen</span></div>
         </div>
       </div>
       <span class="th-photo-note" aria-hidden="true">DIAGNÓSTICO POR IMÁGENES / RM</span>

@@ -1,0 +1,53 @@
+#navidad-esferas-dialog {
+  box-sizing: border-box;
+  width: min(1120px, calc(100% - 24px));
+  max-width: none;
+  height: calc(100vh - 24px);
+  height: calc(100dvh - 24px);
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #897857;
+  border-radius: 14px;
+  background: #101715;
+  color: #fff5df;
+  box-shadow: 0 14px 48px #07151177;
+  font-family: "Manrope", system-ui, sans-serif;
+}
+#navidad-esferas-dialog[open] { display: flex; flex-direction: column; }
+#navidad-esferas-dialog::backdrop { background: rgb(6 14 18 / 82%); }
+#navidad-esferas-dialog .esferas-dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 10px 5px 15px;
+  border-bottom: 1px solid #625640;
+}
+#navidad-esferas-title { margin: 0; color: inherit; font: 700 16px/1.25 "Manrope", system-ui, sans-serif; }
+#navidad-esferas-dialog button {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid #998b70;
+  border-radius: 7px;
+  background: #22382f;
+  color: #fff6e5;
+  font: 650 14px/1.2 "Manrope", system-ui, sans-serif;
+  cursor: pointer;
+}
+#navidad-esferas-dialog button:hover { background: #314b3f; }
+#navidad-esferas-dialog button:focus-visible { outline: 2px solid #ffe2a3; outline-offset: 2px; }
+#navidad-esferas-dialog iframe { display: block; flex: 1 1 auto; width: 100%; min-height: 0; border: 0; }
+@media (max-width: 600px), (max-height: 520px) {
+  #navidad-esferas-dialog {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+  #navidad-esferas-dialog .esferas-dialog-bar {
+    padding: max(3px, env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) 3px max(12px, env(safe-area-inset-left, 0px));
+  }
+}

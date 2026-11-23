@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="pf-scene" viewBox="0 0 320 320" width="320" height="320" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="pf-paper" x2=".77" y2="1"><stop stop-color="#de5552"/><stop offset=".51" stop-color="#ab303a"/><stop offset="1" stop-color="#822834"/></linearGradient>
+    <linearGradient id="pf-pine" x2=".8" y2="1"><stop stop-color="#497e70"/><stop offset=".48" stop-color="#286259"/><stop offset="1" stop-color="#204742"/></linearGradient>
+    <linearGradient id="pf-fur" x2=".73" y2=".93"><stop stop-color="#efc58c"/><stop offset=".56" stop-color="#d79b64"/><stop offset="1" stop-color="#aa6a43"/></linearGradient>
+    <radialGradient id="pf-nose" cx=".34" cy=".26" r=".81"><stop stop-color="#ffb790"/><stop offset=".35" stop-color="#ed655c"/><stop offset="1" stop-color="#aa343a"/></radialGradient>
+    <clipPath id="pf-peek"><path d="M1 116h98v116l-38 17-45-9H1z"/></clipPath>
+  </defs>
+  <style>
+    #pf-scene .pf-parcel { transform-origin: 50px 273px; }
+    #pf-scene .pf-lid { transform: scaleY(-1.15) skewX(-31deg); }
+    #pf-scene .pf-underside { opacity: 1; }
+    #pf-scene .pf-coil { transform-origin: 50px 238px; }
+    #pf-scene .pf-face { transform-origin: 49px 202px; transform: rotate(-7deg); }
+    #pf-scene .pf-glance { transform: translate(1px,-1px); }
+    @media (prefers-reduced-motion: no-preference) {
+      #pf-scene .pf-parcel { animation: pf-rattle 4.8s ease-in-out both; }
+      #pf-scene .pf-lid { animation: pf-open 4.8s ease-in-out both; }
+      #pf-scene .pf-underside { animation: pf-reverse 4.8s steps(1,end) both; }
+      #pf-scene .pf-reveal { animation: pf-peek-in 4.8s ease-out both; }
+      #pf-scene .pf-puppet { animation: pf-pop 4.8s ease-in-out both; }
+      #pf-scene .pf-coil { animation: pf-spring 4.8s ease-in-out both; }
+      #pf-scene .pf-face { animation: pf-tilt 4.8s ease-in-out both; }
+      #pf-scene .pf-glance { animation: pf-look 4.8s ease-in-out both; }
+    }
+    @keyframes pf-rattle {
+      0%, 12%, 17%, 27%, 32%, 56%, 100% { transform: rotate(0); }
+      5% { transform: rotate(-4deg); } 9% { transform: rotate(2deg); }
+      21% { transform: rotate(5deg); } 24% { transform: rotate(-2.5deg); }
+      45% { transform: rotate(-1.8deg); } 50% { transform: rotate(1deg); }
+    }
+    @keyframes pf-open {
+      0%, 28% { transform: scaleY(1) skewX(0); }
+      32% { transform: scaleY(.72) skewX(-2deg); }
+      34% { transform: scaleY(.91) skewX(-1deg); }
+      39% { transform: scaleY(.02) skewX(-13deg); }
+      45% { transform: scaleY(-1.26) skewX(-36deg); }
+      53% { transform: scaleY(-1.06) skewX(-28deg); }
+      61%, 100% { transform: scaleY(-1.15) skewX(-31deg); }
+    }
+    @keyframes pf-reverse { 0% { opacity: 0; } 39%, 100% { opacity: 1; } }
+    @keyframes pf-peek-in { 0%, 37% { opacity: 0; } 40%, 100% { opacity: 1; } }
+    @keyframes pf-pop {
+      0%, 38% { transform: translate(0,101px); } 42% { transform: translate(0,79px); }
+      53% { transform: translate(0,-8px); } 60% { transform: translate(0,5px); }
+      68% { transform: translate(0,-2px); } 75%, 100% { transform: translate(0,0); }
+    }
+    @keyframes pf-spring {
+      0%, 40% { transform: scaleY(.06); } 46% { transform: scaleY(.2); }
+      53% { transform: scaleY(1.32); } 60% { transform: scaleY(.8); }
+      68% { transform: scaleY(1.08); } 75%, 100% { transform: scaleY(1); }
+    }
+    @keyframes pf-tilt {
+      0%, 47% { transform: rotate(6deg); } 54% { transform: rotate(-3deg); }
+      63%, 69% { transform: rotate(3deg); } 81%, 100% { transform: rotate(-7deg); }
+    }
+    @keyframes pf-look { 0%, 68% { transform: translate(-.7px,.8px); } 77%,100% { transform: translate(1px,-1px); } }
+  </style>
+  <g class="pf-parcel" stroke-linecap="round" stroke-linejoin="round">
+    <!-- The hinge runs along the left edge of the box. Both lid faces share that edge. -->
+    <path d="m16 237 26-15 45 11 1 6-27 15-45-11z" fill="#783f37" stroke="#522f2a" stroke-width="2.1"/>
+    <path d="m19 237 23-12 40 9-22 13z" fill="#522f2d"/>
+    <path d="m23 237 20-11 33 8" fill="none" stroke="#e0ac76" stroke-width="1.5"/>
+    <g transform="translate(16 238) rotate(-30)">
+      <g class="pf-lid"><g transform="rotate(30) translate(-16 -238)">
+        <path d="m13 234 27-16 50 12v8l-28 17-49-12z" fill="#752a36" stroke="#572c2a" stroke-width="2.2"/>
+        <path d="m13 234 27-16 50 12-28 17z" fill="#d94b4b" stroke="#793332" stroke-width="1.6"/>
+        <path d="m14 235 48 12v7l-48-12z" fill="#ad343d"/>
+        <path d="m62 247 27-16v6l-27 16z" fill="#98313a"/>
+        <path d="m28 225 13-7 50 12-12 7z" fill="#e36856" opacity=".62"/>
+        <path d="m32 239 12 3 28-16-13-3z" fill="#326e62"/>
+        <path d="m24 227 8-5 49 12-8 5z" fill="#366f61"/>
+        <path d="m36 240 27-16m-32 2 45 11" fill="none" stroke="#f3c984" stroke-width="1.4"/>
+        <path d="M50 230c-13 4-22-4-17-9 5-3 14 3 18 7 1-9 5-16 9-14 6 2 1 12-8 16z" fill="#438377" stroke="#214b43" stroke-width="1.8"/>
+        <path d="M48 228q-8-7-13-6m19 4q5-5 5-9" fill="none" stroke="#eac990" stroke-width="1.5"/>
+        <ellipse cx="51" cy="229" rx="4" ry="3.7" fill="#e1b76f" stroke="#865d3d" stroke-width="1.2"/>
+        <g class="pf-underside">
+          <path d="m13 234 27-16 50 12-28 17z" fill="#9f5650" stroke="#693735" stroke-width="2"/>
+          <path d="m18 234 23-12 43 9-23 12z" fill="#d8a271" stroke="#b37655" stroke-width="1.35"/>
+          <path d="m22 234 20-10 27 6m-33 7 25 6" fill="none" stroke="#edc799" stroke-width="1.2"/>
+        </g>
+      </g></g>
+    </g>
+    <g class="pf-reveal" clip-path="url(#pf-peek)">
+      <g class="pf-coil" fill="none">
+        <path d="M51 240c-4-3-14-5-12-9 2-4 20-2 21-6 2-4-22-4-21-9 1-4 18-1 18-5" stroke="#654737" stroke-width="4.2"/>
+        <path d="M51 239c-4-3-13-4-11-8 2-3 20-2 20-6 1-3-22-4-20-9 1-3 17-1 17-5" stroke="#e5ba70" stroke-width="2"/>
+        <path d="m45 230 9-2m-5-12 5-1" stroke="#fff1ba" stroke-width="1.2"/>
+      </g>
+      <g class="pf-puppet">
+        <path d="M46 198c-1 6-5 11-3 15 4 6 16 6 20 1 2-4-6-11-8-15z" fill="url(#pf-fur)" stroke="#6b4432" stroke-width="2.1"/>
+        <path d="M47 205c-3 0-6 2-9 5-2 3 1 5 3 4l9-5m8-5c3 0 6 1 10-2 3-3 6-1 5 1-1 4-7 7-12 7" fill="#c98d5c" stroke="#774a36" stroke-width="1.8"/>
+        <path d="M36.9 211.6q1.2 4.5 5.2 2l.9-2.5-2.4-1.5zM68 202q2-3 5-1.6l.8 1.6q-.8 2.2-3.6 3z" fill="#664638"/>
+        <g class="pf-face">
+          <g fill="none" stroke="#946741" stroke-width="4.2">
+            <path d="M43 170c-2-6-7-8-9-14-1-4-1-8-1-11m2 13q-8-2-9-7m7 1q5-3 5-8"/>
+            <path d="M55 167c3-5 5-10 4-15l-2-8m2 13q7-3 8-9m-8 5q-5-2-7-7"/>
+          </g>
+          <path d="M42 166q-6-7-7-12m24 4 1-7" fill="none" stroke="#ae7b54" stroke-width="1.45"/>
+          <path d="M43 175c-7-5-14-6-16-4-2 3 4 12 14 12m15-13c5-7 12-12 15-10 3 3-1 13-10 17" fill="#c88c60" stroke="#704a36" stroke-width="2"/>
+          <path d="M40 180q-6-1-9-6c5 0 9 3 10 5m18-6q4-7 9-9-1 6-7 10" fill="#e9ad9a"/>
+          <path d="M37 181c0-8 4-14 11-16l-2-3q5-1 8 2 3-3 8-3l-2 4c7 2 12 9 11 16 5 2 7 5 5 9-3 7-12 13-23 12-12-1-19-9-16-21z" fill="url(#pf-fur)" stroke="#69452f" stroke-width="2.2"/>
+          <path d="M40 184q-1-11 7-15" fill="none" stroke="#f6d7a2" stroke-width="1.8"/>
+          <path d="M41 190q5-1 8 5l-3 3q-5-2-5-8" fill="#d68f72"/>
+          <path d="M54 190q3-7 10-7c7-4 14-2 14 4 1 5-5 11-12 13-7 3-14 0-13-4z" fill="#f1d5a8" stroke="#aa7852" stroke-width="1.1"/>
+          <path d="M63 194q3 3 7-1" fill="none" stroke="#865b42" stroke-width="1.35"/>
+          <ellipse cx="52" cy="181" rx="4.25" ry="5.05" fill="#fff1d2"/>
+          <ellipse cx="64.3" cy="178.6" rx="3.5" ry="4.5" fill="#fff1d2"/>
+          <g class="pf-glance" fill="#46372e">
+            <ellipse cx="52.7" cy="180.8" rx="2.7" ry="3.45"/><ellipse cx="64.8" cy="178.2" rx="2.4" ry="3.05"/>
+            <path d="M52.8 179.6h.2m11.7-2.3h.2" stroke="#fff4d9" stroke-width="1.35"/>
+          </g>
+          <path d="M48 174q3-3 5.5-2m7.5-2q2.5-2.1 5.1-.4" fill="none" stroke="#865338" stroke-width="1.65"/>
+          <ellipse cx="73.4" cy="183.6" rx="6.35" ry="5.45" transform="rotate(-15 73.4 183.6)" fill="url(#pf-nose)" stroke="#873b39" stroke-width="1.6"/>
+          <ellipse cx="72.2" cy="181.8" rx="1.8" ry="1" fill="#ffddc2"/>
+          <path d="M41 196q10 7 20 2c2 0 3 4 1 6-9 5-18 3-24-2-2-2 0-5 3-6z" fill="url(#pf-pine)" stroke="#355446" stroke-width="1.7"/>
+          <path d="M43 203c-2 4-5 7-8 9l3 2 2 3q7-4 9-11z" fill="url(#pf-pine)" stroke="#355446" stroke-width="1.6"/>
+          <path d="m40 201 3-3m6 7 2-3m-12 8 4 3" fill="none" stroke="#f3c781" stroke-width="1.5"/>
+          <circle cx="60.5" cy="205.4" r="2.85" fill="#deb268" stroke="#8d673e" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+    <path d="m16 238 44 11 1 36-40-10q-3-.6-3-4z" fill="url(#pf-paper)" stroke="#632f31" stroke-width="2.2"/>
+    <path d="m60 249 27-16-2 34q0 2-3 4l-21 14z" fill="url(#pf-pine)" stroke="#4d3831" stroke-width="2.2"/>
+    <path d="m17.5 240 42 10m3-.3 22.1-13" fill="none" stroke="#ecb087" stroke-width="1.4"/>
+    <path d="m18 254 42 11v8l-41-11zm15-12 12 3 .8 36-12-3z" fill="#2d6c5f"/>
+    <path d="m60 265 26-16-.3 8-25.2 16zm11-23.4 8.4-5-2 36-7.3 4.7z" fill="#ae4746"/>
+    <g fill="none" stroke="#dfa961" stroke-width="1.2">
+      <path d="m19 257 41 10.6 25.5-15.7m-67 7.5 41.5 11 25-15.5m-49.4-12.3 1.1 35.5m5-34.1 1 35.2m31-38.8-1.3 33.5"/>
+    </g>
+    <path d="m23 246 2.1 2.6 3.1 1-2.6 1-.9 2.7-1.2-3.1-2.8-1.1 2.3-.8zm26.7 25.4 1.4 2.4 2.4.8-2 .6-.6 2.3-1.3-2.6-2.2-.8 1.8-.7z" fill="#f3cc91"/>
+    <path d="m21.8 272.7 10.4 2.8m32.2 5.5 4.2-2.7" fill="none" stroke="#e39577" stroke-width="1.35"/>
+  </g>
+</svg>

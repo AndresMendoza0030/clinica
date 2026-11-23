@@ -1,0 +1,72 @@
+/* The portrait combines the clinic’s platinum mark with its velvet hat and beard. */
+.clinic-seasonal-mark { display:inline-flex; flex:none; line-height:0; }
+.holiday-gift-sack { display:none; }
+html[data-lighting=led] .clinic-seasonal-mark {
+  --holiday-mark-width:75px;
+  --holiday-mark-height:64px;
+  position:relative;
+  display:inline-block;
+  width:var(--holiday-mark-width);
+  height:var(--holiday-mark-height);
+  flex:none;
+  vertical-align:middle;
+}
+html[data-lighting=led] .clinic-seasonal-mark>img { visibility:hidden; }
+html[data-lighting=led] .clinic-seasonal-mark::before {
+  content:"";
+  display:block;
+  position:absolute;
+  inset:0 auto 0 0;
+  width:77%;
+  height:100%;
+  background: url("/navidad/emblema-platino-santa.webp") center/contain no-repeat;
+  pointer-events:none;
+}
+html[data-lighting=led] .holiday-gift-sack {
+  display:block;
+  position:absolute;
+  width:43%;
+  height:59%;
+  right:0;
+  bottom:1%;
+  overflow:visible;
+  pointer-events:none;
+}
+.holiday-gift-sack .sack-body,
+.holiday-gift-sack .sack-gifts {
+  transform-box:fill-box;
+  transform-origin:50% 94%;
+}
+html[data-lighting=led] .cf-brand .clinic-seasonal-mark {
+  --holiday-mark-width:86px;
+  --holiday-mark-height:74px;
+}
+@media (max-width:670px) {
+  html[data-lighting=led] .th-brand .clinic-seasonal-mark {
+    --holiday-mark-width:61px;
+    --holiday-mark-height:52px;
+  }
+  }
+@media (prefers-reduced-motion:no-preference) {
+  html[data-lighting=led]:not([data-visual-effects=off]) [data-gift-motion=play] .sack-body {
+    animation:clinic-sack-land 1.6s cubic-bezier(.24,.7,.35,1) both;
+  }
+  html[data-lighting=led]:not([data-visual-effects=off]) [data-gift-motion=play] .sack-gifts {
+    animation:clinic-gifts-rise 1.6s cubic-bezier(.2,.72,.37,1) both;
+  }
+}
+@keyframes clinic-sack-land {
+  0%,100% {transform:none}
+  17% {transform:rotate(-7deg) scale(.96,1.04)}
+  31% {transform:rotate(4deg) scale(1.07,.93)}
+  48% {transform:rotate(-3deg)}
+  64% {transform:rotate(2deg)}
+  83% {transform:none}
+}
+@keyframes clinic-gifts-rise {
+  0%,100% {transform:none}
+  22% {transform:translateY(10%) rotate(-5deg)}
+  44% {transform:translateY(-25%) rotate(5deg)}
+  65% {transform:translateY(3%) rotate(-2deg)}
+  83% {transform:none}
+}

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#101715">
+    <meta name="description" content="Explore las tres sedes de Clínica Dr. Mendoza en miniatura. Elija una esfera, gírela y agite la nieve.">
+    <title>Esferas de Navidad · Clínica Dr. Mendoza</title>
+    <link rel="preload" as="image" href="assets/luna-lectora.webp" fetchpriority="high">
+    <link rel="stylesheet" href="style.css?v=coleccion-sedes">
+    <link rel="stylesheet" href="luna-switch.css?v=1">
+  </head>
+  <body data-viewer-state="loading">
+    <main class="studio">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="Clínica Dr. Mendoza, inicio de la colección">
+          <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-name">CLÍNICA DR. MENDOZA<small>COLECCIÓN NAVIDAD</small></span>
+        </a>
+        <nav class="branch-selector" aria-label="Elegir esfera por sede">
+          <a href="?sede=advanced" data-branch="advanced" data-reference="assets/original.png" aria-current="page">Advanced Radiology</a>
+          <a href="?sede=farid" data-branch="farid" data-reference="assets/farid/referencia.webp" data-poster="assets/farid/frontal.webp">Plaza Farid</a>
+          <a href="?sede=matriz" data-branch="matriz" data-reference="assets/matriz/referencia.webp" data-poster="assets/matriz/frontal.webp">Casa Matriz</a>
+        </nav>
+        <button class="reference-button" id="toggleReference" type="button" title="Ver la imagen original" aria-label="Ver la imagen original" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m4 17 5-5 4 4 3-3 4.5 4.5"/></svg>
+          <span>Imagen original</span>
+        </button>
+      </header>
+
+      <section class="stage" aria-labelledby="globeHeading">
+        <div class="stage-heading">
+          <h1 id="globeHeading">Navidad en<br><em id="branchName">Advanced Radiology</em></h1>
+        </div>
+        <div id="viewport" aria-label="Esfera en tres dimensiones. Arrastre para girarla y use la rueda para acercar." tabindex="-1" inert></div>
+        <img id="poster" alt="Esfera navideña de cristal con la sede de Advanced Radiology, decoraciones doradas y nieve." draggable="false" hidden>
+        <noscript>
+          <div class="static-gallery">
+            <p>Para girar las esferas, active JavaScript. También puede ver cada imagen.</p>
+            <a href="assets/original.png">Advanced Radiology</a>
+            <a href="assets/farid/frontal.webp">Plaza Farid</a>
+            <a href="assets/matriz/frontal.webp">Casa Matriz</a>
+          </div>
+        </noscript>
+        <div id="loading">
+          <div class="intro-content">
+            <div class="intro-luna" id="loadingLuna" aria-hidden="true">
+              <div class="intro-luna-scene">
+                <div class="intro-luna-head intro-luna-motion">
+                  <svg class="intro-luna-friend" viewBox="0 0 320 320" focusable="false">
+                    <defs>
+                      <linearGradient id="cookieBake" x2=".72" y2="1" gradientUnits="objectBoundingBox">
+                        <stop stop-color="#efb366"/><stop offset=".58" stop-color="#d38541"/><stop offset="1" stop-color="#b76a32"/>
+                      </linearGradient>
+                    </defs>
+                    <g class="ginger-peek" transform="translate(198 28) scale(.90) rotate(28 42 92)" stroke-linecap="round" stroke-linejoin="round">
+                      <g class="ginger-upper intro-luna-motion">
+                        <path d="M47 53q10-6 19 3 6 6 2 17l-7 16q-4 6-12 5l-11-3q-6-2-4-8l5-21q2-6 8-9z" fill="url(#cookieBake)" stroke="#643a24" stroke-width="2.7"/>
+                        <path d="M39 82q8 6 17 6" fill="none" stroke="#f2bb79" stroke-width="2"/>
+                        <circle cx="53" cy="72" r="3.6" fill="#788d51" stroke="#634c30" stroke-width="1.2"/>
+                        <circle cx="51" cy="81" r="3.3" fill="#ae4042" stroke="#713e2c" stroke-width="1.2"/>
+                        <path d="M82 36c1 15-9 24-24 24-16 0-27-10-27-24 0-15 11-25 26-25 14 0 25 10 25 25z" fill="url(#cookieBake)" stroke="#643a24" stroke-width="2.9"/>
+                        <path d="M35 36c0-13 9-21 22-21 12 0 21 8 21 20" fill="none" stroke="#fff0d4" stroke-width="2.4"/>
+                        <path d="M37 39c1 9 7 15 16 17" fill="none" stroke="#efb676" stroke-width="1.8"/>
+                        <g fill="#95562f" opacity=".68"><circle cx="71" cy="21" r="1.1"/><circle cx="64" cy="17" r=".9"/><circle cx="39" cy="30" r=".9"/></g>
+                        <g fill="#c45945"><ellipse cx="41" cy="44" rx="3.4" ry="2.5"/><ellipse cx="70" cy="42" rx="3.6" ry="2.6"/></g>
+                        <g class="ginger-calm intro-luna-motion">
+                          <path d="m43 34 5 1m12-3 5-2" fill="none" stroke="#894d32" stroke-width="2"/>
+                          <g fill="#503126"><ellipse cx="46" cy="39" rx="2.8" ry="3.2"/><ellipse cx="62" cy="37" rx="2.9" ry="3.3"/></g>
+                          <path d="M49 47q5 5 11-1" fill="none" stroke="#fff1cc" stroke-width="2.6"/>
+                        </g>
+                        <g class="ginger-gasp intro-luna-motion">
+                          <path d="M41 30q3-4 7-3m12-1q4-3 8 0" fill="none" stroke="#764126" stroke-width="2.4"/>
+                          <g fill="#fff4d5" stroke="#744227" stroke-width="1.3"><ellipse cx="46" cy="37" rx="5.1" ry="6"/><ellipse cx="63" cy="35.5" rx="5.5" ry="6.6"/></g>
+                          <g fill="#432a22"><circle cx="44.6" cy="38.6" r="2.5"/><circle cx="61.2" cy="37" r="2.7"/></g>
+                          <ellipse cx="54" cy="47.5" rx="4.1" ry="5.2" fill="#683626" stroke="#fff0cc" stroke-width="1.6"/>
+                        </g>
+                        <path d="M54 58q-10-9-12-3l-1 7q0 5 12-1 10 9 13 5l2-8q1-5-13 0z" fill="#b84043" stroke="#753831" stroke-width="1.8"/>
+                        <path d="m45 56-2 5m20-3-2 6" stroke="#ffe1a7" stroke-width="2.1"/>
+                        <circle cx="54.5" cy="60" r="3" fill="#cc534a" stroke="#80382e" stroke-width="1.2"/>
+                        <g class="ginger-arm-left intro-luna-motion">
+                          <path d="M45 56q-4-1-9 4l-9 9q-5 6 0 10 5 4 10-2l9-12q4-5-1-9z" fill="url(#cookieBake)" stroke="#643a24" stroke-width="2.5"/>
+                          <path d="m29 67 1 3 3-1 2 3" fill="none" stroke="#fff0cf" stroke-width="2.3"/>
+                        </g>
+                        <g class="ginger-arm-right intro-luna-motion">
+                          <path d="M65 56q5-2 9 4l7 11q4 7-2 10-5 3-9-3l-8-14q-3-6 3-8z" fill="url(#cookieBake)" stroke="#643a24" stroke-width="2.5"/>
+                          <path d="m71 73 2-3 3 1 2-3" fill="none" stroke="#fff0cf" stroke-width="2.3"/>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <img id="loadingLunaArt" src="assets/luna-lectora.webp" width="320" height="320" fetchpriority="high" alt="" draggable="false">
+                  <svg class="intro-hat" viewBox="0 0 172 100" focusable="false">
+                    <path d="M21 77C30 58 38 22 62 13c25-10 59-2 85 19 7 6 13 14 15 22l-19 5c-6-14-17-18-30-16 3 12 10 23 14 31z" fill="#b92a3c" stroke="#552818" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M28 69C42 47 47 29 66 22c23-9 46-5 61 5-23-4-42 4-47 18L70 67z" fill="#d6474d" opacity=".85"/>
+                    <path d="M113 43c-8 5-11 16-9 26l22 4c-5-10-9-20-13-30z" fill="#891f2a"/>
+                    <path d="M24 72c27-8 77-7 98-1 6 2 10 6 9 12l-1 6c-1 5-5 8-11 7-28-4-59-4-90 1-8 1-15-2-15-9l-1-5c0-5 5-9 11-11z" fill="#fff0d2" stroke="#583222" stroke-width="3"/>
+                    <path d="M23 89c26-5 71-7 99-2" fill="none" stroke="#dfc6a8" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="154" cy="59" r="15" fill="#fff0d2" stroke="#583222" stroke-width="3"/>
+                    <path d="M145 63c3 5 10 7 16 4" fill="none" stroke="#dfc6a8" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="intro-luna-torso intro-luna-motion">
+                  <img src="assets/luna-lectora.webp" width="320" height="320" alt="" draggable="false">
+                  <svg class="intro-luna-pages" viewBox="0 0 320 320" focusable="false">
+                    <g id="loadingLunaCycle" class="intro-page-turn intro-luna-motion">
+                      <path d="M160 245q36-25 89-34-3-16-15-36-38 4-74 48z" fill="#f5e5bb" stroke="#825537" stroke-width="2.3" stroke-linejoin="round"/>
+                      <path d="M161 241q43-28 85-34l3 4q-53 9-89 34z" fill="#d4ae76"/>
+                      <path d="M172 224q12-12 25-19m-23 23q21-16 43-23m-37 25q18-12 37-18" fill="none" stroke="#b89162" stroke-width="1.6" stroke-linecap="round"/>
+                      <path d="m222 192 3 4 5 1-4 3 1 5-5-2-4 2 1-5-4-3 5-1z" fill="#bc8754"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="luna-branch-props" id="lunaBranchProps" aria-hidden="true"></div>
+              </div>
+            </div>
+            <p id="loadingMessage" role="status">Preparando una sorpresa…</p>
+            <a id="loadingRetry" href="./" hidden>Volver a intentar</a>
+          </div>
+        </div>
+        <div class="view-status"><span class="status-dot" aria-hidden="true"></span><span id="viewLabel" role="status">Vista frontal</span><span class="status-divider" aria-hidden="true"></span><span id="angleValue">0°</span></div>
+        <span class="stage-caption" aria-hidden="true">SAN MIGUEL<br><span>El Salvador</span></span>
+      </section>
+
+      <footer class="interaction-footer">
+        <nav class="controls" id="viewerControls" aria-label="Controles de la esfera" inert>
+          <button id="resetView" type="button" title="Volver a la vista frontal" aria-label="Volver a la vista frontal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a8 8 0 1 1 .5 6M4 5v5h5"/></svg><span>Recentrar</span>
+          </button>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button id="toggleAuto" type="button" aria-pressed="false" title="Activar giro automático" aria-label="Giro automático">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9a8 8 0 0 1 13-3l2 2M20 4v4h-4M19 15a8 8 0 0 1-13 3l-2-2M4 20v-4h4"/></svg><span>Giro suave</span>
+          </button>
+          <button id="toggleSnow" type="button" title="Agitar la nieve; permitir movimiento del teléfono" aria-label="Agitar la nieve">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M9 4l3 3 3-3M9 20l3-3 3 3M3.6 10.6l4.1-1.1-1.1-4.1M17.4 18.6l-1.1-4.1 4.1-1.1M6.6 18.6l1.1-4.1-4.1-1.1M20.4 10.6l-4.1-1.1 1.1-4.1"/></svg><span>Agitar</span>
+          </button>
+          <span class="control-divider" aria-hidden="true"></span>
+          <button id="fullscreen" type="button" title="Ver en pantalla completa" aria-label="Ver en pantalla completa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/></svg><span class="fullscreen-label">Ampliar</span>
+          </button>
+        </nav>
+        <p id="gestureHint">Arrastre para girar · <span class="pointer-hint">Use la rueda para acercar</span><span class="touch-hint">Pellizque para acercar</span></p>
+        <p class="fidelity-note"><span class="pointer-hint">Haga doble clic o pulse Espacio para agitar la nieve.</span><span class="touch-hint">Toque dos veces para agitar la nieve.</span></p>
+      </footer>
+    </main>
+
+    <dialog id="referenceDialog" aria-labelledby="referenceTitle">
+      <div class="dialog-header"><div><p class="eyebrow">EL DISEÑO DE REFERENCIA</p><h2 id="referenceTitle">Advanced Radiology</h2></div><button id="closeReference" type="button" aria-label="Cerrar imagen original" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <p id="referenceStatus" class="reference-status" role="status">Cargando la imagen original…</p>
+      <img id="referenceImage" data-src="assets/original.png" alt="Imagen original de la esfera navideña de Advanced Radiology" draggable="false" hidden>
+  </dialog>
+    <noscript><style>#loading,.branch-selector{display:none}</style></noscript>
+    <script id="collectionNavigation">
+      (() => {
+        const links = Array.from(document.querySelectorAll('.branch-selector a'));
+        const requested = new URLSearchParams(location.search).get('sede');
+        const selected = links.find(link => link.dataset.branch === requested) || links[0];
+        const branch = selected.dataset.branch;
+        const name = selected.textContent.trim();
+        const element = id => document.getElementById(id);
+        document.body.dataset.branch = branch;
+        document.title = name + ' · Esferas de Navidad · Clínica Dr. Mendoza';
+        element('branchName').textContent = name;
+        element('referenceTitle').textContent = name;
+        const image = element('referenceImage');
+        image.dataset.src = selected.dataset.reference;
+        image.alt = 'Diseño original de la esfera de ' + name;
+        const poster = element('poster');
+        poster.dataset.src = selected.dataset.poster || selected.dataset.reference;
+        poster.alt = 'Esfera navideña de ' + name;
+        element('loadingRetry').href = selected.href;
+
+        const intentKey = 'mendoza.esferas.siguiente';
+        let intent;
+        try {
+          intent = JSON.parse(sessionStorage.getItem(intentKey));
+          sessionStorage.removeItem(intentKey);
+        } catch { /* Navigation also works with storage disabled. */ }
+        const internalClick = intent?.to === location.href && Date.now() - intent.at < 90000;
+        const referringPage = document.referrer && new URL(document.referrer);
+        const historyEntry = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+        const sameCollection = referringPage && referringPage.origin === location.origin
+          && referringPage.pathname === location.pathname && referringPage.href !== location.href;
+        if (internalClick || historyEntry || sameCollection) {
+          document.body.dataset.entry = 'switch';
+          element('loadingMessage').textContent = 'Cargando la esfera de ' + name + '…';
+        }
+        let pendingSelection;
+        for (const link of links) {
+          if (link === selected) link.setAttribute('aria-current', 'page');
+          else link.removeAttribute('aria-current');
+          link.addEventListener('click', event => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            if (link === selected && !pendingSelection) { event.preventDefault(); return; }
+            if (pendingSelection) delete pendingSelection.dataset.pending;
+            pendingSelection = link;
+            link.dataset.pending = 'true';
+            try {
+              sessionStorage.setItem(intentKey, JSON.stringify({to: link.href, at: Date.now(), keyboard: event.detail === 0}));
+            } catch { /* The same-origin referrer also identifies collection navigation. */ }
+          });
+        }
+        if (internalClick && intent.keyboard) selected.focus({preventScroll: true});
+        window.addEventListener('pageshow', () => {
+          if (pendingSelection) delete pendingSelection.dataset.pending;
+          pendingSelection = undefined;
+        });
+      })();
+    </script>
+    <script>
+      (() => {
+        const intro = document.getElementById('loading');
+        const viewport = document.getElementById('viewport');
+        const controls = document.getElementById('viewerControls');
+        const luna = document.getElementById('loadingLuna');
+        const art = document.getElementById('loadingLunaArt');
+        const page = document.getElementById('loadingLunaCycle');
+        const props = document.getElementById('lunaBranchProps');
+        const branch = document.body.dataset.branch || 'advanced';
+        const motion = matchMedia('(prefers-reduced-motion: reduce)');
+        const reference = document.getElementById('toggleReference');
+        let viewerReady = false;
+        let branchSwitch = document.body.dataset.entry === 'switch';
+        let firstTurnFinished = motion.matches || document.hidden;
+        let generation = 0;
+        let suspended = false;
+        let svgTemplate;
+        let paintStart;
+        let introTimer;
+        let fadeTimer;
+
+        function revealWhenReady() {
+          if (suspended || !viewerReady || !firstTurnFinished || document.body.dataset.viewerState !== 'loading') return;
+          viewport.inert = false;
+          viewport.tabIndex = 0;
+          controls.inert = false;
+          reference.disabled = false;
+          document.body.dataset.viewerState = 'ready';
+          intro.inert = true;
+          if (motion.matches || document.hidden) intro.hidden = true;
+          else fadeTimer = setTimeout(() => { intro.hidden = true; }, 240);
+          viewport.dispatchEvent(new Event('ornament-reveal'));
+        }
+
+        function finishFirstTurn() {
+          clearTimeout(introTimer);
+          firstTurnFinished = true;
+          revealWhenReady();
+        }
+
+        page.addEventListener('animationiteration', event => {
+          if (!branchSwitch && event.target === page && event.animationName === 'luna-reader-page') finishFirstTurn();
+        });
+
+        function showLuna() {
+          if (branchSwitch || suspended || document.body.dataset.viewerState !== 'loading') return;
+          if (!art.naturalWidth) { finishFirstTurn(); return; }
+          luna.classList.add('is-visible');
+          // Bound the handoff if a browser or extension suppresses CSS animation events.
+          clearTimeout(introTimer);
+          if (!firstTurnFinished) {
+            // Computed animation-duration is expressed in seconds. Allow one full turn plus event delivery.
+            const cycleMs = parseFloat(getComputedStyle(page).animationDuration) * 1000;
+            introTimer = setTimeout(finishFirstTurn, cycleMs + 800);
+          }
+        }
+
+        // Keep an inert template for this document; a new subtree starts its CSS
+        // animations at zero when the browser restores the document from history.
+        async function loadProps() {
+          if (!svgTemplate) {
+            svgTemplate = fetch('assets/luna-scenes/' + branch + '.svg')
+              .then(async response => {
+                if (!response.ok) throw new Error('Scene unavailable');
+                const svg = new DOMParser().parseFromString(await response.text(), 'image/svg+xml').documentElement;
+                if (svg.localName !== 'svg' || svg.namespaceURI !== 'http://www.w3.org/2000/svg') {
+                  throw new Error('Invalid scene');
+                }
+                return svg;
+              }).catch(error => { svgTemplate = undefined; throw error; });
+          }
+          return svgTemplate;
+        }
+
+        function bearIsReady() {
+          if (art.complete) return Promise.resolve(art.naturalWidth > 0);
+          return new Promise(resolve => {
+            function settled() {
+              art.removeEventListener('load', settled);
+              art.removeEventListener('error', settled);
+              resolve(art.naturalWidth > 0);
+            }
+            art.addEventListener('load', settled);
+            art.addEventListener('error', settled);
+          });
+        }
+
+        async function playDestination() {
+          const turn = ++generation;
+          props.replaceChildren();
+          luna.classList.remove('is-visible');
+          luna.hidden = false;
+          if (firstTurnFinished) return;
+          // A lost decorative request must not indefinitely delay a ready globe.
+          introTimer = setTimeout(finishFirstTurn, 6000);
+          try {
+            const [svg, bearReady] = await Promise.all([loadProps(), bearIsReady()]);
+            if (turn !== generation || firstTurnFinished || suspended) return;
+            if (!bearReady) { finishFirstTurn(); return; }
+            paintStart = requestAnimationFrame(() => {
+              if (turn !== generation || firstTurnFinished || suspended) return;
+              props.replaceChildren(document.importNode(svg, true));
+              luna.classList.add('is-visible');
+              clearTimeout(introTimer);
+              const duration = getComputedStyle(luna).getPropertyValue('--luna-cycle').trim();
+              const milliseconds = parseFloat(duration) * (duration.endsWith('ms') ? 1 : 1000);
+              const beat = milliseconds > 0 && milliseconds <= 6000 ? milliseconds : 4800;
+              introTimer = setTimeout(finishFirstTurn, beat);
+            });
+          } catch {
+            if (turn === generation) finishFirstTurn();
+          }
+        }
+
+        if (branchSwitch) playDestination();
+        else if (art.complete) showLuna();
+        else {
+          art.addEventListener('load', showLuna, {once: true});
+          art.addEventListener('error', finishFirstTurn, {once: true});
+        }
+        motion.addEventListener?.('change', () => { if (motion.matches) finishFirstTurn(); });
+        document.addEventListener('visibilitychange', () => { if (document.hidden) finishFirstTurn(); });
+
+        function restoreDestination() {
+          clearTimeout(fadeTimer);
+          clearTimeout(introTimer);
+          cancelAnimationFrame(paintStart);
+          branchSwitch = true;
+          document.body.dataset.entry = 'switch';
+          viewerReady = false;
+          firstTurnFinished = motion.matches || document.hidden;
+          viewport.inert = true;
+          viewport.tabIndex = -1;
+          controls.inert = true;
+          reference.disabled = true;
+          document.getElementById('poster').hidden = true;
+          document.getElementById('loadingRetry').hidden = true;
+          intro.hidden = false;
+          intro.inert = false;
+          const name = document.getElementById('branchName').textContent;
+          document.getElementById('loadingMessage').textContent = 'Cargando la esfera de ' + name + '…';
+          document.body.dataset.viewerState = 'loading';
+          playDestination();
+        }
+        window.addEventListener('pagehide', () => {
+          suspended = true;
+          generation++;
+          clearTimeout(fadeTimer);
+          clearTimeout(introTimer);
+          cancelAnimationFrame(paintStart);
+        });
+        window.addEventListener('pageshow', event => {
+          suspended = false;
+          // A page can enter history midway through its scene, before a renderer
+          // is ready to emit ornament-restoring when its context is recreated.
+          if (event.persisted && document.body.dataset.viewerState !== 'ready') restoreDestination();
+        });
+        intro.addEventListener('ornament-restoring', restoreDestination);
+
+        intro.addEventListener('ornament-ready', () => {
+          if (document.body.dataset.viewerState !== 'loading') return;
+          viewerReady = true;
+          if (!branchSwitch && !firstTurnFinished && !luna.classList.contains('is-visible')) {
+            // An unavailable decorative image must not hold up a ready globe.
+            introTimer = setTimeout(finishFirstTurn, 650);
+          }
+          revealWhenReady();
+        });
+
+        function showLoadError(message) {
+          generation++;
+          cancelAnimationFrame(paintStart);
+          clearTimeout(introTimer);
+          clearTimeout(fadeTimer);
+          const focused = document.activeElement;
+          const hadFocus = focused === reference || intro.contains(focused) || viewport.contains(focused) || controls.contains(focused);
+          const retry = document.getElementById('loadingRetry');
+          document.body.dataset.viewerState = 'error';
+          viewport.inert = true;
+          controls.inert = true;
+          reference.disabled = true;
+          intro.inert = false;
+          intro.hidden = false;
+          retry.hidden = false;
+          if (hadFocus) retry.focus({preventScroll: true});
+          luna.hidden = true;
+          document.getElementById('loadingMessage').textContent = message;
+          const poster = document.getElementById('poster');
+          poster.src = poster.dataset.src;
+          poster.hidden = false;
+        }
+
+        intro.addEventListener('ornament-error', event => showLoadError(event.detail));
+        import('./viewer-start.js').then(module => module.startViewer({host: viewport, intro, branch: document.body.dataset.branch || 'advanced'}))
+          .catch(() => showLoadError('No se pudo cargar la esfera.'));
+      })();
+    </script>
+  </body>
+</html>

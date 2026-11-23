@@ -1,32 +1,37 @@
 const slides = [
   {
-    image: 'portada-medico-detalle-v3',
+    image: '/navidad/interiores/medico',
     title: 'Atención médica',
-    alt: 'Detalle de la gabacha con el logo original de la clínica y manos sosteniendo una tableta, sin mostrar el rostro. Imagen ilustrativa.',
+    alt: 'Médico con gabacha blanca de la clínica y tableta, con una pequeña corona navideña al fondo. Imagen ilustrativa.',
   },
   {
-    image: 'portada-recepcion',
+    image: '/navidad/interiores/recepcion',
     title: 'Recepción y sala de espera',
-    alt: 'Recepción de la clínica con el mostrador de madera despejado y las sillas ordenadas, recreada a partir de la fotografía del espacio.',
+    alt: 'Sala de espera con flor de Pascua y una guirnalda de luces cálidas en el mostrador. Recreación de la recepción de la clínica.',
   },
   {
-    image: 'portada-interpretacion-espaldas-v3',
+    image: '/assets/visuals/portada-interpretacion-espaldas-v3',
     title: 'Interpretación de estudios',
     alt: 'Radiólogo visto completamente de espaldas mientras revisa estudios en una estación de diagnóstico. Imagen ilustrativa.',
   },
   {
-    image: 'portada-laboratorio',
+    image: '/assets/visuals/portada-laboratorio',
     title: 'Laboratorio Clínico',
     alt: 'Manos con guantes organizando muestras junto a un microscopio y equipo de laboratorio clínico. Imagen ilustrativa.',
   },
 ];
+
+const imageSizes = '(max-width: 760px) 130vw, 1000px';
+const imageSources = base => `${base}-720.webp 720w, ${base}.webp 1536w`;
+export const homeCarouselCover = slides[0].image + '.webp';
+export const homeCarouselPreload = `<link rel="preload" as="image" href="${homeCarouselCover}" imagesrcset="${imageSources(slides[0].image)}" imagesizes="${imageSizes}" fetchpriority="high" />`;
 
 export function HomeCarousel() {
   return `<div class="v3-home-art hc-carousel" role="region" aria-roledescription="carrusel" aria-label="Conozca nuestra clínica">
     <p id="hc-help" class="hc-sr-only">Deslice para explorar las ${slides.length} imágenes. También puede usar las flechas del teclado.</p>
     <div id="hc-viewport" class="hc-viewport" tabindex="0" aria-label="Imágenes de la clínica" aria-describedby="hc-help">
       ${slides.map((slide, index) => `<figure class="hc-slide hc-slide--${index + 1}" role="group" aria-roledescription="diapositiva" aria-label="${index + 1} de ${slides.length}: ${slide.title}">
-        <img src="/assets/visuals/${slide.image}.webp" srcset="/assets/visuals/${slide.image}-720.webp 720w, /assets/visuals/${slide.image}.webp 1536w" sizes="(max-width: 760px) 130vw, 1000px" width="1536" height="1024" alt="${slide.alt}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+        <img src="${slide.image}.webp" srcset="${imageSources(slide.image)}" sizes="${imageSizes}" width="1536" height="1024" alt="${slide.alt}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
         <figcaption class="hc-caption"><span class="hc-eyebrow">CLÍNICA DR. MENDOZA <span aria-hidden="true">/ ${String(index + 1).padStart(2, '0')}</span></span><strong>${slide.title}</strong></figcaption>
       </figure>`).join('')}
     </div>

@@ -1,0 +1,205 @@
+.led-palette-control,
+.led-palette-locations,
+.led-palette-panel[hidden] {
+  display: none;
+}
+
+html[data-lighting="led"] .led-palette-control {
+  position: relative;
+  flex: none;
+  display: block;
+}
+
+.led-palette-trigger,
+.led-palette-choice {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: 700 14px/1.25 "Manrope", system-ui, sans-serif;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.led-palette-trigger {
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+  border: 1px solid #9d8c66;
+  border-radius: 8px;
+  background: #20332e;
+  color: #ffdf9b;
+}
+
+.led-palette-trigger[aria-expanded="true"],
+.led-palette-trigger:hover {
+  border-color: #e9cd95;
+  background: #30453a;
+}
+
+.led-palette-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 4;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 14px;
+  border: 1px solid #6c756b;
+  border-radius: 11px;
+  background: #172920;
+  color: #fff9ed;
+  box-shadow: 0 12px 32px #04100ddb;
+}
+
+.led-palette-panel strong,
+.led-palette-locations strong {
+  font: 750 15px/1.35 "Manrope", system-ui, sans-serif;
+}
+
+.led-palette-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.led-palette-panel .led-palette-swatches {
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.led-palette-choice {
+  padding: 6px 12px;
+  border: 1px solid #8e968c;
+  border-radius: 7px;
+  background: #fffefa;
+  color: #23352e;
+  white-space: nowrap;
+}
+
+.led-palette-panel .led-palette-choice {
+  justify-content: flex-start;
+}
+
+.led-palette-choice:hover {
+  background: #f7f1e5;
+}
+
+.led-palette-choice[aria-pressed="true"] {
+  border-color: #64553a;
+  background: #f3e7cd;
+  box-shadow: inset 0 0 0 1px #64553a;
+  color: #302717;
+}
+
+.led-palette-choice[aria-pressed="true"] .led-palette-swatch::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  content: "✓";
+  font: 900 13px/1 system-ui, sans-serif;
+  color: #19231c;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff;
+}
+
+.led-palette-swatch {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #766e61;
+  border-radius: 50%;
+  background: #ffdd9c;
+}
+
+[data-palette="rojo"] .led-palette-swatch { background: #e75150; }
+[data-palette="multicolor"] .led-palette-swatch {
+  background: conic-gradient(#e55a5a 0turn .25turn, #efbb55 .25turn .5turn, #53ab7a .5turn .75turn, #65a2d6 .75turn);
+}
+
+.led-palette-trigger:focus-visible,
+.led-palette-panel button:focus-visible {
+  outline: 3px solid #ffdf9b;
+  outline-offset: 2px;
+}
+
+.led-palette-locations button:focus-visible {
+  outline: 3px solid #30594d;
+  outline-offset: 2px;
+}
+
+html[data-lighting="led"] .led-palette-locations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin: 0 0 20px;
+  color: #25362f;
+}
+
+@media (max-width: 1190px) {
+  .led-palette-trigger { width: 44px; padding: 0; }
+  .led-palette-trigger span { display: none; }
+}
+
+@media (max-width: 1100px) {
+  html[data-lighting="led"] .led-palette-control { margin-inline-start: auto; }
+}
+
+@media (max-width: 640px) {
+  html[data-lighting="led"] .th-nav-shell { gap: 9px; }
+  html[data-lighting="led"] .led-palette-locations { align-items: start; flex-direction: column; }
+  .led-palette-locations .led-palette-swatches { gap: 6px; }
+  .led-palette-locations .led-palette-choice { padding-inline: 9px; }
+}
+
+@media print {
+  html[data-lighting="led"] .led-palette-control,
+  html[data-lighting="led"] .led-palette-locations { display: none; }
+}
+
+#led-location-viewer .led-palette-viewer { display: none; }
+html[data-lighting="led"] #led-location-viewer .led-palette-viewer {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-top: 1px solid #45514b;
+}
+#led-location-viewer .led-palette-choice {
+  gap: 6px;
+  padding-inline: 9px;
+}
+#led-location-viewer .led-palette-choice[aria-pressed="true"] {
+  border-color: #d4b87f;
+  background: #f3e7cd;
+  color: #302717;
+}
+html[data-lighting="led"] #led-location-viewer .led-location-picture {
+  width: min(100%, max(240px, calc(150vh - 330px)));
+  width: min(100%, max(240px, calc(150dvh - 330px)));
+}
+@media (max-width: 390px) {
+  html[data-lighting="led"] #led-location-viewer .led-palette-viewer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 6px;
+  }
+  #led-location-viewer .led-palette-choice {
+    gap: 4px;
+    padding-inline: 2px;
+    white-space: normal;
+  }
+  #led-location-viewer .led-palette-swatch { width: 14px; height: 14px; }
+}
+
+@media (max-width:360px) {
+  html[data-lighting="led"] .th-nav-shell { width:calc(100% - 16px); gap:5px; }
+  html[data-lighting="led"] .th-brand { gap:6px; }
+  html[data-lighting="led"] .th-brand .clinic-seasonal-mark { --holiday-mark-width:54px; --holiday-mark-height:47px; }
+}

@@ -1,0 +1,140 @@
+.clinic-led-strand { display: none; }
+
+html[data-lighting="led"] .clinic-led-strand {
+  --ruby: 244, 53, 54;
+  --honey: 255, 190, 67;
+  --emerald: 51, 211, 124;
+  --sapphire: 70, 163, 255;
+  --first-bulb: var(--ruby);
+  --second-bulb: var(--honey);
+  --third-bulb: var(--emerald);
+  --fourth-bulb: var(--sapphire);
+  --segment-width: clamp(158px, 19vw, 226px);
+  position: absolute;
+  top: calc(100% - 6px);
+  inset-inline: 0;
+  z-index: 0;
+  display: flex;
+  height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+html[data-lighting="led"][data-led-color="calido"] .clinic-led-strand {
+  --first-bulb: 255, 173, 68;
+  --second-bulb: 255, 218, 146;
+  --third-bulb: 255, 192, 91;
+  --fourth-bulb: 255, 230, 168;
+}
+
+html[data-lighting="led"][data-led-color="rojo"] .clinic-led-strand {
+  --first-bulb: 244, 47, 53;
+  --second-bulb: 255, 85, 62;
+  --third-bulb: 230, 45, 68;
+  --fourth-bulb: 255, 69, 66;
+}
+
+html[data-lighting="led"] .clinic-led-segment {
+  position: relative;
+  display: block;
+  flex: 0 0 var(--segment-width);
+  height: 100%;
+}
+
+/* The wire sags between its attachment points. Each socket meets the curve. */
+html[data-lighting="led"] .clinic-led-segment::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  inset-inline: -1px;
+  height: 14px;
+  border-bottom: 2px solid #345044;
+  border-radius: 0 0 50% 50% / 0 0 72% 72%;
+  box-shadow: 0 1px 0 #081b17, 0 2px 2px #09120c44;
+}
+
+html[data-lighting="led"] .clinic-led-lamp {
+  --tint: var(--first-bulb);
+  --tilt: -11deg;
+  position: absolute;
+  left: 12.5%;
+  top: 4px;
+  display: block;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--tilt));
+}
+
+html[data-lighting="led"] .clinic-led-lamp:nth-child(2) {
+  --tint: var(--second-bulb); --tilt: -5deg;
+  left: 37.5%; top: 8px;
+}
+html[data-lighting="led"] .clinic-led-lamp:nth-child(3) {
+  --tint: var(--third-bulb); --tilt: 9deg;
+  left: 62.5%; top: 8px;
+}
+html[data-lighting="led"] .clinic-led-lamp:nth-child(4) {
+  --tint: var(--fourth-bulb); --tilt: 13deg;
+  left: 87.5%; top: 4px;
+}
+
+/* Ribbed socket casts a small shadow over the neck of the glass. */
+html[data-lighting="led"] .clinic-led-lamp::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: -4px;
+  top: 0;
+  width: 8px;
+  height: 5px;
+  border-radius: 2px 2px 1px 1px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 2px, #10241c88 2px 3px),
+    linear-gradient(90deg, #263c32, #6c7960 42%, #405747 65%, #24382d);
+  box-shadow: 0 1px 1px #26170f99;
+}
+
+html[data-lighting="led"] .clinic-led-lamp::after {
+  content: "";
+  position: absolute;
+  left: -5.5px;
+  top: 4px;
+  width: 11px;
+  height: 17px;
+  border-radius: 48% 48% 51% 51% / 38% 38% 73% 73%;
+  background:
+    radial-gradient(ellipse 1.3px 3.4px at 28% 30%, #fff 5%, #fff9 55%, transparent 85%),
+    radial-gradient(ellipse at 49% 64%, #fffde6 0%, #fff5cd 9%, rgba(var(--tint), .10) 48%, transparent 65%),
+    linear-gradient(100deg, #51233355, transparent 37%, transparent 65%, #1d182a7d),
+    rgb(var(--tint));
+  box-shadow:
+    inset 1px 0 1.3px #fff9, inset -1px -1px 1.5px #20232865,
+    0 0 4px 1px rgba(var(--tint), .85), 0 0 12px 3px rgba(var(--tint), .45),
+    0 3px 20px 4px rgba(var(--tint), .19);
+}
+
+html[data-lighting="led"] .th-mobile-nav { z-index: 2; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-lighting="led"][data-visual-effects="on"] .clinic-led-lamp::after {
+    animation: clinic-led-switch-on .42s ease-out var(--led-delay, 0ms) both;
+  }
+}
+
+@keyframes clinic-led-switch-on {
+  from { opacity: .21; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  html[data-lighting="led"] .clinic-led-lamp::after {
+    width: 9px;
+    height: 14px;
+    left: -4.5px;
+  }
+}
+
+@media print {
+  html[data-lighting="led"] .clinic-led-strand { display: none; }
+}

@@ -115,5 +115,45 @@ export function LunaMascotStyles() {
 }
 @keyframes luna-bear-breathe-gentle{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 @keyframes luna-bear-wave-gentle{0%,100%{transform:rotate(0)}50%{transform:rotate(2deg)}}
+html[data-lighting="led"] .luna-avatar > .luna-bear { display: none; }
+html[data-lighting="led"] .luna-avatar::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/navidad/luna/luna-retrato-v1.webp") center top / cover no-repeat;
+  transform-origin: 50% 90%;
+}
+html[data-lighting="led"] #luna-panel .luna-welcome .luna-avatar {
+  border: 0;
+  background: transparent;
+}
+html[data-lighting="led"] .luna-welcome .luna-avatar::before {
+  background-image: url("/navidad/luna/luna-jersey-v1.webp");
+  background-size: contain;
+  background-position: center bottom;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-lighting="led"] #luna-panel[open] .luna-avatar::before {
+    animation: luna-led-attentive 4.8s ease-in-out infinite;
+  }
+  html[data-lighting="led"] #luna-panel[data-luna-mode="happy"] .luna-avatar::before {
+    animation: luna-led-greet 1s ease-in-out 2;
+  }
+  html[data-lighting="led"] #luna-panel[data-luna-mode="reading"] .luna-avatar::before {
+    animation: luna-led-read .65s ease-in-out both;
+  }
+  html[data-lighting="led"] #luna-panel[data-luna-mode="thinking"] .luna-avatar::before {
+    animation: luna-led-think .5s ease-in-out both;
+  }
+  html[data-lighting="led"] #luna-panel[data-luna-mode="responding"] .luna-avatar::before {
+    animation: luna-led-nod 1.4s ease-in-out infinite;
+  }
+}
+@keyframes luna-led-attentive { 50% { transform: translateY(-1px); } }
+@keyframes luna-led-greet { 45% { transform: translateY(-2px) rotate(-3deg); } }
+@keyframes luna-led-read { to { transform: translateY(2px) rotate(3deg); } }
+@keyframes luna-led-think { to { transform: translateY(-1px) rotate(-4deg); } }
+@keyframes luna-led-nod { 40% { transform: translateY(1px) rotate(2deg); } }
 `;
 }

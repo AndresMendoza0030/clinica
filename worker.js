@@ -1,3 +1,4 @@
+import { applyChristmasTheme } from './components/christmas-theme.js';
 import { LunaPatients } from './components/luna-patients.js';
 import { handleLuna, isEnabled } from './luna/server.js';
 export { LunaBudget } from './luna/server.js';
@@ -95,7 +96,14 @@ export default {
 
     if (render) {
       const isPrivatePortal = path === "/portal-pacientes" || path === "/portal-pacientes.html";
-      return new Response(request.method === "HEAD" ? null : applySearchMetadata(applyVisualUpgrade(render(), path), path).replace("</body>", (isPrivatePortal ? "" : LunaPatients(isEnabled(env))) + "</body>"), {
+      let body = null;
+      if (request.method === "GET") {
+        body = applySearchMetadata(applyVisualUpgrade(render(), path), path);
+        if (!isPrivatePortal) {
+          body = applyChristmasTheme(body).replace("</body>", LunaPatients(isEnabled(env)) + "</body>");
+        }
+      }
+      return new Response(body, {
         headers: isPrivatePortal
           ? { ...baseHeaders, "x-robots-tag": "noindex, nofollow, noarchive" }
           : baseHeaders,

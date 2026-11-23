@@ -12,7 +12,7 @@ export function Header(section = '') {
   <header class="th-header" id="${section === 'home' ? 'top' : 'site-header'}">
     <div class="th-nav-shell">
       <a href="/" class="th-brand" aria-label="Clínica Radiológica y Laboratorio Clínico Dr. Mendoza, inicio">
-        <img src="/assets/visuals/favicon.webp" width="46" height="46" alt="" class="th-brand-icon">
+        <span class="clinic-seasonal-mark" aria-hidden="true"><img src="/assets/visuals/favicon.webp" width="46" height="46" alt="" class="th-brand-icon"></span>
         <span class="th-brand-name"><span>CLÍNICA RADIOLÓGICA</span><span>Y LABORATORIO CLÍNICO</span><strong>Dr. Mendoza</strong></span>
       </a>
       <nav class="th-nav" aria-label="Navegación principal">${navigation}</nav>

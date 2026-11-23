@@ -1,0 +1,61 @@
+/* Seasonal treatment for the public clinic pages. */
+html[data-lighting=led] .th-header {
+  background-color:#0a1821;
+  background-image:linear-gradient(90deg,#0b1a2300 45%,#14261fd9),url('/navidad/pattern.webp');
+  background-position:0 0,right 15px center;
+  background-size:auto,228px 150px;
+  border-bottom-color:#aa875d8a
+}
+
+html[data-lighting=led] .th-home-hero {
+  background-color:#17221f;
+  background-image:linear-gradient(115deg,#19251f00,#19251f 68%),url('/navidad/pattern.webp');
+  background-repeat:no-repeat,repeat;
+  background-size:auto,310px 204px;
+  box-shadow:inset 0 -1px #a9855866
+}
+
+html[data-lighting=led] .history-intro {
+  background-color:#f6f2eb;
+  background-image:linear-gradient(105deg,#f6f2ebba,#f6f2eb33),url('/navidad/pattern-light.webp');
+  background-size:auto,310px 204px;
+  border-bottom-color:#dbcaaf
+}
+
+html[data-lighting=led] .v3-page-hero {
+  background-image:linear-gradient(120deg,#17231d22,#17231dd9),url('/navidad/pattern.webp')!important;
+  background-size:auto,310px 204px!important;
+  box-shadow:inset 0 -2px #c69c625f
+}
+
+html[data-lighting=led] .th-kicker,
+html[data-lighting=led] .history-kicker {color:#edc48b}
+
+html[data-lighting=led] .th-hero-proof {border-top-color:#c8a97855}
+
+html[data-lighting=led] .cl-locations {
+  background-color:#f8f6f0;
+  background-image:linear-gradient(180deg,#fcfaf665 0,#f8f6f0 180px),url('/navidad/pattern-light.webp');
+  background-size:auto,310px 204px
+}
+
+html[data-lighting=led] .cl-card {border-color:#e7ded0}
+
+html[data-lighting=led] .cl-photo {position:relative}
+
+html[data-lighting=led] .cf-footer {background-image:linear-gradient(0deg,#0c1820 62%,#10211fea),url('/navidad/pattern.webp');border-top:1px solid #99774688;background-size:auto,310px 204px}
+
+html[data-lighting=led] #luna-launch {border-color:#cf9b68;background-image:linear-gradient(135deg,#a13d40,#6c282d)}
+
+html[data-lighting=led] #luna-panel .luna-header {
+  background-color:#213c35;background-image:linear-gradient(90deg,#213c35 25%,#213c356e),url('/navidad/pattern.webp');
+  background-position:0 0,right top;background-size:auto,190px 125px;border-bottom-color:#8c7651
+}
+
+html[data-lighting=led] .luna-welcome .luna-avatar {background:#f5ede1;border-color:#d7c4a5}
+@media (max-width:760px) {
+  html[data-lighting=led] .th-home-hero, html[data-lighting=led] .history-intro {background-size:auto,240px 158px}
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-lighting=led] #luna-panel *, html[data-lighting=led] #luna-launch * {animation:none!important}
+}

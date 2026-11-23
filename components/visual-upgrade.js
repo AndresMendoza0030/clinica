@@ -1,4 +1,4 @@
-import { HomeCarousel, HomeCarouselStyles, HomeCarouselScript } from './home-carousel.js';
+import { HomeCarouselStyles, HomeCarouselScript } from './home-carousel.js';
 import { VisualMotionStyles, VisualMotionScript } from './visual-motion.js';
 
 // Server-rendered visual layer with progressive carousel controls; no dependencies.
@@ -23,10 +23,6 @@ export function applyVisualUpgrade(html, path) {
   html = html.split(CLINIC + 'faviconDr.png').join(ROOT + 'favicon.webp');
   const home = ['/', '/index', '/index.html'].includes(path);
   if (home) {
-    html = html.replace('<div class="th-hero-photo" role="img" aria-label="Fotografía de resonancia magnética del catálogo institucional"></div>',
-      HomeCarousel());
-    html = html.replace('<link rel="preload" as="image" href="/assets/visuals/resonancia.webp" />', '<link rel="preload" as="image" href="/assets/visuals/portada-medico-detalle-v3.webp" imagesrcset="/assets/visuals/portada-medico-detalle-v3-720.webp 720w, /assets/visuals/portada-medico-detalle-v3.webp 1536w" imagesizes="(max-width: 760px) 130vw, 1000px" />');
-    html = html.replace('<meta property="og:image" content="/assets/visuals/resonancia.webp" />', '<meta property="og:image" content="/assets/visuals/portada-medico-detalle-v3.webp" />');
     html = html.replace('</body>', `${HomeCarouselScript}</body>`);
     html = html.replace('<span class="th-photo-note" aria-hidden="true">DIAGNÓSTICO POR IMÁGENES / RM</span>', '');
     html = html.replace('<section id="laboratorio"', `<section class="v3-reading" aria-labelledby="reading-title"><div class="vm-stage" data-visual-motion="reading">${visualImage('radiologo-v2', 'Ilustración de un radiólogo revisando estudios desde su estación de trabajo')}</div><div class="v3-reading-copy"><span class="th-section-label">Diagnóstico por Imágenes</span><h2 id="reading-title">Tecnología y experiencia.<br>Una misma mirada.</h2><p>La imagen es parte del proceso. La interpretación médica y la atención cercana completan nuestro compromiso con cada paciente.</p><a class="th-inline-link" href="/estudios.html">Conozca nuestros estudios <span aria-hidden="true">↗</span></a></div></section><section id="laboratorio"`);

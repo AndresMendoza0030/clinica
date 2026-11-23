@@ -1,0 +1,139 @@
+/* The three short stories share the reader's cutout and the cookie at her ear. */
+[data-entry="switch"] .intro-luna {
+  --luna-cycle: 4.8s;
+  width: min(332px, 82vw, 55vh);
+  width: min(332px, 82vw, max(108px, calc(100cqh - 74px)));
+}
+.luna-branch-props {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.luna-branch-props > svg { display: block; width: 100%; height: 100%; }
+
+[data-entry="switch"] .intro-page-turn { display: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The projection, the parcel and the paper tree each lead the actors' timing. */
+  [data-entry="switch"][data-branch="advanced"] .intro-luna {
+    --head: luna-inspect-film;
+    --book: luna-lift-film;
+    --cookie: cookie-pose-for-film;
+    --hand: cookie-point-at-film;
+    --reaction: cookie-sees-film;
+  }
+  [data-entry="switch"][data-branch="farid"] .intro-luna {
+    --head: luna-watch-parcel;
+    --book: luna-brace-parcel;
+    --cookie: cookie-hop-at-antlers;
+    --hand: cookie-wave-to-reindeer;
+    --reaction: cookie-sees-antlers;
+  }
+  [data-entry="switch"][data-branch="matriz"] .intro-luna {
+    --head: luna-follow-star;
+    --book: luna-open-tree;
+    --cookie: cookie-tip-to-star;
+    --hand: cookie-cheer-for-star;
+    --reaction: cookie-sees-star;
+  }
+  [data-entry="switch"] .intro-luna.is-visible .intro-luna-motion {
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  [data-entry="switch"] .intro-luna.is-visible .intro-luna-head { animation-name: var(--head); }
+  [data-entry="switch"] .intro-luna.is-visible .intro-luna-torso { animation-name: var(--book); }
+  [data-entry="switch"] .intro-luna.is-visible .ginger-upper { animation-name: var(--cookie); }
+  [data-entry="switch"] .intro-luna.is-visible .ginger-arm-left { animation-name: var(--hand); }
+  [data-entry="switch"] .intro-luna.is-visible .ginger-arm-right { animation: none; }
+  [data-entry="switch"] .intro-luna.is-visible .ginger-calm,
+  [data-entry="switch"] .intro-luna.is-visible .ginger-gasp {
+    animation-name: var(--reaction);
+  }
+  [data-entry="switch"] .ginger-calm { --at-rest: 1; --surprised: 0; }
+  [data-entry="switch"] .ginger-gasp { --at-rest: 0; --surprised: 1; }
+}
+
+@keyframes luna-inspect-film {
+  0%, 100% { transform: none; }
+  16%, 30% { transform: translateY(1%) rotate(2.6deg); }
+  48% { transform: rotate(-2.8deg); }
+  65%, 76% { transform: rotate(-3.4deg) translateY(-.8%); }
+}
+@keyframes luna-lift-film {
+  0%, 100% { transform: none; }
+  18% { transform: rotate(1.1deg); }
+  39%, 64% { transform: translateY(-1.1%) rotate(-1.4deg); }
+}
+@keyframes cookie-pose-for-film {
+  0%, 100% { transform: none; }
+  24% { transform: rotate(-8deg); }
+  53% { transform: rotate(-15deg) translateY(-2px); }
+  66%, 82% { transform: rotate(9deg) translateY(-3px); }
+}
+@keyframes cookie-point-at-film {
+  0%, 17%, 100% { transform: none; }
+  37%, 56% { transform: rotate(53deg); }
+  72%, 81% { transform: rotate(89deg); }
+}
+@keyframes cookie-sees-film {
+  0%, 88%, 100% { opacity: var(--at-rest); }
+  57% { opacity: var(--surprised); }
+}
+
+@keyframes luna-watch-parcel {
+  0%, 100% { transform: none; }
+  12% { transform: rotate(-1.6deg); }
+  28%, 40% { transform: translateY(1.2%) rotate(-3.1deg); }
+  50% { transform: translate(1%, -1.5%) rotate(3.6deg); }
+  70%, 81% { transform: rotate(-2deg); }
+}
+@keyframes luna-brace-parcel {
+  0%, 100% { transform: none; }
+  27%, 39% { transform: rotate(-1.4deg); }
+  51% { transform: translateY(.7%) rotate(1.4deg); }
+  68% { transform: rotate(-.7deg); }
+}
+@keyframes cookie-hop-at-antlers {
+  0%, 100% { transform: none; }
+  35%, 41% { transform: rotate(-7deg); }
+  52% { transform: translate(2px, -7px) rotate(15deg); }
+  64% { transform: translateY(1px) rotate(-4deg); }
+  78% { transform: rotate(4deg); }
+}
+@keyframes cookie-wave-to-reindeer {
+  0%, 41%, 100% { transform: none; }
+  53%, 69%, 83% { transform: rotate(95deg); }
+  63%, 76% { transform: rotate(66deg); }
+}
+@keyframes cookie-sees-antlers {
+  0%, 68%, 100% { opacity: var(--at-rest); }
+  46% { opacity: var(--surprised); }
+}
+
+@keyframes luna-follow-star {
+  0%, 100% { transform: none; }
+  21%, 32% { transform: translateY(1%) rotate(2deg); }
+  53% { transform: translateY(-.7%) rotate(3.4deg); }
+  70%, 81% { transform: translateY(-1.2%) rotate(-2deg); }
+}
+@keyframes luna-open-tree {
+  0%, 100% { transform: none; }
+  20% { transform: translateY(-.9%) rotate(1.4deg); }
+  41%, 69% { transform: translateY(.7%) rotate(-.7deg); }
+}
+@keyframes cookie-tip-to-star {
+  0%, 100% { transform: none; }
+  28%, 40% { transform: rotate(-9deg); }
+  55% { transform: rotate(-14deg) translateY(-3px); }
+  73%, 84% { transform: rotate(7deg); }
+}
+@keyframes cookie-cheer-for-star {
+  0%, 35%, 100% { transform: none; }
+  62%, 75% { transform: rotate(112deg); }
+  84% { transform: rotate(84deg); }
+}
+@keyframes cookie-sees-star {
+  0%, 86%, 100% { opacity: var(--at-rest); }
+  61% { opacity: var(--surprised); }
+}

@@ -1,0 +1,11 @@
+html[data-lighting=led] .led-location-card-picture,
+#led-location-viewer .led-location-picture {position:relative;isolation:isolate}
+.facade-sweep {position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:screen;pointer-events:none;animation:facade-light-fade 2.1s both}
+.facade-sweep path {animation:facade-light-trace .7s ease-out var(--trail-delay) both}
+.facade-sweep circle {animation:facade-star-light .5s ease-out var(--trail-delay) both}
+#led-location-viewer button.facade-replay {position:absolute;top:12px;right:12px;z-index:2;border-radius:22px;background:#102822e6;box-shadow:0 2px 10px #1421183d}
+@keyframes facade-light-trace {from {stroke-dashoffset:1} to {stroke-dashoffset:0}}
+@keyframes facade-star-light {from {opacity:0} to {opacity:1}}
+@keyframes facade-light-fade {0% {opacity:0} 15%,65% {opacity:.88} 100% {opacity:0}}
+html[data-visual-effects=off] .facade-sweep, html[data-visual-effects=off] #led-location-viewer .facade-replay {display:none}
+@media (prefers-reduced-motion:reduce) { .facade-sweep, #led-location-viewer .facade-replay {display:none} }

@@ -1,4 +1,5 @@
 import { locations } from './clinic-locations.js';
+import { homeCarouselCover } from './home-carousel.js';
 
 export const SITE_ORIGIN = 'https://clinicadrmendoza.com';
 const CLINIC_NAME = 'Clínica Radiológica y Laboratorio Clínico Dr. Mendoza';
@@ -8,7 +9,7 @@ const catalog = {
   '/': {
     title: `${CLINIC_NAME} | San Miguel`,
     description: 'Diagnóstico por imágenes y laboratorio clínico en San Miguel. Consulte estudios, exámenes, horarios y contacto de nuestras tres sedes.',
-    image: 'portada-medico-detalle-v3',
+    imagePath: homeCarouselCover,
   },
   '/estudios.html': {
     title: 'Diagnóstico por imágenes en San Miguel | Clínica Dr. Mendoza',
@@ -144,7 +145,7 @@ export function applySearchMetadata(html, path) {
   if (!canonical) return html;
   const page = catalog[canonical];
   const url = SITE_ORIGIN + canonical;
-  const image = `${SITE_ORIGIN}/assets/visuals/${page.image || 'laboratorio'}.webp`;
+  const image = SITE_ORIGIN + (page.imagePath || `/assets/visuals/${page.image || 'laboratorio'}.webp`);
   const structuredData = canonical === '/'
     ? `<script type="application/ld+json">${JSON.stringify(clinicStructuredData()).replace(/</g, '\\u003c')}</script>`
     : '';
